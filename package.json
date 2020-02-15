@@ -9,7 +9,8 @@
     "private": true,
     "scripts": {
         "precommit": "lint-staged",
-        "commitmsg": "commitlint -E GIT_PARAMS"
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
     },
     "husky": {
         "hooks": {
@@ -26,6 +27,7 @@
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.1",
         "eslint-plugin-vue": "^6.1.2",
-        "husky": "^4.2.3"
+        "husky": "^4.2.3",
+        "vuepress": "^1.3.0"
     }
 }
