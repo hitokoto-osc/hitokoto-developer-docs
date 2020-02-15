@@ -1,0 +1,27 @@
+{
+	"name": "hitokoto-developer-docs",
+	"version": "1.0.0",
+	"description": "Hitokoto developer docs.",
+	"main": "index.js",
+	"repository": "https://source.hitokoto.cn/hitokoto/hitokoto-developer-docs.git",
+	"author": "a632079 <a632079@qq.com>",
+	"license": "MIT",
+	"private": true,
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+		}
+	},
+	"devDependencies": {
+		"@commitlint/cli": "^8.3.5",
+		"@commitlint/config-conventional": "^8.3.4",
+		"eslint": "^6.8.0",
+		"eslint-config-standard": "^14.1.0",
+		"eslint-plugin-import": "^2.20.1",
+		"eslint-plugin-node": "^11.0.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-standard": "^4.0.1",
+		"eslint-plugin-vue": "^6.1.2",
+		"husky": "^4.2.3"
+	}
+}
