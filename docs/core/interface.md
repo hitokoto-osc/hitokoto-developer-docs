@@ -308,19 +308,19 @@
     "message": "ok.",
     "data": [
         {
-            "id": 3,
-            "user_id": 4943,
+            "id": 6,
+            "user_id": 1044,
             "email_notification_global": 1,
             "email_notification_hitokoto_appended": 1,
             "email_notification_hitokoto_reviewed": 1,
             "email_notification_poll_created": 1,
             "email_notification_poll_result": 1,
             "email_notification_poll_daily_report": 1,
-            "updated_at": "2020-02-16 18:31:04",
-            "created_at": "2020-02-16 18:31:04"
+            "updated_at": "2020-02-17T05:13:05.000000Z",
+            "created_at": "2020-02-17T05:13:05.000000Z"
         }
     ],
-    "ts": 1581877864605
+    "ts": 1581918621883
 }
 ```
 
@@ -488,25 +488,28 @@
 {
     "status": 200,
     "message": "ok.",
-    "data": {
-        "total": 33, // 总提交条数
-        "collection": [ // 记录，默认：offset 0，limit 20
-            {
-                "hitokoto": "你心中无爱，怎会懂珍惜二字。",
-                "uuid": "283af4ee-3796-4989-9895-3bb3120ab266",
-                "type": "d",
-                "from": "悟空传",
-                "from_who": null,
-                "creator": "a632079",
-                "creator_uid": 1044,
-                "reviewer": 0,
-                "commit_from": "web",
-                "created_at": "1523579478",
-                "status": "accept"
-            }
-        ]
-    },
-    "ts": 1581878594572
+    "data": [
+        {
+            "total": 35,
+            "collection": [ // 语句集合，受 offset 和 limit 控制。默认 offset: 0, limit: 20
+                {
+                    "hitokoto": "一个人至少拥有一个梦想，有一个理由去坚强。心若没有栖息的地方，到哪里都是在流浪。",
+                    "uuid": "75ee1579-ea53-4efb-994f-0e3ec6dfe69a",
+                    "type": "g",
+                    "from": "三毛",
+                    "from_who": null,
+                    "creator": "a632079",
+                    "creator_uid": 1044,
+                    "reviewer": 0,
+                    "commit_from": "web",
+                    "created_at": "1523579910",
+                    "status": "accept"
+                },
+                ...
+            ]
+        }
+    ],
+    "ts": 1581916521334
 }
 ```
 
@@ -516,7 +519,7 @@
 
 ::: theorem 获得句子喜爱数据
 
-* 路径： `/lime`
+* 路径： `/like`
 * 方法： `GET`
 * 身份认证：是
 * 无返回：否
@@ -562,7 +565,7 @@
 
 ::: theorem 喜爱句子
 
-* 路径： `/lime`
+* 路径： `/like`
 * 方法： `GET`
 * 身份认证：是
 * 无返回：否
@@ -628,17 +631,17 @@
     "message": "ok.",
     "data": [
         {
-            "uuid": "41a0c745-36ed-4bc3-ae79-5297605c78c9",
+            "uuid": "53f7ba0a-2b11-4da3-91a4-4a2c6dc7dbb2",
             "hitokoto": "你没有受伤吧，胆小鬼。",
             "type": "a",
             "creator": "a632079",
             "creator_uid": 1044,
             "commit_from": "api", // 提交来源
-            "created_at": 1581879005,
-            "id": 2816
+            "created_at": "1581918906",
+            "id": 2817
         }
     ],
-    "ts": 1581879005383
+    "ts": 1581918906759
 }
 ```
 
@@ -775,15 +778,15 @@
                     "user_id": 1044,
                     "score": 5,
                     "comment": "很棒棒哦！",
-                    "updated_at": "2020-02-16 19:00:14",
-                    "created_at": "2020-02-16 19:00:14"
+                    "updated_at": "2020-02-16T11:00:14.000000Z",
+                    "created_at": "2020-02-16T11:00:14.000000Z"
                 }
             ],
-            "updated_at": "2020-02-16T19:00:14.000000Z",
-            "created_at": "2020-02-16T19:00:14.000000Z"
+            "updated_at": "2020-02-16T11:00:14.000000Z",
+            "created_at": "2020-02-16T11:00:14.000000Z"
         }
     ],
-    "ts": 1581879697452
+    "ts": 1581918559301
 }
 ```
 
@@ -823,11 +826,11 @@
             "sentence_uuid": "76f9fa17-ecda-4dd1-8e4e-e5fdee2bd7ee",
             "user_id": 1044,
             "comment": "这个句子缺句号！请管理员看一下！",
-            "updated_at": "2020-02-16 19:05:21",
-            "created_at": "2020-02-16 19:05:21",
-            "id": 1
+            "updated_at": "2020-02-17T05:56:19.000000Z",
+            "created_at": "2020-02-17T05:56:19.000000Z",
+            "id": 2
         }
     ],
-    "ts": 1581879921150
+    "ts": 1581918979563
 }
 ```
