@@ -490,8 +490,39 @@
     "message": "ok.",
     "data": [
         {
-            "total": 35,
-            "collection": [ // 语句集合，受 offset 和 limit 控制。默认 offset: 0, limit: 20
+            "statistics": {
+                "total": 36, // 提交的句子总数
+                "pending": 3, // 进行中的句子数目
+                "refuse": 16, // 被驳回的句子数目
+                "accept": 17 // 已入库的句子数目
+            },
+            "collection": [ // 句子集合，受 Offset，和 Limit 约束。默认：offset: 0, limit: 20
+                {
+                    "hitokoto": "你没有受伤吧，胆小鬼。",
+                    "uuid": "53f7ba0a-2b11-4da3-91a4-4a2c6dc7dbb2",
+                    "type": "a",
+                    "from": null,
+                    "from_who": null,
+                    "creator": "a632079",
+                    "creator_uid": 1044,
+                    "reviewer": null,
+                    "commit_from": "api",
+                    "created_at": "1581918906",
+                    "status": "pending"
+                },
+                {
+                    "hitokoto": "身是菩提树，心如明镜台，时时勤拂拭，勿使惹尘埃。",
+                    "uuid": "efab198b-099d-4721-809c-2a42423af01d",
+                    "type": "g",
+                    "from": "神秀",
+                    "from_who": null,
+                    "creator": "a632079",
+                    "creator_uid": 1044,
+                    "reviewer": 0,
+                    "commit_from": "web",
+                    "created_at": "1523580040",
+                    "status": "accept"
+                },
                 {
                     "hitokoto": "一个人至少拥有一个梦想，有一个理由去坚强。心若没有栖息的地方，到哪里都是在流浪。",
                     "uuid": "75ee1579-ea53-4efb-994f-0e3ec6dfe69a",
@@ -505,11 +536,165 @@
                     "created_at": "1523579910",
                     "status": "accept"
                 },
+            ],
+        }
+    ],
+    "ts": 1581925677740
+}
+```
+
+--------------------
+
+::: theorem 获取提交记录（审核中句子）
+
+* 路径： `/user/hitokoto/history/pending`
+* 方法： `GET`
+* 身份认证：是
+* 无返回：否
+:::
+
+以下为请求参数：
+| 参数     | 类型      | 规则        | 示例 | 备注     |
+|--------|---------|-----------|----|--------|
+| offset | integer | >=0       | 0  | 偏移     |
+| limit  | integer | [20, 200] | 20 | 句子规模限制 |
+
+可能触发的错误：
+| 错误代码 | 原因          |
+|------|-------------|
+| 400  | 触发校验器错误     |
+
+以下是一个响应示例：
+
+```json
+{
+    "status": 200,
+    "message": "ok.",
+    "data": [
+        {
+            "total": 3, // 审核中的句子总数
+            "collection": [
+                {
+                    "hitokoto": "你没有受伤吧，胆小鬼。",
+                    "uuid": "53f7ba0a-2b11-4da3-91a4-4a2c6dc7dbb2",
+                    "type": "a",
+                    "from": "火影忍者",
+                    "from_who": "漩涡鸣人",
+                    "creator": "a632079",
+                    "creator_uid": 1044,
+                    "reviewer": null,
+                    "commit_from": "api",
+                    "created_at": "1581918906",
+                    "status": "pending"
+                }
+            ]
+        }
+    ],
+    "ts": 1581926001764
+}
+```
+
+--------------------
+
+::: theorem 获取提交记录（已驳回句子）
+
+* 路径： `/user/hitokoto/history/refuse`
+* 方法： `GET`
+* 身份认证：是
+* 无返回：否
+:::
+
+以下为请求参数：
+| 参数     | 类型      | 规则        | 示例 | 备注     |
+|--------|---------|-----------|----|--------|
+| offset | integer | >=0       | 0  | 偏移     |
+| limit  | integer | [20, 200] | 20 | 句子规模限制 |
+
+可能触发的错误：
+| 错误代码 | 原因          |
+|------|-------------|
+| 400  | 触发校验器错误     |
+
+以下是一个响应示例：
+
+```json
+{
+    "status": 200,
+    "message": "ok.",
+    "data": [
+        {
+            "total": 16, // 拒绝的句子总数
+            "collection": [
+                {
+                    "hitokoto": "蕾姆，蕾姆，看来是个变态呢？！",
+                    "uuid": "031bedab-54d9-430e-a767-b55135a8a3c9",
+                    "type": "a",
+                    "from": "从零开始的异世界生活",
+                    "from_who": null,
+                    "creator": "a632079",
+                    "creator_uid": 1044,
+                    "reviewer": 1,
+                    "commit_from": "web",
+                    "created_at": "1520850598",
+                    "status": "refuse"
+                },
                 ...
             ]
         }
     ],
-    "ts": 1581916521334
+    "ts": 1581926276333
+}
+```
+
+--------------------
+
+::: theorem 获取提交记录（已上线句子）
+
+* 路径： `/user/hitokoto/history/accept`
+* 方法： `GET`
+* 身份认证：是
+* 无返回：否
+:::
+
+以下为请求参数：
+| 参数     | 类型      | 规则        | 示例 | 备注     |
+|--------|---------|-----------|----|--------|
+| offset | integer | >=0       | 0  | 偏移     |
+| limit  | integer | [20, 200] | 20 | 句子规模限制 |
+
+可能触发的错误：
+| 错误代码 | 原因          |
+|------|-------------|
+| 400  | 触发校验器错误     |
+
+以下是一个响应示例：
+
+```json
+{
+    "status": 200,
+    "message": "ok.",
+    "data": [
+        {
+            "total": 17, // 已上线的句子数目
+            "collection": [
+                {
+                    "hitokoto": "我要这天，再遮不住我眼，要这地，再埋不了我心，要这众生，都明白我意，要那诸佛，都烟消云散!",
+                    "uuid": "e6e4051b-f447-4525-b6f7-12d6626f7e1a",
+                    "type": "d",
+                    "from": "悟空传",
+                    "from_who": null,
+                    "creator": "a632079",
+                    "creator_uid": 1044,
+                    "reviewer": 0,
+                    "commit_from": "web",
+                    "created_at": "1523579110",
+                    "status": "sentence"
+                },
+                ...
+            ]
+        }
+    ],
+    "ts": 1581926366834
 }
 ```
 
@@ -566,7 +751,7 @@
 ::: theorem 喜爱句子
 
 * 路径： `/like`
-* 方法： `GET`
+* 方法： `POST`
 * 身份认证：是
 * 无返回：否
 * **此接口未来可能变动，建议定期观察。**
@@ -631,17 +816,19 @@
     "message": "ok.",
     "data": [
         {
-            "uuid": "53f7ba0a-2b11-4da3-91a4-4a2c6dc7dbb2",
+            "uuid": "fc167686-268e-4611-9266-c09db6e3bb3f",
             "hitokoto": "你没有受伤吧，胆小鬼。",
             "type": "a",
+            "from": "火影忍者",
+            "from_who": "漩涡鸣人",
             "creator": "a632079",
             "creator_uid": 1044,
-            "commit_from": "api", // 提交来源
-            "created_at": "1581918906",
-            "id": 2817
+            "commit_from": "api",
+            "created_at": "1581926206",
+            "id": 2818
         }
     ],
-    "ts": 1581918906759
+    "ts": 1581926206137
 }
 ```
 
