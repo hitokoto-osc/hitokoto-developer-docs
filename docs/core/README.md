@@ -9,11 +9,11 @@
 * 评分操作
 * 举报操作
 
-的功能。目前，这些接口通过无状态模型使用。
+的功能。目前，这些接口可通过无状态模型使用。
 
 ## 接口地址
 
-核心借口实现了两套认证机制，分别对应两个入口：
+核心接口实现了两套认证机制，分别对应两个入口：
 
 * 无状态服务： <https://hitokoto.cn/api/restful/v1>
 * 会话认证：<https://hitokoto.cn/api/common/v1>
@@ -40,34 +40,33 @@
 |---------|---------------|------------------------------------------------------------------------------------------------------------------------------------|
 | status  | 200           | 状态码。正整数定义符合 HTTP 状态码约束，自定义错误为负值。请注意，由于偷懒，目前错误码存在重复定义，请以具体接口为准。             |
 | message | "ok."         | 信息，当状态码不为 200 时，补充说明错误的字段。                                                                                    |
-|  data   | []            | 当状态码为 200 时，且接口不为无返回接口，该字段会返回一个长度大于 1 的数组；400 状态码下可能包含校验器的报错信息；其余时候为空数组 |
+|  data   | []            | 当状态码为 200 时，且接口不为无返回接口，该字段会返回一个长度大于等于 1 的数组；400 状态码下可能包含校验器的报错信息；其余时候为空数组 |
 | ts      | 1581759895072 | 接口时间戳，可用于时间比对                                                                                                         |
 
 下面是一个示例：
+`GET` `https://hitokoto.cn/api/restful/v1/hitokoto/62c12303-b3fa-4720-a7c5-2985bf049e60?token=xxx`
 
 ```json
 {
   "status": 200,
   "message": "ok.",
   "data": [
-    [
-      {
-        "id": 2565,
-        "uuid": "692dc660-a77c-4106-834f-4500d18ef1cd",
-        "poll_status": 202,
-        "hitokoto": "什么是死？是终点，是永诀，是不可挽回，是再也握不到的手、感觉不到的温度，再也说不出口的“对不起”",
-        "type": "d",
-        "from": "龙族",
-        "from_who": null,
-        "creator": "上官天涵",
-        "creator_uid": 4614,
-        "owner": "0",
-        "reviewer": null,
-        "commit_from": "web",
-        "created_at": "1578454342"
-      }
-    ],
-    "ts": 1581759895072
+    {
+      "hitokoto": "过去都是假的，回忆是一条没有归途的路，以往的一切春天都无法复原，即使最狂热最坚贞的爱情，归根结底也不过是一种瞬息即逝的现实，唯有孤独永恒。",
+      "uuid": "62c12303-b3fa-4720-a7c5-2985bf049e60",
+      "type": "d",
+      "from": "百年孤独",
+      "from_who": null,
+      "creator": "戎歌",
+      "creator_uid": 1195,
+      "reviewer": 0,
+      "commit_from": "web",
+      "created_at": "1532672964",
+      "status": "accept"
+    }
+  ],
+  "ts": 1582053586728
+}
 ```
 
 ## 接口方法
@@ -92,7 +91,11 @@
 | /user/notification/settings | PUT  | Y    | N      | 设定用户通知设置，返回新设置             |
 | /user/hitokoto/summary      | GET  | Y    | N      | 获得用户一言提交数据的概览               |
 | /user/hitokoto/history      | GET  | Y    | N      | 获得用户历史的一言提交                   |
+| /user/hitokoto/history/pending     | GET  | Y      | N      | 获得用户历史的一言提交（审核中部分）|
+| /user/hitokoto/history/refuse      | GET  | Y      | N      | 获得用户历史的一言提交（已拒绝部分）      |
+| /user/hitokoto/history/accept      | GET  | Y      | N      | 获得用户历史的一言提交（已上线部分）       |
 | /hitokoto/append            | POST | Y    | N      | 添加一言，返回审核队列中新句子的信息     |
+| /hitokoto/:uuid             | GET  | Y    | N      | 查看指定一言的信息（通过 UUID）    |
 | /hitokoto/score             | POST | Y    | N      | 为已上线的句子评分，返回评分相关信息     |
 | /hitokoto/score             | GET  | Y    | N      | 获得句子的评分信息                       |
 | /hitokoto/report            | POST | Y    | N      | 举报一言存在问题，返回提交举报的相关信息 |
@@ -102,6 +105,7 @@
 | 路径                                      | 方法 | 无返回 | 备注                               |
 |-------------------------------------------|------|--------|------------------------------------|
 | /admin/users                              | GET  | N      | 返回用户集合                       |
+| /admin/user                               | GET  | N      | 查询用户信息                       |
 | /admin/user/:uid                          | GET  | N      | 查看具体用户的信息（包含句子信息） |
 | /admin/user/:uid/modify                   | PUT  | N      | 修改用户信息，返回修改后的用户信息 |
 | /admin/user/:uid/suspend                  | PUT  | N      | 封禁用户，返回用户信息             |

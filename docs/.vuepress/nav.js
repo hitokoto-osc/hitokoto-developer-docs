@@ -5,6 +5,10 @@ module.exports = [
     link: "/"
   },
   {
+    text: "语句接口",
+    link: "/sentence/"
+  },
+  {
     text: "核心接口",
     link: "/core/"
   },

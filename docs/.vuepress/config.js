@@ -16,6 +16,10 @@ module.exports = {
         '',
         'interface'
       ],
+      '/sentence/': [
+        '',
+        'demo'
+      ],
       '/': [ // 回滚
         ['', '主页'],
         'introduce',
