@@ -48,8 +48,8 @@
 | c        | 见后表 | 是  | 句子类型               |
 | encode   | 见后表 | 是  | 返回编码               |
 | charset  | 见后表 | 是  | 字符集             |
-| callback | 见后表 | 是  | 调用的异步函数            |
-| select   | 见后表 | 是  | 选择器。配合 `encode=js` 使用 |
+| callback | 如：`moe` | 是  | 调用的异步函数            |
+| select   | 默认：`.hitokoto` | 是  | 选择器。配合 `encode=js` 使用 |
 
 #### 句子类型（参数）
 
