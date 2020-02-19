@@ -3,7 +3,7 @@ module.exports = {
   description: "一言，用代码表达言语的魅力，用代码书写山河的壮丽。本文档提供一言开发接口的使用说明，SDK，常见问题。",
   base: "/",
   head: [
-    ["link", { rel: "icon", href: "./favicon.ico" }]
+    ["link", { rel: "icon", href: "/favicon.ico" }]
   ],
   markdown: {
     lineNumbers: true
@@ -30,6 +30,12 @@ module.exports = {
     searchMaxSuggestoins: 10,
   },
   plugins: [// you can use this plugin multiple times
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-158766433-2' // UA-00000000-0
+      }
+    ],
     [
       'vuepress-plugin-container',
       {

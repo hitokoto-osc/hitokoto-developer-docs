@@ -27,10 +27,11 @@
 ### 认证方式
 
 无状态服务通过令牌（`token`）认证，因此每个需要验权的接口，其请求必须包含 `token` 字段。
-目前暂支持两种验证方式：
+目前支持三种验证方式：
 
-* `QueryString` 参数，形如： `?token=xxxxx`
-* `x-www-form-urlencoded` 参数，例如：在 POST 表单中添加 `<input type="hidden" name="token" value="xxxx" >`
+* 请求参数，形如： `?token=xxxxx`
+* POST 参数（表单），例如：在 POST 表单中添加 `<input type="hidden" name="token" value="xxxx" >`
+* `bearer` 授权
 
 ### 返回约束
 
@@ -69,9 +70,13 @@
 }
 ```
 
+> **请注意: 接口会尽量使 HTTP 状态码为 200，但是由于上游中间件的问题，会出现 HTTP 不为 200 的情况，需要开发者自行处理。**
+
 ## 接口方法
 
 本节将提供目前暴露的接口表，方便快速查询。
+
+> **请求头请添加 `Accept: application/json` 以保证接口输出一定是 JSON。**
 
 ### 用户部分
 
