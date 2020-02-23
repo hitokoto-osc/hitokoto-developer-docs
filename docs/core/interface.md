@@ -32,19 +32,23 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
-            "id": 1044,
-            "name": "a632079",
-            "email": "a632079@qq.com",
-            "token": "xxxxxxxxxxxxxxxxx", // 长度应该为： 40
-            "email_verified_at": "2020-02-13T19:08:45.000000Z",
-            "created_at": "2018-01-14T02:20:04.000000Z",
-            "updated_at": "2020-02-13T19:08:45.000000Z"
+            "id": 4943,
+            "name": "啪啪啪",
+            "email": "a632079@hitokoto.cn",
+            "is_suspended": 0, // 账户是否被暂停，如果被暂停的话，鉴权接口都会返回 403
+            "is_admin": 0, // 账户是否是管理员
+            "is_reviewer": 0, // 账户是否时审核页
+            "email_verified_at": "2020-02-17 00:00:00",
+            "created_from": "api",
+            "created_at": "2020-02-16 18:18:16",
+            "updated_at": "2020-02-16 18:29:43",
+            "token": "xxxxxxxxxxxxxxxxxxxxxx" // 长度应该为 40
         }
     ],
-    "ts": 1581876627952
+    "ts": 1582435924917
 }
 ```
 
@@ -307,12 +311,14 @@
 以下为该接口可用的请求参数：
 | 参数           | 类型     | 规则         | 示例          | 备注  |
 |--------------|--------|------------|-------------|-----|
-| email     | string | 非空；邮箱         | i@freejishu.com    | 新邮箱  |
+| email     | string | 非空；邮箱         | i@freejishu.com    | 新邮箱   |
+| password  | string | 非空              | guguguguguggugu    | 登录密码  |
 
 可能出现的错误：
 | 错误代码 | 原因          |
 |------|-------------|
 | -1   | 邮箱被占用        |
+| -2   | 密码不正确        |
 | 400  | 触发校验器错误     |
 
 以下是一个响应示例：

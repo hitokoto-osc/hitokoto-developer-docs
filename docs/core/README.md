@@ -76,8 +76,8 @@
 
 本节将提供目前暴露的接口表，方便快速查询。
 
-> **请求头请添加 `Accept: application/json` 以保证接口输出一定是 JSON。**
-> 由于 Laravel 底层对 PUT 方法的支持不好，提交 PUT 参数时一定要以 `x-www-form-urlencoded` 方法提交参数。
+> **请求头请添加 `Accept: application/json` 以保证接口输出一定是 JSON。**  
+> 由于 Laravel 底层对 PUT 方法的支持不好，提交 PUT 参数时一定要以 `x-www-form-urlencoded` 方法提交参数。  
 > 或者，你可以使用 `POST` 方法，额外添加一个字段 `_method: "PUT"` 模拟 PUT 请求。
 
 ### 用户部分
