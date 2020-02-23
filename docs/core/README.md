@@ -77,6 +77,8 @@
 本节将提供目前暴露的接口表，方便快速查询。
 
 > **请求头请添加 `Accept: application/json` 以保证接口输出一定是 JSON。**
+> 由于 Laravel 底层对 PUT 方法的支持不好，提交 PUT 参数时一定要以 `x-www-form-urlencoded` 方法提交参数。
+> 或者，你可以使用 `POST` 方法，额外添加一个字段 `_method: "PUT"` 模拟 PUT 请求。
 
 ### 用户部分
 
@@ -87,6 +89,7 @@
 | /auth/password/reset        | POST | N    | Y      | 重置密码接口                             |
 | /like                       | GET  | N    | N      | 返回句子赞的相关信息                     |
 | /like                       | POST | N    | N      | 提交赞，成功返回提交者 IP                |
+| /user                       | GET  | Y    | N      | 获取用户信息                             |
 | /user/email/verify          | PUT  | Y    | Y      | 申请验证邮箱                             |
 | /user/token                 | GET  | Y    | N      | 返回用户令牌的相关信息                   |
 | /user/token/refresh         | PUT  | Y    | N      | 重置令牌，返回新令牌的相关信息           |
