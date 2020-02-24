@@ -89,6 +89,7 @@
 | /auth/password/reset        | POST | N    | Y      | 重置密码接口                             |
 | /like                       | GET  | N    | N      | 返回句子赞的相关信息                     |
 | /like                       | POST | N    | N      | 提交赞，成功返回提交者 IP                |
+| /like/cancel                | POST | Y    | N      | 撤回赞                                |
 | /user                       | GET  | Y    | N      | 获取用户信息                             |
 | /user/email/verify          | PUT  | Y    | Y      | 申请验证邮箱                             |
 | /user/token                 | GET  | Y    | N      | 返回用户令牌的相关信息                   |
@@ -98,6 +99,7 @@
 | /user/notification/settings | GET  | Y    | N      | 获取用户通知设置                         |
 | /user/notification/settings | PUT  | Y    | N      | 设定用户通知设置，返回新设置             |
 | /user/hitokoto/summary      | GET  | Y    | N      | 获得用户一言提交数据的概览               |
+| /user/hitokoto/like         | GET  | Y    | N      | 获得用户赞的句子                        |
 | /user/hitokoto/history      | GET  | Y    | N      | 获得用户历史的一言提交                   |
 | /user/hitokoto/history/pending     | GET  | Y      | N      | 获得用户历史的一言提交（审核中部分）|
 | /user/hitokoto/history/refuse      | GET  | Y      | N      | 获得用户历史的一言提交（已拒绝部分）      |
@@ -107,23 +109,3 @@
 | /hitokoto/score             | POST | Y    | N      | 为已上线的句子评分，返回评分相关信息     |
 | /hitokoto/score             | GET  | Y    | N      | 获得句子的评分信息                       |
 | /hitokoto/report            | POST | Y    | N      | 举报一言存在问题，返回提交举报的相关信息 |
-
-### 管理员部分
-
-| 路径                                      | 方法 | 无返回 | 备注                               |
-|-------------------------------------------|------|--------|------------------------------------|
-| /admin/users                              | GET  | N      | 返回用户集合                       |
-| /admin/user                               | GET  | N      | 查询用户信息                       |
-| /admin/user/:uid                          | GET  | N      | 查看具体用户的信息（包含句子信息） |
-| /admin/user/:uid/modify                   | PUT  | N      | 修改用户信息，返回修改后的用户信息 |
-| /admin/user/:uid/suspend                  | PUT  | N      | 封禁用户，返回用户信息             |
-| /admin/user/:uid/resume                   | PUT  | N      | 解封用户，返回用户信息             |
-| /admin/user/:uid/token/reset              | PUT  | N      | 重置用户的令牌，返回新令牌信息     |
-| /admin/user/:uid/notification/settings    | GET  | N      | 获取用户通知配置                   |
-| /admin/user/:uid/notification/settings    | PUT  | N      | 更新用户通知配置                   |
-| /admin/hitokoto                           | GET  | N      | 获得所有句子                       |
-| /admin/hitokoto/pending                   | GET  | N      | 获得审核队列数据                   |
-| /admin/hitokoto/pending/need_edited       | GET  | N      | 获得亟待修改句子数据               |
-| /admin/hitokoto/pending/need_edited/:uuid | POST | N      | 处理亟待修改句子                   |
-| /admin/hitokoto/modify/:uuid              | PUT  | N      | 修改句子信息（3 个表）             |
-| /admin/hitokoto/move/:uuid                | POST | N      | 改变句子状态                       |
