@@ -399,24 +399,23 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "id": 3,
-            "user_id": 4943,
-            "email_notification_global": "1",
+            "user_id": 1044,
+            "email_notification_global": 1,
             "email_notification_hitokoto_appended": 1,
             "email_notification_hitokoto_reviewed": 1,
             "email_notification_poll_created": 1,
             "email_notification_poll_result": 1,
             "email_notification_poll_daily_report": 1,
-            "updated_at": "2020-02-16 18:31:04",
-            "created_at": "2020-02-16 18:31:04"
+            "updated_at": "2020-02-24T10:52:05.000000Z",
+            "created_at": "2020-02-24T10:39:52.000000Z"
         }
     ],
-    "ts": 1581877943895
+    "ts": 1582541559807
 }
-
 ```
 
 --------------------
