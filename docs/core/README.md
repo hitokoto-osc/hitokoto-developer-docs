@@ -89,7 +89,7 @@
 | /auth/password/reset        | POST | N    | Y      | 重置密码接口                             |
 | /like                       | GET  | N    | N      | 返回句子赞的相关信息                     |
 | /like                       | POST | N    | N      | 提交赞，成功返回提交者 IP                |
-| /like/cancel                | POST | Y    | N      | 撤回赞                                |
+| /like/cancel                | GET  | Y    | N      | 撤回已经发出的喜爱                      |
 | /user                       | GET  | Y    | N      | 获取用户信息                             |
 | /user/email/verify          | PUT  | Y    | Y      | 申请验证邮箱                             |
 | /user/token                 | GET  | Y    | N      | 返回用户令牌的相关信息                   |

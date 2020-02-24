@@ -21,5 +21,5 @@ module.exports = [
       { text: "关于我们", link: "https://hitokoto.cn/about" },
     ]
   },
-  { text: "开源库", link: "https://source.hitokoto.cn/hitokoto"}
+  { text: "开源库", link: "https://github.com/hitokoto-osc"}
 ];
