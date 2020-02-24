@@ -786,7 +786,7 @@
                     "reviewer": 0,
                     "commit_from": "web",
                     "created_at": "1523579110",
-                    "status": "sentence"
+                    "status": "accept"
                 },
                 ...
             ]
@@ -812,7 +812,7 @@
 以下为请求参数：
 | 参数     | 类型      | 规则        | 示例 | 备注     |
 |--------|---------|-----------|----|--------|
-| uuid | string | uuid     |  34662c58-8eba-4757-a637-c7c11e9f537e | 句子 UUID     |
+| sentence_uuid | string | uuid     |  34662c58-8eba-4757-a637-c7c11e9f537e | 句子 UUID     |
 
 可能触发的错误：
 | 错误代码 | 原因          |
@@ -855,7 +855,7 @@
 以下为请求参数：
 | 参数     | 类型      | 规则        | 示例 | 备注     |
 |--------|---------|-----------|----|--------|
-| uuid | string | uuid     |  34662c58-8eba-4757-a637-c7c11e9f537e | 句子 UUID     |
+| sentence_uuid | string | uuid     |  34662c58-8eba-4757-a637-c7c11e9f537e | 句子 UUID     |
 
 可能触发的错误：
 | 错误代码 | 原因          |
