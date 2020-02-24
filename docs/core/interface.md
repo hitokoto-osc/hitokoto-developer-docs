@@ -82,7 +82,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "id": 4943,
@@ -125,7 +125,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [],
     "ts": 1581877220645
 }
@@ -150,7 +150,7 @@
 ```json
 {
   "status": 200,
-  "message": "ok.",
+  "message": "Ok.",
   "data": [
     {
       "id": 1044,
@@ -186,7 +186,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "user": {
@@ -218,7 +218,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "user": {
@@ -256,7 +256,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [],
     "ts": 1581877596010
 }
@@ -290,7 +290,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [],
     "ts": 1581877784046
 }
@@ -326,7 +326,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [],
     "ts": 1581877821513
 }
@@ -349,10 +349,10 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
-            "id": 6,
+            "id": 3,
             "user_id": 1044,
             "email_notification_global": 1,
             "email_notification_hitokoto_appended": 1,
@@ -360,11 +360,11 @@
             "email_notification_poll_created": 1,
             "email_notification_poll_result": 1,
             "email_notification_poll_daily_report": 1,
-            "updated_at": "2020-02-17T05:13:05.000000Z",
-            "created_at": "2020-02-17T05:13:05.000000Z"
+            "updated_at": "2020-02-24T10:52:05.000000Z",
+            "created_at": "2020-02-24T10:39:52.000000Z"
         }
     ],
-    "ts": 1581918621883
+    "ts": 1582541559807
 }
 ```
 
@@ -444,7 +444,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": {
         "statistics": {
             "total": 1
@@ -488,7 +488,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "statistics": { // 请求统计
@@ -583,7 +583,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "statistics": {
@@ -665,7 +665,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "total": 3, // 审核中的句子总数
@@ -716,7 +716,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "total": 16, // 拒绝的句子总数
@@ -768,7 +768,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "total": 17, // 已上线的句子数目
@@ -909,7 +909,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "uuid": "fc167686-268e-4611-9266-c09db6e3bb3f",
@@ -951,7 +951,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "hitokoto": "英雄意味着强大，英雄意味着孤独，最后一幕一定是英雄渐行渐远，我的英雄也是那样的存在。",
@@ -1004,7 +1004,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "score": "5",
@@ -1044,7 +1044,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "id": 1,
@@ -1103,7 +1103,7 @@
 ```json
 {
     "status": 200,
-    "message": "ok.",
+    "message": "Ok.",
     "data": [
         {
             "sentence_uuid": "76f9fa17-ecda-4dd1-8e4e-e5fdee2bd7ee",
