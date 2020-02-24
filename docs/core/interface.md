@@ -445,29 +445,31 @@
 {
     "status": 200,
     "message": "Ok.",
-    "data": {
-        "statistics": {
-            "total": 1
-        },
-        "collection": [
-            {
-                "id": 4756,
-                "uuid": "d83d56f8-b38c-4918-9844-5f7288947acd",
-                "hitokoto": "你知道的都是真相。只可惜那些并不是真相的全部。",
-                "type": "e",
-                "from": "原创",
-                "from_who": "pokon548",
-                "creator": "pokon548",
-                "creator_uid": 4761,
-                "reviewer": 1044,
-                "commit_from": "web",
-                "assessor": null,
-                "owner": "0",
-                "created_at": "1580452921"
-            }
-        ]
-    },
-    "ts": 1582540195855
+    "data": [
+        {
+            "statistics": {
+                "total": 1
+            },
+            "collection": [
+                {
+                    "id": 4756,
+                    "uuid": "d83d56f8-b38c-4918-9844-5f7288947acd",
+                    "hitokoto": "你知道的都是真相。只可惜那些并不是真相的全部。",
+                    "type": "e",
+                    "from": "原创",
+                    "from_who": "pokon548",
+                    "creator": "pokon548",
+                    "creator_uid": 4761,
+                    "reviewer": 1044,
+                    "commit_from": "web",
+                    "assessor": null,
+                    "owner": "0",
+                    "created_at": "1580452921"
+                }
+            ]
+        }
+    ],
+    "ts": 1582542452513
 }
 ```
 
