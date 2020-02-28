@@ -13,7 +13,7 @@
   * 2018.02 测试状态统计
   * 2018.03 测试网易云
   * 2018.04 开始分布式部署
-  * 2019.10 [DogeCloud](https://www.dogecloud.cn/?from=hitokoto.cn) 开始提供赞助，成为我们的顶级赞助商。
+  * 2019.10 [DogeCloud](https://www.dogecloud.com/?from=hitokoto.cn) 开始提供赞助，成为我们的顶级赞助商。
   * 2020.01 恢复使用部分弃用字段，句子启用追踪 UUID，为主站重构做基础
 
 ## 时间规划

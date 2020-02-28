@@ -448,28 +448,39 @@
     "data": [
         {
             "statistics": {
-                "total": 1
+                "total": 20
             },
             "collection": [
                 {
-                    "id": 4756,
-                    "uuid": "d83d56f8-b38c-4918-9844-5f7288947acd",
-                    "hitokoto": "你知道的都是真相。只可惜那些并不是真相的全部。",
-                    "type": "e",
-                    "from": "原创",
-                    "from_who": "pokon548",
-                    "creator": "pokon548",
-                    "creator_uid": 4761,
-                    "reviewer": 1044,
+                    "uuid": "c78f853d-63ca-4687-a8fd-a498bd89a8da",
+                    "hitokoto": "你知道，我以前是红色的。和我喷出的火焰一样的赤红。那些日子真是美好啊。",
+                    "type": "g",
+                    "from": "scp-3844",
+                    "from_who": null,
+                    "creator": "「❦」",
+                    "creator_uid": 3191,
+                    "reviewer": 0,
                     "commit_from": "web",
-                    "assessor": null,
-                    "owner": "0",
-                    "created_at": "1580452921"
+                    "operated_at": "2020-02-28T17:52:55.000000Z", // 操作时间
+                    "created_at": "1564316816"
+                },
+                {
+                    "uuid": "b67961ac-d89a-4e71-866f-95ca07811605",
+                    "hitokoto": "萤火之光看起来比平常要更耀眼是错觉吗？今宵会成为永夜的吧。",
+                    "type": "c",
+                    "from": "东方永夜抄",
+                    "from_who": null,
+                    "creator": "Hatate",
+                    "creator_uid": 1939,
+                    "reviewer": 0,
+                    "commit_from": "web",
+                    "operated_at": "2020-02-25T16:50:18.000000Z",
+                    "created_at": "1534775032"
                 }
             ]
         }
     ],
-    "ts": 1582542452513
+    "ts": 1582919909715
 }
 ```
 
@@ -1120,7 +1131,7 @@
 以下为请求参数：
 | 参数       | 类型     | 规则          | 示例          | 备注 |
 |----------|--------|-------------|-------------|----|
-| comment | string | 非空          |    个人感觉没啥意义。     | 句子 UUID |
+| comment | string | 非空          |    个人感觉没啥意义。     | 报告原因 |
 
 ::: danger
 请勿尝试无意义举报，多次无意义举报将封禁账户。
