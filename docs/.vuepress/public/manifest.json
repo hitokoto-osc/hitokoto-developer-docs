@@ -1,0 +1,15 @@
+{
+  "name": "一言开发者中心",
+  "short_name": "开发者中心",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icons/logo.png",
+      "sizes": "300x300",
+      "type": "image/png"
+    }
+  ]
+}
