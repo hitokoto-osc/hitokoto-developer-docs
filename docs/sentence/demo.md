@@ -48,9 +48,9 @@
     }
   });
 </script>
-<!-- P.S 我们依然不推荐使用 jQuery Ajax。 推荐使用 fetch Api 或者 Axios.js-->
+<!-- P.S 我们依然不推荐使用 jQuery Ajax。 推荐使用 fetch api 或者 axios.js-->
 
-<!-- 老式写法，兼容性最忧; 支持 IE -->
+<!-- 老式写法，兼容性最好; 支持 IE -->
 <script>
   var xhr = new XMLHttpRequest();
   xhr.open('get', 'https://v1.hitokoto.cn');
@@ -88,8 +88,8 @@ function fetch163Playlist(playlist_id) {
       .then(ids => {
         return fetch163Songs(ids);
       })
-      .then(data => ok)
-      .catch(e => err);
+      .then(data => ok(data))
+      .catch(e => e(e));
   });
 }
 
@@ -126,17 +126,17 @@ function fetch163Songs(IDS) {
         });
         return songs;
       })
-      .then(result => ok)
-      .catch(e => err);
+      .then(result => ok(result))
+      .catch(e => err(e));
   });
 }
 
 // 使用测试
 fetch163Playlist(2158283120)
-  .then(data => console.log)
-  .catch(err => console.error);
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
 
 fetch163Songs([28391863, 22640061])
-  .then(data => console.log)
-  .catch(err => console.error);
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
 ```
