@@ -92,23 +92,23 @@ function fetch163Playlist(playlistId) {
         return fetch163Songs(ids);
       })
       .then(ok)
-      .catch(e);
+      .catch(err);
   });
 }
 
 function fetch163Songs(Ids) {
   return new Promise(function (ok, err) {
     let ids;
-    switch (typeof ids) {
+    switch (typeof Ids) {
       case 'number':
-        ids = [ids];
+        ids = [Ids];
         break;
       case 'object':
-        if (!Array.isArray(ids)) {
+        if (!Array.isArray(Ids)) {
           err(new Error('Please enter array or number'));
           return;
         }
-        ids = ids;
+        ids = Ids;
         break;
       default:
         err(new Error('Please enter array or number'));
