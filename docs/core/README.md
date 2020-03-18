@@ -90,6 +90,7 @@
 | /like                       | GET  | N    | N      | 返回句子赞的相关信息                     |
 | /like                       | POST | N    | N      | 提交赞，成功返回提交者 IP                |
 | /like/cancel                | GET  | Y    | N      | 撤回已经发出的喜爱                      |
+| /mark                       | GET  | N    | N      | 获取所有的审核标记                             |
 | /user                       | GET  | Y    | N      | 获取用户信息                             |
 | /user/email/verify          | PUT  | Y    | Y      | 申请验证邮箱                             |
 | /user/token                 | GET  | Y    | N      | 返回用户令牌的相关信息                   |
@@ -106,6 +107,7 @@
 | /user/hitokoto/history/accept      | GET  | Y      | N      | 获得用户历史的一言提交（已上线部分）       |
 | /hitokoto/append            | POST | Y    | N      | 添加一言，返回审核队列中新句子的信息     |
 | /hitokoto/:uuid             | GET  | Y    | N      | 查看指定一言的信息（通过 UUID）    |
+| /hitokoto/:uuid/mark        | GET  | Y    | N      | 查看指定一言的审核标记（通过 UUID）    |
 | /hitokoto/score             | POST | Y    | N      | 为已上线的句子评分，返回评分相关信息     |
 | /hitokoto/score             | GET  | Y    | N      | 获得句子的评分信息                       |
 | /hitokoto/report            | POST | Y    | N      | 举报一言存在问题，返回提交举报的相关信息 |
