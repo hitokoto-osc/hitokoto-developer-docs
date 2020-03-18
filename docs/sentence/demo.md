@@ -7,7 +7,7 @@
 ## 网页
 
 > **请注意：**  
-> 本例所有写法（除 XMLHttpRequest 示例）皆使用 ES6 语法。如果您想考虑兼容非现代浏览器（如：IE），需要您自行转换。
+> 本例所有写法（除 XMLHttpRequest 示例）使用 ES6 语法。如果您想考虑兼容非现代浏览器（如：IE），需要您自行转换。
 
 ```html
 <p id="hitokoto">:D 获取中...</p>
@@ -88,9 +88,7 @@ function fetch163Playlist(playlistId) {
         });
         return arr;
       })
-      .then(ids => {
-        return fetch163Songs(ids);
-      })
+      .then(fetch163Songs)
       .then(ok)
       .catch(err);
   });
