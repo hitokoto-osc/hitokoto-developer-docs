@@ -3,7 +3,7 @@ home: true
 heroImage: /logo.png
 heroText: 一言开发者中心
 tagline: 用代码表达言语的魅力，用代码书写山河的壮丽。
-actionText: 立即开始 →
+actionText: 立即开始
 actionLink: /introduce
 features:
 - title: 开箱即用
