@@ -36,8 +36,8 @@
 
 | 地址                            | 协议    | 方法  | QPS 限制 | 线路 |
 |-------------------------------|-------|-----|--------|----|
-| `v1.hitokoto.cn`              | HTTPS | Any | 10     | 全球 |
-| `international.v1.hitokoto.cn` | HTTPS | Any | 25     | 国外 |
+| `v1.hitokoto.cn`              | HTTPS | Any | 3.5     | 全球 |
+| `international.v1.hitokoto.cn` | HTTPS | Any | 10     | 国外 |
 
 > 请注意：一言域名已加入 HSTS 预加载计划，所有请求一律以 HTTPS 方法进行。
 
