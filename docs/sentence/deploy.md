@@ -68,7 +68,7 @@ pm2 start core.js --name hitokoto-api
 pm2 save
 ```
 
-## 使用 Docker 允许
+## 使用 Docker 运行
 
 Docker 是目前非常流行的容器管理工具，能很方便，简单得操作实例。Docker 的相关玩法我们就不展开了，我们就介绍最方便的用法。如果您是小白的话，不妨试试这个方法。
 
