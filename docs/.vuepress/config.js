@@ -26,7 +26,8 @@ module.exports = {
       ],
       '/sentence/': [
         '',
-        'demo'
+        'demo',
+        'deploy'
       ],
       '/': [ // 回滚
         ['', '主页'],
