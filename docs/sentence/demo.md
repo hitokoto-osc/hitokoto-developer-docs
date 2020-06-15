@@ -10,7 +10,8 @@
 > 本例所有写法（除 XMLHttpRequest 示例）使用 ES6 语法。如果您想考虑兼容非现代浏览器（如：IE），需要您自行转换。
 
 ```html
-<p id="hitokoto">:D 获取中...</p>
+<!-- 请注意，以下的示例包含超链接，您可能需要手动配置样式使其不变色。如果您嫌麻烦，可以移除。 -->
+<p id="hitokoto"><a href="#" id="hitokoto_text">:D 获取中...</a></p>
 <!-- 以下写法，选取一种即可 -->
 
 <!-- 现代写法，推荐(不支持 IE) -->
@@ -18,7 +19,8 @@
   fetch('https://v1.hitokoto.cn')
     .then(response => response.json())
     .then(data => {
-      const hitokoto = document.getElementById('hitokoto')
+      const hitokoto = document.getElementById('hitokoto_text')
+      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
       hitokoto.innerText = data.hitokoto
     })
     .catch(console.error)
@@ -28,7 +30,8 @@
 <script>
   axios.get('https://v1.hitokoto.cn')
     .then(({ data }) => {
-      const hitokoto = document.getElementById('hitokoto')
+      const hitokoto = document.getElementById('hitokoto_text')
+      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
       hitokoto.innerText = data.hitokoto
     })
     .catch(console.error)
@@ -43,7 +46,8 @@
     jsonp: 'callback',
     jsonpCallback: 'hitokoto',
     success (data) {
-      $('#hitokoto').text(data.hitokoto)
+      $('#hitokoto_text').attr('href', 'https://hitokoto.cn/?uuid=' + data.uuid)
+      $('#hitokoto_text').text(data.hitokoto)
     },
     error (jqXHR, textStatus, errorThrown) {
       // 错误信息处理
@@ -60,7 +64,8 @@
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
       var data = JSON.parse(xhr.responseText);
-      var hitokoto = document.getElementById('hitokoto');
+      var hitokoto = document.getElementById('hitokoto_text');
+      hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
       hitokoto.innerText = data.hitokoto;
     }
   }
