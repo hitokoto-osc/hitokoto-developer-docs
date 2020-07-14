@@ -19,7 +19,7 @@
     },
     "devDependencies": {
         "@commitlint/cli": "^8.3.5",
-        "@commitlint/config-conventional": "^8.3.4",
+        "@commitlint/config-conventional": "^9.1.1",
         "@vuepress/plugin-active-header-links": "^1.5.2",
         "@vuepress/plugin-back-to-top": "^1.5.2",
         "@vuepress/plugin-google-analytics": "^1.5.2",
