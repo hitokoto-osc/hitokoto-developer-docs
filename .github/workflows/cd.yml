@@ -45,3 +45,4 @@ jobs:
       with:
         commit_message: "docs: build" 
         push_options: '--force'
+        branch: gh-pages
