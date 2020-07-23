@@ -34,16 +34,8 @@ jobs:
       run: yarn
     - name: Build Docs...
       run: yarn docs:build
-    - name: Init git repos
-      run: |
-        git --version
-        cd ./docs/.vuepress/dist
-        git init
-        git add .
-    - name: Post docs to Github Pages
-      uses: stefanzweifel/git-auto-commit-action@v4
+    - name: Deploy Docs...
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        commit_message: "docs: build" 
-        push_options: '--force'
-        branch: gh-pages
-        repository: ./docs/.vuepress/dist
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs/.vuepress/dist
