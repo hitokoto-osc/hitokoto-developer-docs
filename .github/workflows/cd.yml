@@ -35,6 +35,7 @@ jobs:
       run: yarn docs:build
   cd:
     name: Deploy
+    needs: ci
     runs-on: ubuntu-latest
 
     strategy:
