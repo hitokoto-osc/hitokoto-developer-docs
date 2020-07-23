@@ -36,7 +36,7 @@ jobs:
       run: yarn docs:build
     - name: Init git repos
       run: |
-        git -v
+        git --version
         cd ./docs/.vuepress/dist
         git init
         git add .
