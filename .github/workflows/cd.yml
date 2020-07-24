@@ -69,7 +69,7 @@ jobs:
     - name: deploy docs to COS
       uses: zkqiang/tencent-cos-action@v0.1.0
       with:
-        args: delete -r -f / && upload -r ./dist/ /
+        args: delete -r -f / && upload -r ./docs/.vuepress/dist/ /
         secret_id: ${{ secrets.SECRET_ID }}
         secret_key: ${{ secrets.SECRET_KEY }}
         bucket: ${{ secrets.BUCKET }}
