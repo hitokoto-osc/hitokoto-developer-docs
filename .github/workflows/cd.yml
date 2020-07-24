@@ -8,7 +8,7 @@ on:
     branches: [ master ]
 jobs: 
   ci:
-   name: Build/Test
+   name: Build & Test
    runs-on: ubuntu-latest
    strategy:
     matrix:
@@ -68,7 +68,7 @@ jobs:
         secret_key: ${{ secrets.SECRET_KEY }}
         cos_bucket: ${{ secrets.BUCKET }}
         cos_region: ap-chengdu
-        local_path: ./docs/.vuepress/dist
+        local_path: docs/.vuepress/dist
         remote_path: /
         clean: true
     - name: Deploy docs to Github pages...
