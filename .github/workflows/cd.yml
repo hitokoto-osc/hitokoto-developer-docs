@@ -61,16 +61,18 @@ jobs:
       run: yarn
     - name: Build Docs...
       run: yarn docs:build
+    - name: deploy docs to COS
+      uses: TencentCloud/cos-action@v1
+      with:
+        secret_id: ${{ secrets.SECRET_ID }}
+        secret_key: ${{ secrets.SECRET_KEY }}
+        cos_bucket: ${{ secrets.BUCKET }}
+        cos_region: ap-chengdu
+        local_path: ./docs/.vuepress/dist
+        remote_path: /
+        clean: true
     - name: Deploy docs to Github pages...
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vuepress/dist
-    - name: deploy docs to COS
-      uses: zkqiang/tencent-cos-action@v0.1.0
-      with:
-        args: delete -r -f / && upload -r ./docs/.vuepress/dist/ /
-        secret_id: ${{ secrets.SECRET_ID }}
-        secret_key: ${{ secrets.SECRET_KEY }}
-        bucket: ${{ secrets.BUCKET }}
-        region: ap-chengdu
