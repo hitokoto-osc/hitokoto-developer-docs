@@ -820,10 +820,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@commitlint/cli@^9.1.1":
+"@commitlint/cli@9.1.1":
   version "9.1.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/cli/download/@commitlint/cli-9.1.1.tgz#24277e6c1e616191a34a7182a1d3e73369a34f98"
-  integrity sha1-JCd+bB5hYZGjSnGCodPnM2mjT5g=
+  resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-9.1.1.tgz#24277e6c1e616191a34a7182a1d3e73369a34f98"
+  integrity sha512-ye9vUZz8Niv77e5ecBWnA2PnuPF+vYy/3BfSZx8sEaNjozJWUolTk/fuqTsoij3bseZBVObd+cVqZgGk8lfEdw==
   dependencies:
     "@babel/runtime" "^7.9.6"
     "@commitlint/format" "^9.1.1"
@@ -839,10 +839,10 @@
     resolve-from "5.0.0"
     resolve-global "1.0.0"
 
-"@commitlint/config-conventional@^9.1.1":
+"@commitlint/config-conventional@9.1.1":
   version "9.1.1"
-  resolved "https://registry.npm.taobao.org/@commitlint/config-conventional/download/@commitlint/config-conventional-9.1.1.tgz?cache=0&sync_timestamp=1594612028255&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40commitlint%2Fconfig-conventional%2Fdownload%2F%40commitlint%2Fconfig-conventional-9.1.1.tgz#c10e6ff8e56bd462fa33e17522b0f98da97daa39"
-  integrity sha1-wQ5v+OVr1GL6M+F1IrD5jal9qjk=
+  resolved "https://registry.yarnpkg.com/@commitlint/config-conventional/-/config-conventional-9.1.1.tgz#c10e6ff8e56bd462fa33e17522b0f98da97daa39"
+  integrity sha512-t/bvv8ofjj7V4W99eVDyuACaC7Ch4SYaukglBYt/K1Y9Ixg8mCBuFDMGRMhyZn4upUe1ls8l4SO3rjaVbYIjlg==
   dependencies:
     conventional-changelog-conventionalcommits "4.3.0"
 
@@ -1083,10 +1083,10 @@
     lodash.kebabcase "^4.1.1"
     svg-tags "^1.0.0"
 
-"@vue/babel-preset-app@^4.1.2", "@vue/babel-preset-app@^4.4.1":
+"@vue/babel-preset-app@4.4.6", "@vue/babel-preset-app@^4.1.2":
   version "4.4.6"
-  resolved "https://registry.npm.taobao.org/@vue/babel-preset-app/download/@vue/babel-preset-app-4.4.6.tgz?cache=0&sync_timestamp=1592976388832&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40vue%2Fbabel-preset-app%2Fdownload%2F%40vue%2Fbabel-preset-app-4.4.6.tgz#92aef916e83f1abe0a2ed1e9e2cef5b332f958c4"
-  integrity sha1-kq75Fug/Gr4KLtHp4s71szL5WMQ=
+  resolved "https://registry.yarnpkg.com/@vue/babel-preset-app/-/babel-preset-app-4.4.6.tgz#92aef916e83f1abe0a2ed1e9e2cef5b332f958c4"
+  integrity sha512-urIa6Qk3lKacLvscrzxMNyYlTqKFcPAUo5MohOjv1ISZ9PssHw693WTOrqSC0XksdMLtp/rnLvc6l5G8Muk0lw==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/helper-compilation-targets" "^7.9.6"
@@ -1233,24 +1233,24 @@
     markdown-it-table-of-contents "^0.4.0"
     prismjs "^1.13.0"
 
-"@vuepress/plugin-active-header-links@1.5.2", "@vuepress/plugin-active-header-links@^1.5.2":
+"@vuepress/plugin-active-header-links@1.5.2":
   version "1.5.2"
   resolved "https://registry.npm.taobao.org/@vuepress/plugin-active-header-links/download/@vuepress/plugin-active-header-links-1.5.2.tgz#5408d2ac5aa31d9b1ff581464f7ae0e462c1aa37"
   integrity sha1-VAjSrFqjHZsf9YFGT3rg5GLBqjc=
   dependencies:
     lodash.debounce "^4.0.8"
 
-"@vuepress/plugin-back-to-top@^1.5.2":
+"@vuepress/plugin-back-to-top@1.5.2":
   version "1.5.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-back-to-top/download/@vuepress/plugin-back-to-top-1.5.2.tgz#d253be7f0b7c2b59ca8fabe10c2f517c96d83b0e"
-  integrity sha1-0lO+fwt8K1nKj6vhDC9RfJbYOw4=
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-back-to-top/-/plugin-back-to-top-1.5.2.tgz#d253be7f0b7c2b59ca8fabe10c2f517c96d83b0e"
+  integrity sha512-eLieTccUQ8XdIqQXWyp0bftfud9js1idHFFyxuhHWSYAco/vTp7wLz7JdFqr8GnFye9y88B1y34iLnbZLiBlmA==
   dependencies:
     lodash.debounce "^4.0.8"
 
-"@vuepress/plugin-google-analytics@^1.5.2":
+"@vuepress/plugin-google-analytics@1.5.2":
   version "1.5.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-google-analytics/download/@vuepress/plugin-google-analytics-1.5.2.tgz#45486a44125a9bba0a5f38ab6e59134bd83c870a"
-  integrity sha1-RUhqRBJam7oKXzirblkTS9g8hwo=
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-google-analytics/-/plugin-google-analytics-1.5.2.tgz#45486a44125a9bba0a5f38ab6e59134bd83c870a"
+  integrity sha512-MrM/Zs0VbOclL0xKXS/Gi017Kl42oiWHUDr2Uz5VCQjqGB1FyAsQdGLtloE1Y6rtTuDXektsss9Bx9uX0f1amw==
 
 "@vuepress/plugin-last-updated@1.5.2":
   version "1.5.2"
@@ -1266,10 +1266,10 @@
   dependencies:
     nprogress "^0.2.0"
 
-"@vuepress/plugin-pwa@^1.5.2":
+"@vuepress/plugin-pwa@1.5.2":
   version "1.5.2"
-  resolved "https://registry.npm.taobao.org/@vuepress/plugin-pwa/download/@vuepress/plugin-pwa-1.5.2.tgz#41b0c249d46eccd39472cec99af4c12dc24afa64"
-  integrity sha1-QbDCSdRuzNOUcs7JmvTBLcJK+mQ=
+  resolved "https://registry.yarnpkg.com/@vuepress/plugin-pwa/-/plugin-pwa-1.5.2.tgz#41b0c249d46eccd39472cec99af4c12dc24afa64"
+  integrity sha512-3F1n4iskJ9fHkIqydeVNCuRj8mwPydmw6TwngIqT8wHoFpK07Dml9Km1f/tt29vHe81HJqAB4f9HlX3S7kMUdw==
   dependencies:
     "@vuepress/shared-utils" "1.5.2"
     register-service-worker "^1.7.0"
@@ -1508,9 +1508,9 @@ acorn@^7.1.1:
   resolved "https://registry.npm.taobao.org/acorn/download/acorn-7.3.1.tgz?cache=0&sync_timestamp=1591869455923&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Facorn%2Fdownload%2Facorn-7.3.1.tgz#85010754db53c3fbaf3b9ea3e083aa5c5d147ffd"
   integrity sha1-hQEHVNtTw/uvO56j4IOqXF0Uf/0=
 
-add@^2.0.6:
+add@2.0.6:
   version "2.0.6"
-  resolved "https://registry.npm.taobao.org/add/download/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
+  resolved "https://registry.yarnpkg.com/add/-/add-2.0.6.tgz#248f0a9f6e5a528ef2295dbeec30532130ae2235"
   integrity sha1-JI8Kn25aUo7yKV2+7DBTITCuIjU=
 
 agentkeepalive@^2.2.0:
@@ -3556,10 +3556,10 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.5:
   resolved "https://registry.npm.taobao.org/escape-string-regexp/download/escape-string-regexp-1.0.5.tgz?cache=0&sync_timestamp=1587627212242&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fescape-string-regexp%2Fdownload%2Fescape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-standard@^14.1.1:
+eslint-config-standard@14.1.1:
   version "14.1.1"
-  resolved "https://registry.npm.taobao.org/eslint-config-standard/download/eslint-config-standard-14.1.1.tgz#830a8e44e7aef7de67464979ad06b406026c56ea"
-  integrity sha1-gwqOROeu995nRkl5rQa0BgJsVuo=
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-14.1.1.tgz#830a8e44e7aef7de67464979ad06b406026c56ea"
+  integrity sha512-Z9B+VR+JIXRxz21udPTL9HpFMyoMUEeX1G251EQ6e05WD9aPVtVBn09XUmZ259wCMlCDmYDSZG62Hhm+ZTJcUg==
 
 eslint-import-resolver-node@^0.3.3:
   version "0.3.4"
@@ -3585,10 +3585,10 @@ eslint-plugin-es@^3.0.0:
     eslint-utils "^2.0.0"
     regexpp "^3.0.0"
 
-eslint-plugin-import@^2.22.0:
+eslint-plugin-import@2.22.0:
   version "2.22.0"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-import/download/eslint-plugin-import-2.22.0.tgz?cache=0&sync_timestamp=1593237350014&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-plugin-import%2Fdownload%2Feslint-plugin-import-2.22.0.tgz#92f7736fe1fde3e2de77623c838dd992ff5ffb7e"
-  integrity sha1-kvdzb+H94+Led2I8g43Zkv9f+34=
+  resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.22.0.tgz#92f7736fe1fde3e2de77623c838dd992ff5ffb7e"
+  integrity sha512-66Fpf1Ln6aIS5Gr/55ts19eUuoDhAbZgnr6UxK5hbDx6l/QgQgx61AePq+BV4PP2uXQFClgMVzep5zZ94qqsxg==
   dependencies:
     array-includes "^3.1.1"
     array.prototype.flat "^1.2.3"
@@ -3604,10 +3604,10 @@ eslint-plugin-import@^2.22.0:
     resolve "^1.17.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-node@^11.1.0:
+eslint-plugin-node@11.1.0:
   version "11.1.0"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-node/download/eslint-plugin-node-11.1.0.tgz#c95544416ee4ada26740a30474eefc5402dc671d"
-  integrity sha1-yVVEQW7kraJnQKMEdO78VALcZx0=
+  resolved "https://registry.yarnpkg.com/eslint-plugin-node/-/eslint-plugin-node-11.1.0.tgz#c95544416ee4ada26740a30474eefc5402dc671d"
+  integrity sha512-oUwtPJ1W0SKD0Tr+wqu92c5xuCeQqB3hSCHasn/ZgjFdA9iDGNkNf2Zi9ztY7X+hNuMib23LNGRm6+uN+KLE3g==
   dependencies:
     eslint-plugin-es "^3.0.0"
     eslint-utils "^2.0.0"
@@ -3616,20 +3616,20 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-promise@^4.2.1:
+eslint-plugin-promise@4.2.1:
   version "4.2.1"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-promise/download/eslint-plugin-promise-4.2.1.tgz#845fd8b2260ad8f82564c1222fce44ad71d9418a"
-  integrity sha1-hF/YsiYK2PglZMEiL85ErXHZQYo=
+  resolved "https://registry.yarnpkg.com/eslint-plugin-promise/-/eslint-plugin-promise-4.2.1.tgz#845fd8b2260ad8f82564c1222fce44ad71d9418a"
+  integrity sha512-VoM09vT7bfA7D+upt+FjeBO5eHIJQBUWki1aPvB+vbNiHS3+oGIJGIeyBtKQTME6UPXXy3vV07OL1tHd3ANuDw==
 
-eslint-plugin-standard@^4.0.1:
+eslint-plugin-standard@4.0.1:
   version "4.0.1"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-standard/download/eslint-plugin-standard-4.0.1.tgz#ff0519f7ffaff114f76d1bd7c3996eef0f6e20b4"
-  integrity sha1-/wUZ9/+v8RT3bRvXw5lu7w9uILQ=
+  resolved "https://registry.yarnpkg.com/eslint-plugin-standard/-/eslint-plugin-standard-4.0.1.tgz#ff0519f7ffaff114f76d1bd7c3996eef0f6e20b4"
+  integrity sha512-v/KBnfyaOMPmZc/dmc6ozOdWqekGp7bBGq4jLAecEfPGmfKiWS4sA8sC0LqiV9w5qmXAtXVn4M3p1jSyhY85SQ==
 
-eslint-plugin-vue@^6.1.2:
+eslint-plugin-vue@6.2.2:
   version "6.2.2"
-  resolved "https://registry.npm.taobao.org/eslint-plugin-vue/download/eslint-plugin-vue-6.2.2.tgz#27fecd9a3a24789b0f111ecdd540a9e56198e0fe"
-  integrity sha1-J/7NmjokeJsPER7N1UCp5WGY4P4=
+  resolved "https://registry.yarnpkg.com/eslint-plugin-vue/-/eslint-plugin-vue-6.2.2.tgz#27fecd9a3a24789b0f111ecdd540a9e56198e0fe"
+  integrity sha512-Nhc+oVAHm0uz/PkJAWscwIT4ijTrK5fqNqz9QB1D35SbbuMG1uB6Yr5AJpvPSWg+WOw7nYNswerYh0kOk64gqQ==
   dependencies:
     natural-compare "^1.4.0"
     semver "^5.6.0"
@@ -3670,10 +3670,10 @@ eslint-visitor-keys@^1.1.0:
   resolved "https://registry.npm.taobao.org/eslint-visitor-keys/download/eslint-visitor-keys-1.3.0.tgz?cache=0&sync_timestamp=1592583167448&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint-visitor-keys%2Fdownload%2Feslint-visitor-keys-1.3.0.tgz#30ebd1ef7c2fdff01c3a4f151044af25fab0523e"
   integrity sha1-MOvR73wv3/AcOk8VEESvJfqwUj4=
 
-eslint@^6.8.0:
+eslint@6.8.0:
   version "6.8.0"
-  resolved "https://registry.npm.taobao.org/eslint/download/eslint-6.8.0.tgz?cache=0&sync_timestamp=1595098492891&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Feslint%2Fdownload%2Feslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
-  integrity sha1-YiYtZylzn5J1cjgkMC+yJ8jJP/s=
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.8.0.tgz#62262d6729739f9275723824302fb227c8c93ffb"
+  integrity sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.10.0"
@@ -4669,10 +4669,10 @@ https-browserify@^1.0.0:
   resolved "https://registry.npm.taobao.org/https-browserify/download/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
   integrity sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=
 
-husky@^4.2.5:
+husky@4.2.5:
   version "4.2.5"
-  resolved "https://registry.npm.taobao.org/husky/download/husky-4.2.5.tgz?cache=0&sync_timestamp=1586468409378&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhusky%2Fdownload%2Fhusky-4.2.5.tgz#2b4f7622673a71579f901d9885ed448394b5fa36"
-  integrity sha1-K092Imc6cVefkB2Yhe1Eg5S1+jY=
+  resolved "https://registry.yarnpkg.com/husky/-/husky-4.2.5.tgz#2b4f7622673a71579f901d9885ed448394b5fa36"
+  integrity sha512-SYZ95AjKcX7goYVZtVZF2i6XiZcHknw50iXvY7b0MiGoj5RwdgRQNEHdb+gPDPCXKlzwrybjFjkL6FOj8uRhZQ==
   dependencies:
     chalk "^4.0.0"
     ci-info "^2.0.0"
@@ -8931,24 +8931,31 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
-vuepress-plugin-clean-urls@^1.1.1:
+vuepress-plugin-clean-urls@1.1.1:
   version "1.1.1"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-clean-urls/download/vuepress-plugin-clean-urls-1.1.1.tgz#593f47be643c33c34413ba408e8bee31aaf534bd"
-  integrity sha1-WT9HvmQ8M8NEE7pAjovuMar1NL0=
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-clean-urls/-/vuepress-plugin-clean-urls-1.1.1.tgz#593f47be643c33c34413ba408e8bee31aaf534bd"
+  integrity sha512-cEDbqme8rPbkSbjz73ONFSKIZkzC8HFRBY7UD/oa1ZC655HYhQo3JMbJgJXeCQjV/vkl7WuPB/QMNlQY20PXjw==
 
-vuepress-plugin-container@^2.0.2, vuepress-plugin-container@^2.1.4:
+vuepress-plugin-container@2.1.4, vuepress-plugin-container@^2.0.2:
   version "2.1.4"
   resolved "https://registry.npm.taobao.org/vuepress-plugin-container/download/vuepress-plugin-container-2.1.4.tgz?cache=0&sync_timestamp=1590031862804&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvuepress-plugin-container%2Fdownload%2Fvuepress-plugin-container-2.1.4.tgz#bd586587ffb303f847e4a6a2e2568171f311493b"
   integrity sha1-vVhlh/+zA/hH5Kai4laBcfMRSTs=
   dependencies:
     markdown-it-container "^2.0.0"
 
-vuepress-plugin-reading-time@^0.1.1:
+vuepress-plugin-reading-time@0.1.1:
   version "0.1.1"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-reading-time/download/vuepress-plugin-reading-time-0.1.1.tgz#3ea3dcded424a00c1d5175a50af8d5694899f1ea"
-  integrity sha1-PqPc3tQkoAwdUXWlCvjVaUiZ8eo=
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-reading-time/-/vuepress-plugin-reading-time-0.1.1.tgz#3ea3dcded424a00c1d5175a50af8d5694899f1ea"
+  integrity sha512-j94utmn4nojYWyOVqfUF3eLWOMTAmZpR0G1gUlmast6KFu/VLevJvxFgJfa6DVaSlTpUH1DMLYspcjLv5pHhDw==
   dependencies:
     reading-time "1.1.3"
+
+vuepress-plugin-smooth-scroll@0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/vuepress-plugin-smooth-scroll/-/vuepress-plugin-smooth-scroll-0.0.9.tgz#6c5d01db60def3d7b976b53404e56b97da9e8f39"
+  integrity sha512-UXX+HLZO1NKVwyiOJlj0smh8F9dKnwybjEi7w/Mj9EYLhKrNYr5uXs+N+OTt8VwKCn3f0vZ1XAwFIjsPlD7GJA==
+  dependencies:
+    smoothscroll-polyfill "^0.4.4"
 
 vuepress-plugin-smooth-scroll@^0.0.3:
   version "0.0.3"
@@ -8957,17 +8964,10 @@ vuepress-plugin-smooth-scroll@^0.0.3:
   dependencies:
     smoothscroll-polyfill "^0.4.3"
 
-vuepress-plugin-smooth-scroll@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.npm.taobao.org/vuepress-plugin-smooth-scroll/download/vuepress-plugin-smooth-scroll-0.0.9.tgz#6c5d01db60def3d7b976b53404e56b97da9e8f39"
-  integrity sha1-bF0B22De89e5drU0BOVrl9qejzk=
-  dependencies:
-    smoothscroll-polyfill "^0.4.4"
-
-vuepress@^1.5.2:
+vuepress@1.5.2:
   version "1.5.2"
-  resolved "https://registry.npm.taobao.org/vuepress/download/vuepress-1.5.2.tgz#b79e84bfaade55ba3ddb59c3a937220913f0599b"
-  integrity sha1-t56Ev6reVbo921nDqTciCRPwWZs=
+  resolved "https://registry.yarnpkg.com/vuepress/-/vuepress-1.5.2.tgz#b79e84bfaade55ba3ddb59c3a937220913f0599b"
+  integrity sha512-buscwFfIqvCcUAaRdbBWENmCSBZzr510fch1BhQZwVaQy28mF8H6Mvb+UDdwHQ7jon0d9qauXs9M0k4XHIWviw==
   dependencies:
     "@vuepress/core" "1.5.2"
     "@vuepress/theme-default" "1.5.2"
@@ -9017,7 +9017,7 @@ webpack-chain@^6.0.0:
     deepmerge "^1.5.2"
     javascript-stringify "^2.0.1"
 
-webpack-dev-middleware@^3.7.2:
+webpack-dev-middleware@3.7.2, webpack-dev-middleware@^3.7.2:
   version "3.7.2"
   resolved "https://registry.npm.taobao.org/webpack-dev-middleware/download/webpack-dev-middleware-3.7.2.tgz?cache=0&sync_timestamp=1594744507965&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack-dev-middleware%2Fdownload%2Fwebpack-dev-middleware-3.7.2.tgz#0019c3db716e3fa5cecbf64f2ab88a74bab331f3"
   integrity sha1-ABnD23FuP6XOy/ZPKriKdLqzMfM=
