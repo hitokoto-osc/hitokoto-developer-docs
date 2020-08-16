@@ -18,8 +18,8 @@
         }
     },
     "devDependencies": {
-        "@commitlint/cli": "9.1.1",
-        "@commitlint/config-conventional": "9.1.1",
+        "@commitlint/cli": "9.1.2",
+        "@commitlint/config-conventional": "9.1.2",
         "@vue/babel-preset-app": "4.5.3",
         "@vuepress/plugin-active-header-links": "1.5.3",
         "@vuepress/plugin-back-to-top": "1.5.3",
