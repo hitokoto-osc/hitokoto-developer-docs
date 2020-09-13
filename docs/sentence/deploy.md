@@ -1,6 +1,6 @@
 # 部署实例
 
-> 自 `v1.5.0` 您可以部署您自己的实例，这个方案十分适合访问量大，站点私密性高的需求。
+> 自 `v1.5.0` 您可以部署您自己的实例，这个方案十分适合访问量大，站点私密性高的需求。  
 > **请注意：** 我们会在未来加入统计分析服务，用于统计实例部署情况（不会保存您的请求，IP 信息）。届时，您可以自由选择关闭这个功能。
 
 ## 传统方式部署
@@ -22,7 +22,7 @@ git clone https://github.com/hitokoto-osc/hitokoto-api.git
 
 Node.js 程序通常需要大量通过包管理安装的包来运行。本程序也不例外，因此，您需要像这样安装包：
 
-> **请注意：** 本项目要求 `Node.js` 版本至少为 12 （当前最新的 LTS 版本）
+> **请注意：** 本项目要求 `Node.js` 版本至少为 14 （当前最新的 LTS 版本）
 
 ```shell
 yarn # 为了防止意外，我们需要将开发环境和生产环境的包都安装。如果您熟悉本程序的话，可以只安装生产环境的包直接部署。
@@ -91,43 +91,38 @@ hitokoto/api:latest
 
 以下是对常用配置的简单介绍，在实际使用中，请去除掉注解部分。
 
-```json
-{
-    "name": "", // 服务名称，例如：hitokoto
-    "url": "", // 服务地址，例如：https://v1.hitokoto.cn
-    "api_name": "", // 服务表示，例如：cd-01-gugugu
-    "server": {
-        "host": "127.0.0.1", // 监听的地址
-        "port": "8000" // 监听端口
-    },
-    "mail": { // 通知错误邮件用的，目前已废弃
-        "type": "smtp",
-        "host": "",
-        "username": "",
-        "password": "",
-        "port": "",
-        "encrypt": "ssl"
-    },
-    "database": "mysql", // 配置数据库用的，目前不再使用
-    "mysql": {
-        "host": "127.0.0.1",
-        "database": "",
-        "username": "",
-        "password": "",
-        "port": ""
-    },
-    "redis": { // 配置 Redis
-        "host": "127.0.0.1", // Redis 主机名
-        "port": 6379, // Redis 端口
-        "password": "", // Redis 密码（如果有的话）
-        "database": 0 // 数据库
-    },
-    "sentences_ab_switchter": { // 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
-        "a": 1, // a 状态对应的 redis 数据库
-        "b": 2 // b 状态对应的 redis 数据库
-    },
-    "log_level": "info", // 日记记录级别（写入 log 文件的级别），如果没使用 -D 标识符的话，那么终端输出的级别也与此设置一致
-    "remote_sentences_url": "https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/", // 语句库地址，通常默认即可。如果您想使用您自己打包部署的语句库，您可以修改此项
-    "compress_body": true // 是否使用 GZIP 压缩
-}
+```yaml
+# 自 v1.6.0 起使用 Yaml 格式的配置文件
+name: '' # 服务名称，例如：hitokoto
+url: '' # 服务地址，例如：https://v1.hitokoto.cn
+api_name: '' # 服务表示，例如：cd-01-demo
+server: # 配置 HTTP 服务的信息
+  host: 127.0.0.1 # 监听的地址
+  port: '8000' # 监听的端口
+  compress_body: true # 是否使用 GZIP 压缩
+mail: # 本节为 Web 控制器触发错误时发送邮件，目前本节已废弃
+  type: smtp
+  host: ''
+  username: ''
+  password: ''
+  port: ''
+  encrypt: ssl
+database: mysql # 数据库驱动，本节已废弃
+mysql: 
+  host: 127.0.0.1
+  database: ''
+  username: ''
+  password: ''
+  port: ''
+redis: # 配置 Redis
+  host: 127.0.0.1 # Redis 主机名
+  port: 6379 # Redis 端口
+  password: '' # Redis 密码
+  database: 0 # Redis 数据库
+sentences_ab_switchter: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
+  a: 1 # a 状态对应的 redis 数据库
+  b: 2 # b 状态对应的 redis 数据库
+log_level: info # 本节已废弃，输出到日记文件的一律为 Error；输出到终端由 flag `-D` 控制。
+remote_sentences_url: https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/ # 语句库地址，通常默认即可。如果您想使用您自己打包部署的语句库，您可以修改此项
+
 ```
