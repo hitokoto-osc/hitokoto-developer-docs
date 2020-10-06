@@ -10,19 +10,22 @@
 首先您得确保您的环境中存在 `Redis`，`Node.js`，`yarn`。由于网上方法众多，这里不再过多赘述。
 如果您说您是小白，啥都不知道，可以按照我之前写的文档配置环境：<https://docs.nodebb-cn.org>
 
+**请确认：您的 yarn 版本是否大于或等于 1.22.4，如果不是请更新。否则，项目将无法正确安装启动。**
+
 ### 克隆项目
 
 在你想要的位置克隆本项目
 
 ```shell
 git clone https://github.com/hitokoto-osc/hitokoto-api.git
+# 如果您或您的机器处于国内，您可以使用这个地址代替：https://github.com.cnpmjs.org/hitokoto-osc/hitokoto-api.git
 ```
 
 ### 安装包
 
 Node.js 程序通常需要大量通过包管理安装的包来运行。本程序也不例外，因此，您需要像这样安装包：
 
-> **请注意：** 本项目要求 `Node.js` 版本至少为 14 （当前最新的 LTS 版本）
+> **请注意：** 本项目要求 `Node.js` 版本至少为 14 （当前最新的 LTS 版本）； 自 `v1.6.0` 起，项目要求使用 yarn v2 管理包依赖。
 
 ```shell
 yarn # 为了防止意外，我们需要将开发环境和生产环境的包都安装。如果您熟悉本程序的话，可以只安装生产环境的包直接部署。
@@ -33,7 +36,7 @@ yarn # 为了防止意外，我们需要将开发环境和生产环境的包都�
 嗯，让我们试一下能不能启动：
 
 ```shell
-node core -D # 让我们使用开发模式看看能不能跑得起来，程序会自动生成默认的配置文件。有关配置文件的配置，我们将在稍后一节说明。
+yarn start -D # 让我们使用开发模式看看能不能跑得起来，程序会自动生成默认的配置文件。有关配置文件的配置，我们将在稍后一节说明。
 ```
 
 你会看到屏幕在刷刷刷得刷日记，当你看到类似这样一条时，意味着程序能成功运行：`info: [core] Web Server is started, listening on port: 8000`
@@ -42,12 +45,12 @@ node core -D # 让我们使用开发模式看看能不能跑得起来，程序�
 
 ### 持久化进程
 
-为了使我们的程序能长时间稳定运行，我们通常需要一个进程管理工具来管理进程。本例用的是 `pm2`。有关 `pm2` 的介绍网上有很多，这里就不一一赘述，只简单讲讲怎么使用（运用于本接口）
+为了使我们的程序能长时间稳定运行，我们通常需要一个进程管理工具来管理进程。本例用的是 `pm2`。有关 `pm2` 的介绍网上有很多，这里就不赘述，只简单讲讲怎么使用（运用于本接口）
   
 首先，我们需要安装 `pm2`。
 
 ```shell
-yarn global add pm2
+npm i -g pm2 # 由于项目内默认环境为 yarn v2，为了避免干扰，这里采用 NPM 安装
 ```
 
 配置 `pm2` 自启动
@@ -56,10 +59,10 @@ yarn global add pm2
 pm2 startup
 ```
 
-使用 `pm2` 启动语句接口服务
+由于项目已经提供了配置问卷，所以直接使用配置文件启动语句接口服务
 
 ```shell
-pm2 start core.js --name hitokoto-api
+pm2 start  ecosystem.config.js
 ```
 
 保存持久化列表
@@ -92,7 +95,7 @@ hitokoto/api:latest
 以下是对常用配置的简单介绍，在实际使用中，请去除掉注解部分。
 
 ```yaml
-# 自 v1.6.0 起使用 Yaml 格式的配置文件
+# 自 v1.6.0 起使用 yaml 格式的配置文件
 name: '' # 服务名称，例如：hitokoto
 url: '' # 服务地址，例如：https://v1.hitokoto.cn
 api_name: '' # 服务表示，例如：cd-01-demo
@@ -108,7 +111,7 @@ mail: # 本节为 Web 控制器触发错误时发送邮件，目前本节已废�
   port: ''
   encrypt: ssl
 database: mysql # 数据库驱动，本节已废弃
-mysql: 
+mysql:
   host: 127.0.0.1
   database: ''
   username: ''
@@ -119,10 +122,9 @@ redis: # 配置 Redis
   port: 6379 # Redis 端口
   password: '' # Redis 密码
   database: 0 # Redis 数据库
-sentences_ab_switchter: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
+sentences_ab_switcher: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
   a: 1 # a 状态对应的 redis 数据库
   b: 2 # b 状态对应的 redis 数据库
 log_level: info # 本节已废弃，输出到日记文件的一律为 Error；输出到终端由 flag `-D` 控制。
 remote_sentences_url: https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/ # 语句库地址，通常默认即可。如果您想使用您自己打包部署的语句库，您可以修改此项
-
 ```
