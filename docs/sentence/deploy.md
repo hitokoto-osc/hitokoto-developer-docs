@@ -62,7 +62,7 @@ pm2 startup
 由于项目已经提供了配置问卷，所以直接使用配置文件启动语句接口服务
 
 ```shell
-pm2 start  ecosystem.config.js
+pm2 start ecosystem.config.js
 ```
 
 保存持久化列表
