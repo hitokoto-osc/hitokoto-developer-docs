@@ -20,7 +20,7 @@
     "devDependencies": {
         "@commitlint/cli": "11.0.0",
         "@commitlint/config-conventional": "11.0.0",
-        "@vue/babel-preset-app": "4.5.11",
+        "@vue/babel-preset-app": "4.5.12",
         "@vuepress/plugin-active-header-links": "1.8.0",
         "@vuepress/plugin-back-to-top": "1.8.0",
         "@vuepress/plugin-google-analytics": "1.8.0",
