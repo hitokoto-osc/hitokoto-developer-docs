@@ -7,7 +7,7 @@
 
 ### 安装依赖
 
-首先您得确保您的环境中存在 `Redis`，`Node.js`，`yarn`。由于网上方法众多，这里不再过多赘述。
+首先您得确保您的环境中存在 `Redis`，`Node.js`，`yarn`。由于网上方法众多，这里不再赘述。
 如果您说您是小白，啥都不知道，可以按照我之前写的文档配置环境：<https://docs.nodebb-cn.org>
 
 **请确认：您的 yarn 版本是否大于或等于 1.22.4，如果不是请更新。否则，项目将无法正确安装启动。**
@@ -62,7 +62,7 @@ pm2 startup
 由于项目已经提供了配置问卷，所以直接使用配置文件启动语句接口服务
 
 ```shell
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.js --env production
 ```
 
 保存持久化列表
