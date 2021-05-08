@@ -1917,9 +1917,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/babel-preset-app@npm:4.5.12":
-  version: 4.5.12
-  resolution: "@vue/babel-preset-app@npm:4.5.12"
+"@vue/babel-preset-app@npm:4.5.13":
+  version: 4.5.13
+  resolution: "@vue/babel-preset-app@npm:4.5.13"
   dependencies:
     "@babel/core": ^7.11.0
     "@babel/helper-compilation-targets": ^7.9.6
@@ -1946,7 +1946,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: 189149c0790937fa0f682b8774b5383b370614b61c649c923187d175068b69a7b59defae1abbba72dedd149e52e78f2af2fce181e9ac411a45f3c2d2e83dc505
+  checksum: f3a8d703ab451e094c8d30a665175e872817a0d26de19eb19206f4572cf259174159893c8e3c4aa5ed21225491093ed26c09103080b02006cce19175dfb871f3
   languageName: node
   linkType: hard
 
@@ -6797,7 +6797,7 @@ fsevents@~2.1.2:
   dependencies:
     "@commitlint/cli": 12.1.1
     "@commitlint/config-conventional": 12.1.1
-    "@vue/babel-preset-app": 4.5.12
+    "@vue/babel-preset-app": 4.5.13
     "@vuepress/plugin-active-header-links": 1.8.2
     "@vuepress/plugin-back-to-top": 1.8.2
     "@vuepress/plugin-google-analytics": 1.8.2
@@ -6810,7 +6810,7 @@ fsevents@~2.1.2:
     eslint-plugin-promise: 5.1.0
     eslint-plugin-standard: 5.0.0
     eslint-plugin-vue: 7.9.0
-    husky: 6.0.0
+    husky: ^6.0.0
     vuepress: 1.8.2
     vuepress-plugin-clean-urls: 1.1.2
     vuepress-plugin-container: 2.1.5
@@ -7065,7 +7065,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"husky@npm:6.0.0":
+"husky@npm:^6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0"
   bin:
