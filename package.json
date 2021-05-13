@@ -14,8 +14,8 @@
         "postinstall": "husky install"
     },
     "devDependencies": {
-        "@commitlint/cli": "12.1.1",
-        "@commitlint/config-conventional": "12.1.1",
+        "@commitlint/cli": "12.1.4",
+        "@commitlint/config-conventional": "12.1.4",
         "@vue/babel-preset-app": "4.5.12",
         "@vuepress/plugin-active-header-links": "1.8.2",
         "@vuepress/plugin-back-to-top": "1.8.2",
