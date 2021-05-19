@@ -4049,7 +4049,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colorette@npm:^1.2.0, colorette@npm:^1.2.1":
+"colorette@npm:^1.2.0":
   version: 1.2.1
   resolution: "colorette@npm:1.2.1"
   checksum: 1cc21ad4b84777a424794f78b6bb6a44b614ae17dcea91762199339f8047598e6d981249eeef7ea588c99eaf062be8fcdcd4866c112998922ed854db6dde96f9
@@ -6256,10 +6256,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-monkey@npm:1.0.1":
-  version: 1.0.1
-  resolution: "fs-monkey@npm:1.0.1"
-  checksum: 2ecb8ef5896fc66a5d6fbb9af6e1f9c5723b46ff46cbd91c815262c405318dad8cb6f1bbb36d9c63ec257131731fbdfa433683bc1fea34b4be17b07e64c826cc
+"fs-monkey@npm:1.0.3":
+  version: 1.0.3
+  resolution: "fs-monkey@npm:1.0.3"
+  checksum: 0b5e16f147d3e1b28e2fc7ae8f4a6bf061587a03dbee817ee869fadbb1f5f9e038062bf9646161c7576918ac084bbd0b38bd819aa7856d4fd850a440b201f83e
   languageName: node
   linkType: hard
 
@@ -6810,13 +6810,13 @@ fsevents@~2.1.2:
     eslint-plugin-promise: 5.1.0
     eslint-plugin-standard: 5.0.0
     eslint-plugin-vue: 7.9.0
-    husky: 6.0.0
+    husky: ^6.0.0
     vuepress: 1.8.2
     vuepress-plugin-clean-urls: 1.1.2
     vuepress-plugin-container: 2.1.5
     vuepress-plugin-reading-time: 0.1.1
     vuepress-plugin-smooth-scroll: 0.0.10
-    webpack-dev-middleware: 4.1.0
+    webpack-dev-middleware: 4.3.0
   languageName: unknown
   linkType: soft
 
@@ -7065,7 +7065,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"husky@npm:6.0.0":
+"husky@npm:^6.0.0":
   version: 6.0.0
   resolution: "husky@npm:6.0.0"
   bin:
@@ -8498,22 +8498,22 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mem@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "mem@npm:8.0.0"
+"mem@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "mem@npm:8.1.1"
   dependencies:
     map-age-cleaner: ^0.1.3
     mimic-fn: ^3.1.0
-  checksum: 94ebfc25f369fdd3c926bf7772d252e18cb0022b1d063db11fcfc4990483642e8df478222e169452e76a065df4d0c396a64d6f6d8978cd9902e53e28b7970a47
+  checksum: 059b1a9d66a11a6924b1ccbcb5a31923458021d9149c2b21d7b4642bb6c1138d085c8b661ee808df990904b768146459bff2afe629ccf38cde9d48f0ecc6ccff
   languageName: node
   linkType: hard
 
-"memfs@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "memfs@npm:3.2.0"
+"memfs@npm:^3.2.2":
+  version: 3.2.2
+  resolution: "memfs@npm:3.2.2"
   dependencies:
-    fs-monkey: 1.0.1
-  checksum: 48bf758246937c6ceadaecc31e81050d4745dac5e031e3080961c28311bcc4b29e99f9cc4110103a0cb9f004c30c59926eaf15d10f4ac9a00b773b256a918ae2
+    fs-monkey: 1.0.3
+  checksum: 3d58b59fd574723d072f25f541c5d1080212129d49669a41f5f6b6da814cda040d7f47ddd8c623550d49c01c24853c7e07f798a00db6510236b724ed476a9025
   languageName: node
   linkType: hard
 
@@ -8628,10 +8628,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mime-db@npm:1.45.0":
-  version: 1.45.0
-  resolution: "mime-db@npm:1.45.0"
-  checksum: 86701c54f748c72a5c05c16f881cdfa01db44a61e52f4cef3d872b5f3e4a3c4186c28df7a5fec31debc9bee42d5afc9b86ff8ff3d3eaf1440f07140b94a33d4a
+"mime-db@npm:1.47.0":
+  version: 1.47.0
+  resolution: "mime-db@npm:1.47.0"
+  checksum: f5f9220dd53c240c9234323571f632486c663e36676ebfdca9963fb9a92d1dd28b16124bceff60868fb70743764ade8466dd5e6a1a833decde89ae6d15211503
   languageName: node
   linkType: hard
 
@@ -8644,12 +8644,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mime-types@npm:^2.1.28":
-  version: 2.1.28
-  resolution: "mime-types@npm:2.1.28"
+"mime-types@npm:^2.1.30":
+  version: 2.1.30
+  resolution: "mime-types@npm:2.1.30"
   dependencies:
-    mime-db: 1.45.0
-  checksum: 89d14a1af2be7f3c9682d1af98f422addce894b9c3ed1e67acb6e59e4c910c58a3586db686d894b47708d07c2ae76de4246b66dc4a7d698b0d1bd761c309bb92
+    mime-db: 1.47.0
+  checksum: c7ca8a9980bdae0b760820aded39ea9541a8236f4abc105df645ea5b09a9c4a5299e28667c0c9596ab8e4ca84b219fd8b94b5c68e32b59891ca1f57a7e848c02
   languageName: node
   linkType: hard
 
@@ -13052,19 +13052,19 @@ resolve@^1.14.2:
   languageName: node
   linkType: hard
 
-"webpack-dev-middleware@npm:4.1.0":
-  version: 4.1.0
-  resolution: "webpack-dev-middleware@npm:4.1.0"
+"webpack-dev-middleware@npm:4.3.0":
+  version: 4.3.0
+  resolution: "webpack-dev-middleware@npm:4.3.0"
   dependencies:
-    colorette: ^1.2.1
-    mem: ^8.0.0
-    memfs: ^3.2.0
-    mime-types: ^2.1.28
+    colorette: ^1.2.2
+    mem: ^8.1.1
+    memfs: ^3.2.2
+    mime-types: ^2.1.30
     range-parser: ^1.2.1
     schema-utils: ^3.0.0
   peerDependencies:
     webpack: ^4.0.0 || ^5.0.0
-  checksum: bd161996f3e6ac414034e4c9ba7c338e4fe0b1d1177ac2f4a71d6d15ce8a6970ff49f95fca83590a22f2134b8addff05f04270db236dcd22994325f04f961b55
+  checksum: 1b516cfcf52e5ecadd20c85887bef3e8db3be17aab37823413a68f1926fe12fdd5ba01ff06c045c9516709369712d02e46136fedb25cc78c5e3453c141be2b47
   languageName: node
   linkType: hard
 
