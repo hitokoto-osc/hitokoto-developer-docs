@@ -1,16 +1,16 @@
 # 部署实例
 
 > 自 `v1.5.0` 您可以部署您自己的实例，这个方案十分适合访问量大，站点私密性高的需求。  
-> **请注意：** 我们会在未来加入统计分析服务，用于统计实例部署情况（不会保存您的请求，IP 信息）。届时，您可以自由选择关闭这个功能。
+> **请注意：** 实例中存在 **遥测**服务，将会收集实例的性能、错误、状态状况方面的数据，您可以自由选择关闭遥测功能。
 
 ## 传统方式部署
 
 ### 安装依赖
 
 首先您得确保您的环境中存在 `Redis`，`Node.js`，`yarn`。由于网上方法众多，这里不再赘述。
-如果您说您是小白，啥都不知道，可以按照我之前写的文档配置环境：<https://docs.nodebb-cn.org>
+如果您是小白，不是很明白怎么安装环境，可以参考我之前写的 NodeBB 安装文档中 **配置环境** 的部分：<https://docs.nodebb-cn.org>
 
-**请确认：您的 yarn 版本是否大于或等于 1.22.4，如果不是请更新。否则，项目将无法正确安装启动。**
+**请确认：您的 yarn 版本是否大于或等于 1.22.4，如果不是——请更新。否则，项目将无法正确安装启动。**
 
 ### 克隆项目
 
@@ -25,7 +25,7 @@ git clone https://github.com/hitokoto-osc/hitokoto-api.git
 
 Node.js 程序通常需要大量通过包管理安装的包来运行。本程序也不例外，因此，您需要像这样安装包：
 
-> **请注意：** 本项目要求 `Node.js` 版本至少为 14 （当前最新的 LTS 版本）； 自 `v1.6.0` 起，项目要求使用 yarn v2 管理包依赖。
+> **请注意：** 本项目要求 `Node.js` 版本至少为 14 （当前最新的 LTS 版本）； 自 `v1.6.0` 起，项目要求使用 yarn berry 管理包依赖。
 
 ```shell
 yarn # 为了防止意外，我们需要将开发环境和生产环境的包都安装。如果您熟悉本程序的话，可以只安装生产环境的包直接部署。
@@ -87,8 +87,74 @@ hitokoto/api:latest
 ```
 
 嗯，启动完毕。是不是很简单呢？
-  
-其他启动方式你可以自己摸索一下，比如说，不用 host 网络怎么运行。此外，项目也提供了 `docker-compose` 文件，您可以在仓库自行获取。
+
+其他启动方式你可以自己摸索一下，比如说，不用 host 网络怎么运行。
+
+### 使用 docker-compose 启动服务
+
+
+
+项目也提供了 `docker-compose` 文件（在仓库中），为了节约您的时间，您也可以使用一下这份配置：
+
+```yaml
+version: '3'
+networks:
+  hitokoto_api:
+    driver: bridge
+
+services:
+  hitokoto_api:
+    networks:
+      - hitokoto_api
+    image: hitokoto/api:release
+    container_name: hitokoto_api
+    hostname: hitokoto_api
+    environment:
+      NODE_ENV: production
+      # 服务配置
+      url: https://v1.hitokoto.cn # 请修改为您想要部署的域名
+      api_name: sh-01-X23Hwoc # 改一个好听的标识吧
+      requests.hosts: "['v1.hitokoto.cn']" # 改成你想统计的主机名列表
+      redis.host: redis # Redis 连接地址，如果您使用本文件提供的 Redis 的话您无需修改此项
+      redis.port: 6379 # Redis 连接端口
+      # redis.password:
+      # redis.database: 0
+    ports:
+      - 8000:8000
+    links: 
+      - redis
+    restart: unless-stopped
+    volumes: 
+      - ./etc/api:/usr/src/app/data
+    
+  redis:
+    networks:
+      - hitokoto_api
+    image: redis
+    restart: unless-stopped
+    container_name: redis
+    hostname: redis
+    volumes:
+      - ./etc/redis.conf:/etc/redis/redis.conf # 一定要记得把 redis.conf 先放在这个位置哦
+      - ./data/redis:/data
+    command: redis-server /etc/redis/redis.conf
+    # ports:
+    #  - 6379:6379 # 如果有必要请取消注释本行
+```
+
+然后我们只需要新建个目录，比如说 `hitokoto_api`:
+
+```
+mkdir hitokoto_api && cd hitokoto_api
+```
+
+启动服务：
+
+```
+docker-compose up -d
+```
+
+:D 是不是很简单呢？嘻嘻。
 
 ## 配置文件
 
@@ -103,20 +169,6 @@ server: # 配置 HTTP 服务的信息
   host: 127.0.0.1 # 监听的地址
   port: '8000' # 监听的端口
   compress_body: true # 是否使用 GZIP 压缩
-mail: # 本节为 Web 控制器触发错误时发送邮件，目前本节已废弃
-  type: smtp
-  host: ''
-  username: ''
-  password: ''
-  port: ''
-  encrypt: ssl
-database: mysql # 数据库驱动，本节已废弃
-mysql:
-  host: 127.0.0.1
-  database: ''
-  username: ''
-  password: ''
-  port: ''
 redis: # 配置 Redis
   host: 127.0.0.1 # Redis 主机名
   port: 6379 # Redis 端口
@@ -127,4 +179,17 @@ sentences_ab_switcher: # 本节是服务 AB 异步更新的配置，如果您不
   b: 2 # b 状态对应的 redis 数据库
 log_level: info # 本节已废弃，输出到日记文件的一律为 Error；输出到终端由 flag `-D` 控制。
 remote_sentences_url: https://cdn.jsdelivr.net/gh/hitokoto-osc/sentences-bundle@latest/ # 语句库地址，通常默认即可。如果您想使用您自己打包部署的语句库，您可以修改此项
+workers: 0 # 启动 Worker 数目。0 表示启动和 CPU 核心数相同数量的 Worker
+requests:
+  enabled: true # 是否启用请求数目统计
+  hosts: # 需要单独统计的主机名
+    - v1.hitokoto.cn
+    - international.v1.hitokoto.cn
+    - api.a632079.me
+    - api.hitokoto.cn
+    - sslapi.hitokoto.cn
+telemetry: # 遥测服务
+  performance: true # 性能监控
+  error: true # 错误报告
+  usage: true # 使用报告
 ```
