@@ -14,17 +14,17 @@
         "postinstall": "husky install"
     },
     "devDependencies": {
-        "@commitlint/cli": "12.1.1",
-        "@commitlint/config-conventional": "12.1.1",
-        "@vue/babel-preset-app": "4.5.12",
+        "@commitlint/cli": "12.1.4",
+        "@commitlint/config-conventional": "12.1.4",
+        "@vue/babel-preset-app": "4.5.13",
         "@vuepress/plugin-active-header-links": "1.8.2",
         "@vuepress/plugin-back-to-top": "1.8.2",
         "@vuepress/plugin-google-analytics": "1.8.2",
         "@vuepress/plugin-pwa": "1.8.2",
         "add": "2.0.6",
-        "eslint": "7.24.0",
+        "eslint": "7.26.0",
         "eslint-config-standard": "16.0.2",
-        "eslint-plugin-import": "2.22.1",
+        "eslint-plugin-import": "2.23.2",
         "eslint-plugin-node": "11.1.0",
         "eslint-plugin-promise": "5.1.0",
         "eslint-plugin-standard": "5.0.0",
@@ -35,6 +35,6 @@
         "vuepress-plugin-container": "2.1.5",
         "vuepress-plugin-reading-time": "0.1.1",
         "vuepress-plugin-smooth-scroll": "0.0.10",
-        "webpack-dev-middleware": "4.1.0"
+        "webpack-dev-middleware": "4.3.0"
     }
 }
