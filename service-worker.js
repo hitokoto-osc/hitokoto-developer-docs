@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "142c47bc0de5e12b9de3391a6f576814"
+    "revision": "b5d3e5ac234a8fdf877bf945b02febc8"
   },
   {
     "url": "assets/css/0.styles.287a5d0d.css",
@@ -50,8 +50,8 @@ self.__precacheManifest = [
     "revision": "93259f370fcbf8f5ef06731f05753ebe"
   },
   {
-    "url": "assets/js/13.2fa797bb.js",
-    "revision": "c242bb8d15fd603950fa3eb0dd1eb498"
+    "url": "assets/js/13.1f0fbf7e.js",
+    "revision": "0f26883de04320412ecc8d1f5cc9bcf1"
   },
   {
     "url": "assets/js/14.d17f6467.js",
@@ -94,16 +94,16 @@ self.__precacheManifest = [
     "revision": "ac62856b72261de25a60d2e044d8d306"
   },
   {
-    "url": "assets/js/app.49fa5f01.js",
-    "revision": "dd5b731136b37bcecc3a146677290dc8"
+    "url": "assets/js/app.45d16316.js",
+    "revision": "9bed64b7c97a07bceb4fc61300a8f211"
   },
   {
     "url": "core/index.html",
-    "revision": "525bd1b7deeacdbfc711f36cc885c311"
+    "revision": "9d2c7d58ea85dcdbf4d9002304611023"
   },
   {
     "url": "core/interface/index.html",
-    "revision": "eef8e40bea052f8692a2ddc3922091ae"
+    "revision": "d29c67a65064c69bd9576380e57e011f"
   },
   {
     "url": "icons/logo.png",
@@ -115,11 +115,11 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "481834e5fa3135acf6bd226ceb5ba28c"
+    "revision": "8c57adb7dc843381257094171db8b4f3"
   },
   {
     "url": "introduce/index.html",
-    "revision": "ef2529e481512a31e8d75c5208f70079"
+    "revision": "52571b694f33e31b6a578ef5c5c81a24"
   },
   {
     "url": "logo.png",
@@ -127,15 +127,15 @@ self.__precacheManifest = [
   },
   {
     "url": "sentence/demo/index.html",
-    "revision": "cf7c2da2cfc3d2e50916805ac66fb853"
+    "revision": "8e04deb071eeb0f98060d05ebde177e0"
   },
   {
     "url": "sentence/deploy/index.html",
-    "revision": "45cd0b9d917093afc60a3b11f84e373c"
+    "revision": "d6d24454a7f4f9d852d15d309dbf7063"
   },
   {
     "url": "sentence/index.html",
-    "revision": "704dad24649df1d0f4922b9b0b5ab847"
+    "revision": "f65c313ec3a2857e4f50f26829a7c459"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
