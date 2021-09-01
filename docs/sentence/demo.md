@@ -88,7 +88,7 @@ function fetch163Playlist(playlistId) {
       .then(response => response.json())
       .then(data => {
         const arr = [];
-        data.playlist.trackIds.map(function (value) { // 参考：https://neteasecloudmusicapi.vercel.app/#/?id=%e8%8e%b7%e5%8f%96%e6%ad%8c%e5%8d%95%e8%af%a6%e6%83%85
+        data.playlist.trackIds.forEach(function (value) { // 参考：https://neteasecloudmusicapi.vercel.app/#/?id=%e8%8e%b7%e5%8f%96%e6%ad%8c%e5%8d%95%e8%af%a6%e6%83%85
           arr.push(value.id);
         });
         return arr;
@@ -122,7 +122,7 @@ function fetch163Songs(Ids) {
       .then(response => response.json())
       .then(data => {
         var songs = [];
-        data.songs.map(function (song) {
+        data.songs.forEach(function (song) {
           songs.push({
             name: song.name,
             url: song.url,
