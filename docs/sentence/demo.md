@@ -88,7 +88,7 @@ function fetch163Playlist(playlistId) {
       .then(response => response.json())
       .then(data => {
         const arr = [];
-        data.playlist.tracks.map(function (value) {
+        data.playlist.trackIds.map(function (value) { // 参考：https://neteasecloudmusicapi.vercel.app/#/?id=%e8%8e%b7%e5%8f%96%e6%ad%8c%e5%8d%95%e8%af%a6%e6%83%85
           arr.push(value.id);
         });
         return arr;
