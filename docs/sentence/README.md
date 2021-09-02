@@ -116,5 +116,5 @@
 
 ## 扩展
 
-* 网易云 API， 目前文档尚未制作，可以先参考 [Github](https://github.com/a632079/teng-koa/blob/master/netease.md)
+* 网易云 API， 目前文档尚未制作，可以先参考 [介绍](https://i.a632079.me/posts/teng-koa/)
   * **由于网易云最近封锁严重，建议自行搭建。**
