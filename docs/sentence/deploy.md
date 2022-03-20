@@ -18,7 +18,7 @@
 
 ```shell
 git clone https://github.com/hitokoto-osc/hitokoto-api.git
-# 如果您或您的机器处于国内，您可以使用这个地址代替：https://github.com.cnpmjs.org/hitokoto-osc/hitokoto-api.git
+# 如果您或您的机器处于国内，您可以使用这个地址代替：https://gitee.com/hitokoto-osc/hitokoto-api.git
 ```
 
 ### 安装包
