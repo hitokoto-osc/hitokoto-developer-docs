@@ -29,7 +29,7 @@
         "eslint-plugin-promise": "5.1.0",
         "eslint-plugin-standard": "5.0.0",
         "eslint-plugin-vue": "7.9.0",
-        "husky": "^6.0.0",
+        "husky": "6.0.0",
         "vuepress": "1.9.7",
         "vuepress-plugin-clean-urls": "1.1.2",
         "vuepress-plugin-container": "2.1.5",
