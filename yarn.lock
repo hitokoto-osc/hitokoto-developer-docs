@@ -2102,9 +2102,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/babel-preset-app@npm:4.5.13":
-  version: 4.5.13
-  resolution: "@vue/babel-preset-app@npm:4.5.13"
+"@vue/babel-preset-app@npm:4.5.18":
+  version: 4.5.18
+  resolution: "@vue/babel-preset-app@npm:4.5.18"
   dependencies:
     "@babel/core": ^7.11.0
     "@babel/helper-compilation-targets": ^7.9.6
@@ -2131,7 +2131,7 @@ __metadata:
       optional: true
     vue:
       optional: true
-  checksum: f3a8d703ab451e094c8d30a665175e872817a0d26de19eb19206f4572cf259174159893c8e3c4aa5ed21225491093ed26c09103080b02006cce19175dfb871f3
+  checksum: 4f00d91a8cb14c97b49a7d584274b5feba52e937ad971a04ce49fa08e6e4647cb62dd420fad91ea27b4b996a1b3be222b312b6daa5f1aee308a6b45af0f03cbe
   languageName: node
   linkType: hard
 
@@ -7283,7 +7283,7 @@ fsevents@~2.1.2:
   dependencies:
     "@commitlint/cli": 12.1.4
     "@commitlint/config-conventional": 12.1.4
-    "@vue/babel-preset-app": 4.5.13
+    "@vue/babel-preset-app": 4.5.18
     "@vuepress/plugin-active-header-links": 1.9.7
     "@vuepress/plugin-back-to-top": 1.9.7
     "@vuepress/plugin-google-analytics": 1.9.7
