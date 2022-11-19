@@ -20,7 +20,7 @@ import addGoogleAdsProvider from './plugins/addGoogleAdsProvider'
 
 const googleAdOptions = {
   adClient: 'ca-pub-8868204327924354',
-  adSlot: 1137431788
+  adSlot: '1137431788'
 }
 
 const theme: Theme = {
@@ -39,7 +39,7 @@ const theme: Theme = {
         ),
       'doc-after': () =>
         h(
-          GoogleAdDocAside,
+          GoogleAdDocFooter,
           {
             adClient: googleAdOptions.adClient,
             adSlot: googleAdOptions.adSlot,

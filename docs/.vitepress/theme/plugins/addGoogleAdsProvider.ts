@@ -9,10 +9,15 @@ export default function addGoogleAdsProvider(
   options: Options
 ): void {
   const { adClient } = options
-  const script = document.createElement('script')
-  script.async = true
-  script.crossOrigin = 'anonymous'
-  script.type = 'text/javascript'
-  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`
-  document.head.appendChild(script)
+  if (
+    adClient &&
+    typeof window !== 'undefined'
+  ) {
+    const script = document.createElement('script')
+    script.async = true
+    script.crossOrigin = 'anonymous'
+    script.type = 'text/javascript'
+    script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`
+    document.head.appendChild(script)
+  }
 }
