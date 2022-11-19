@@ -14,6 +14,7 @@ yarn-error.log
 
 /docs/.vuepress/dist
 /docs/.vitepress/dist
+/docs/.vitepress/.temp
 # yarn v2
 .yarn/*
 !.yarn/patches

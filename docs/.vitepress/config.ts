@@ -14,6 +14,7 @@ defineConfig({
   base: '/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    /**
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
@@ -25,6 +26,7 @@ defineConfig({
     ['link', { rel: 'mask-icon', href: '/icons/logo.svg', color: '#8921ff' }],
     ['meta', { name: 'msapplication-TileImage', content: '/icons/logo.png' }],
     ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+     */
   ],
   markdown: {
     lineNumbers: true,

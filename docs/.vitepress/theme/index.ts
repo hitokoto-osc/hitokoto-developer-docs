@@ -15,7 +15,7 @@ import NotFound from './NotFound.vue'
 // import Layout from './Layout.vue'
 
 import './styles/main.scss'
-import { addFontAwesome } from './plugins/addFontAwesome'
+// import { addFontAwesome } from './plugins/addFontAwesome'
 import addGoogleAdsProvider from './plugins/addGoogleAdsProvider'
 
 const googleAdOptions = {
@@ -34,7 +34,7 @@ const theme: Theme = {
           {
             adClient: googleAdOptions.adClient,
             adSlot: googleAdOptions.docAsideAdSlot,
-            adFormat: 'rectangle, horizontal',
+            adFormat: 'rectangle, horizontal'
           },
           () => []
         ),
@@ -44,7 +44,7 @@ const theme: Theme = {
           {
             adClient: googleAdOptions.adClient,
             adSlot: googleAdOptions.docFooterAdSlot,
-            adFormat: 'horizontal',
+            adFormat: 'horizontal'
           },
           () => []
         ),
@@ -56,7 +56,7 @@ const theme: Theme = {
   },
   NotFound: NotFound, // <- this will replace 404 page
   enhanceApp: (ctx) => {
-    addFontAwesome(ctx)
+    // addFontAwesome(ctx)
     vitepressNprogress(ctx)
     googleAnalytics({
       id: 'G-QL2J611R9Q' // Replace with your GoogleAnalytics ID, which should start with the 'G-'
