@@ -63,7 +63,7 @@ onMounted(() => {
 .google-ad-doc-footer {
   .adsbygoogle {
     display: block;
-    height: 75px;
+    height: 100px;
     width: 100%;
     iframe {
       border-radius: 8px;

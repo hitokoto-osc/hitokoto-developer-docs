@@ -20,7 +20,8 @@ import addGoogleAdsProvider from './plugins/addGoogleAdsProvider'
 
 const googleAdOptions = {
   adClient: 'ca-pub-8868204327924354',
-  adSlot: '1137431788'
+  docAsideAdSlot: '1137431788',
+  docFooterAdSlot: '7449637304'
 }
 
 const theme: Theme = {
@@ -32,7 +33,7 @@ const theme: Theme = {
           GoogleAdDocAside,
           {
             adClient: googleAdOptions.adClient,
-            adSlot: googleAdOptions.adSlot,
+            adSlot: googleAdOptions.docAsideAdSlot,
             adFormat: 'rectangle, horizontal',
           },
           () => []
@@ -42,7 +43,7 @@ const theme: Theme = {
           GoogleAdDocFooter,
           {
             adClient: googleAdOptions.adClient,
-            adSlot: googleAdOptions.adSlot,
+            adSlot: googleAdOptions.docFooterAdSlot,
             adFormat: 'horizontal',
           },
           () => []
