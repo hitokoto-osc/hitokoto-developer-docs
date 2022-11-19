@@ -104,7 +104,7 @@ defineConfig({
         collapsible: true,
         items: [
           { text: '核心接口', link: '/core/' },
-          { text: '接口定义', link: '/core/interface/' }
+          { text: '接口定义', link: '/core/interfaces/' }
         ]
       }
     ],
