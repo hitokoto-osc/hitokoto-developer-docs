@@ -70,6 +70,9 @@ onMounted(() => {
     display: block;
     height: 90px;
     width: 100%;
+    iframe {
+      border-radius: 14px;
+    }
   }
 }
 </style>
