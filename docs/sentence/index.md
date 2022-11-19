@@ -21,7 +21,7 @@
 
 请注意，由于网易云接口被过度滥用，我们于 `2022.11.18` 停用了网易云插件。  
 **如您仍有此需求，请：**
-* 自行部署接口，参考 [接口部署](/sentence/deploy/)。
+* 自行部署接口，参考 [接口部署](/sentence/deploy)。
 * 使用 NeteaseCloudMusicApi 提供的接口，参考 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
 
 :::
