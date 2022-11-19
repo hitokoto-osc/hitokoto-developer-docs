@@ -1,23 +1,21 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useData } from 'vitepress'
 const { site } = useData()
-let sentence = '加载中'
+let sentence = ref('加载中')
 
 async function fetchHitokotoSentence() {
-  const res = await fetch('https://v1.hitokoto.cn')
-  const { hitokoto, from, from_who } = await res.json()
-  sentence = `${hitokoto} —— ${from} ${from_who}`
+  const res = await window.fetch('https://v1.hitokoto.cn')
+  const data = await res.json()
+  sentence.value = `${data.hitokoto} —— ${data.from} ${data.from_who}`
 }
 
 onMounted(() => {
-  fetchHitokotoSentence()
-    .catch((e) => {
-      sentence = '加载失败'
-      console.error(e)
-    })
+  fetchHitokotoSentence().catch((e) => {
+    sentence.value = '加载失败'
+    console.error(e)
+  })
 })
-
 </script>
 
 <template>
@@ -25,11 +23,9 @@ onMounted(() => {
     <p class="code">404</p>
     <h1 class="title">页面不存在</h1>
     <div class="divider" />
-    <ClientOnly>
-      <blockquote class="quote">
-        {{ sentence }}
-      </blockquote>
-    </ClientOnly>
+    <blockquote class="quote">
+      {{ sentence }}
+    </blockquote>
     <div class="action">
       <a class="link" :href="site.base" aria-label="返回首页"> 返回首页 </a>
     </div>
