@@ -5,3 +5,8 @@ declare module '*.vue' {
   const component: DefineComponent
   export default component
 }
+
+
+interface Window {
+  adsbygoogle: any[] | undefined
+}

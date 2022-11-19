@@ -44,6 +44,7 @@ defineConfig({
     }
   },
   themeConfig: {
+    logo: './logo.png',
     // smoothScroll: true,
     // nav: require("./nav"),
     outlineTitle: '本页目录',

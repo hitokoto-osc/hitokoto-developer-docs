@@ -6,19 +6,47 @@ import googleAnalytics from 'vitepress-plugin-google-analytics'
 // Nprogress
 import vitepressNprogress from 'vitepress-plugin-nprogress'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
-// BackToTop
+// Components
 import BackToTop from './components/BackToTop.vue'
+import GoogleAdDocAside from './components/GoogleAdDocAside.vue'
+import GoogleAdDocFooter from './components/GoogleAdDocFooter.vue'
 // import RegisterSW from './components/RegisterSW.vue'
 import NotFound from './NotFound.vue'
 // import Layout from './Layout.vue'
 
 import './styles/main.scss'
 import { addFontAwesome } from './plugins/addFontAwesome'
+import addGoogleAdsProvider from './plugins/addGoogleAdsProvider'
+
+const googleAdOptions = {
+  adClient: 'ca-pub-8868204327924354',
+  adSlot: 1137431788
+}
 
 const theme: Theme = {
   ...DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
+      'aside-ads-before': () =>
+        h(
+          GoogleAdDocAside,
+          {
+            adClient: googleAdOptions.adClient,
+            adSlot: googleAdOptions.adSlot,
+            adFormat: 'rectangle, horizontal',
+          },
+          () => []
+        ),
+      'doc-after': () =>
+        h(
+          GoogleAdDocAside,
+          {
+            adClient: googleAdOptions.adClient,
+            adSlot: googleAdOptions.adSlot,
+            adFormat: 'horizontal',
+          },
+          () => []
+        ),
       'layout-bottom': () => [
         h(BackToTop)
         // h(RegisterSW)
@@ -31,6 +59,9 @@ const theme: Theme = {
     vitepressNprogress(ctx)
     googleAnalytics({
       id: 'G-QL2J611R9Q' // Replace with your GoogleAnalytics ID, which should start with the 'G-'
+    })
+    addGoogleAdsProvider(ctx, {
+      adClient: googleAdOptions.adClient
     })
   }
 }
