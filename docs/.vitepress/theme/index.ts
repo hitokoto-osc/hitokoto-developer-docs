@@ -8,7 +8,7 @@ import vitepressNprogress from 'vitepress-plugin-nprogress'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
 // BackToTop
 import BackToTop from './components/BackToTop.vue'
-
+import RegisterSW from './components/RegisterSW.vue'
 import NotFound from './NotFound.vue'
 // import Layout from './Layout.vue'
 
@@ -19,7 +19,10 @@ const theme: Theme = {
   ...DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      'layout-bottom': () => h(BackToTop)
+      'layout-bottom': () => [
+        h(BackToTop),
+        h(RegisterSW)
+      ]
     })
   },
   NotFound: NotFound, // <- this will replace 404 page
