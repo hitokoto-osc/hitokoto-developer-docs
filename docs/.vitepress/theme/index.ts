@@ -1,19 +1,27 @@
+import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
+import { Theme } from 'vitepress'
 // Google Analytics
 import googleAnalytics from 'vitepress-plugin-google-analytics'
 // Nprogress
 import vitepressNprogress from 'vitepress-plugin-nprogress'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
-
+// BackToTop
+import BackToTop from './components/BackToTop.vue'
 
 import NotFound from './NotFound.vue'
-import Layout from './Layout.vue'
+// import Layout from './Layout.vue'
+
 import './styles/main.scss'
 import { addFontAwesome } from './plugins/addFontAwesome'
 
-const theme: typeof DefaultTheme = {
+const theme: Theme = {
   ...DefaultTheme,
-  Layout: Layout,
+  Layout() {
+    return h(DefaultTheme.Layout, null, {
+      'layout-bottom': () => h(BackToTop)
+    })
+  },
   NotFound: NotFound, // <- this will replace 404 page
   enhanceApp: (ctx) => {
     addFontAwesome(ctx)
