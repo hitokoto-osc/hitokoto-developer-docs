@@ -83,11 +83,11 @@ jobs:
         secret_key: ${{ secrets.SECRET_KEY }}
         cos_bucket: ${{ secrets.BUCKET }}
         cos_region: ap-chengdu
-        local_path: docs/.vuepress/dist
+        local_path: docs/.vitepress/dist
         remote_path: /
         clean: true
     - name: Deploy docs to Github pages...
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/.vuepress/dist
+        publish_dir: ./docs/.vitepress/dist
