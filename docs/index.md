@@ -5,8 +5,8 @@ title: 一言开发者中心
 titleTemplate: 用代码表达言语的魅力，用代码书写山河的壮丽。
 
 hero:
-  name: 一言开发者中心
-  
+  name: 一言
+  text: 开发者中心
   tagline: 用代码表达言语的魅力，用代码书写山河的壮丽。
   actions:
     - theme: brand
