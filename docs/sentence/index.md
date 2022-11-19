@@ -17,6 +17,15 @@
   * 2020.01 恢复使用部分弃用字段，句子启用追踪 UUID，为主站重构做基础
   * 2020.06 发布 `1.5.0`，加入句子区间功能，重构大部分基础模块，优化性能，修复问题
 
+::: warning
+
+请注意，由于网易云接口被过度滥用，我们于 `2022.11.18` 停用了网易云插件。  
+**如您仍有此需求，请：**
+* 自行部署接口，参考 [接口部署](/docs/sentence/deploy/)。
+* 使用 NeteaseCloudMusicApi 提供的接口，参考 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
+
+:::
+
 ## 时间规划
 
 | 时间         | 版本 | 影响接口                                     | 调整                                            | 技术栈                  |
