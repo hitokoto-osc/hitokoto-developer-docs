@@ -42,7 +42,7 @@ specifiers:
   vitepress: 1.0.0-alpha.29
   vitepress-plugin-google-analytics: ^1.0.2
   vitepress-plugin-nprogress: ^0.0.4
-  vitepress-plugin-search: 1.0.4-alpha.15
+  vitepress-plugin-search: git://github.com/greenhat616/vitepress-plugin-search.git#39a26b3b23ba96175ffa9ad43044ef75d0f98218
   vue: ^3
 
 dependencies:
@@ -89,7 +89,7 @@ devDependencies:
   vitepress: 1.0.0-alpha.29_ywl2mhc3pxwv4zt3sq26gbqum4
   vitepress-plugin-google-analytics: 1.0.2
   vitepress-plugin-nprogress: 0.0.4
-  vitepress-plugin-search: 1.0.4-alpha.15_fy7kgbi6ghowo3zvdbspf5kkae
+  vitepress-plugin-search: github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218_fy7kgbi6ghowo3zvdbspf5kkae
   vue: 3.2.45
 
 packages:
@@ -5496,24 +5496,6 @@ packages:
       nprogress: 0.2.0
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.15_fy7kgbi6ghowo3zvdbspf5kkae:
-    resolution: {integrity: sha512-Ef/VkhTVYlECVI0H9Ck6745UNPfYFppAqnlxVSMJXdxP2vjOZ5TYNczlTTQ2p9dh16MFw/IurbL1/GrG4nXdNw==}
-    engines: {node: ^14.13.1 || ^16.7.0 || >=18}
-    peerDependencies:
-      flexsearch: ^0.7.31
-      vite: 2 || 3
-      vitepress: ^1.0.0-alpha.13
-      vue: '3'
-    dependencies:
-      '@types/flexsearch': 0.7.3
-      '@types/markdown-it': 12.2.3
-      flexsearch: 0.7.31
-      markdown-it: 13.0.1
-      vite: 3.2.4_sass@1.56.1
-      vitepress: 1.0.0-alpha.29_ywl2mhc3pxwv4zt3sq26gbqum4
-      vue: 3.2.45
-    dev: true
-
   /vitepress/1.0.0-alpha.29_ywl2mhc3pxwv4zt3sq26gbqum4:
     resolution: {integrity: sha512-oaRaeMLcN9M3Bxz97fFVF6Gzm3Aqtb0CijTt5TOW0XPzNPuKA0YpFnsmS97gdKmA+VztM6itRJ8K7JJuU0VS3g==}
     hasBin: true
@@ -5836,6 +5818,27 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: true
+
+  github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218_fy7kgbi6ghowo3zvdbspf5kkae:
+    resolution: {tarball: https://codeload.github.com/greenhat616/vitepress-plugin-search/tar.gz/39a26b3b23ba96175ffa9ad43044ef75d0f98218}
+    id: github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218
+    name: vitepress-plugin-search
+    version: 1.0.4-alpha.15
+    engines: {node: ^14.13.1 || ^16.7.0 || >=18}
+    peerDependencies:
+      flexsearch: ^0.7.31
+      vite: 2 || 3
+      vitepress: ^1.0.0-alpha.13
+      vue: '3'
+    dependencies:
+      '@types/flexsearch': 0.7.3
+      '@types/markdown-it': 12.2.3
+      flexsearch: 0.7.31
+      markdown-it: 13.0.1
+      vite: 3.2.4_sass@1.56.1
+      vitepress: 1.0.0-alpha.29_ywl2mhc3pxwv4zt3sq26gbqum4
+      vue: 3.2.45
     dev: true
 
   mirrors.tencent.com/concat-map/0.0.1:

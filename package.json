@@ -55,7 +55,7 @@
         "vitepress": "1.0.0-alpha.29",
         "vitepress-plugin-google-analytics": "^1.0.2",
         "vitepress-plugin-nprogress": "^0.0.4",
-        "vitepress-plugin-search": "1.0.4-alpha.15",
+        "vitepress-plugin-search": "git://github.com/greenhat616/vitepress-plugin-search.git#39a26b3b23ba96175ffa9ad43044ef75d0f98218",
         "vue": "^3"
     },
     "dependencies": {
