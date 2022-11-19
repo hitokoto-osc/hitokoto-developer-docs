@@ -8,7 +8,7 @@ import vitepressNprogress from 'vitepress-plugin-nprogress'
 import 'vitepress-plugin-nprogress/lib/css/index.css'
 // BackToTop
 import BackToTop from './components/BackToTop.vue'
-import RegisterSW from './components/RegisterSW.vue'
+// import RegisterSW from './components/RegisterSW.vue'
 import NotFound from './NotFound.vue'
 // import Layout from './Layout.vue'
 
@@ -20,8 +20,8 @@ const theme: Theme = {
   Layout() {
     return h(DefaultTheme.Layout, null, {
       'layout-bottom': () => [
-        h(BackToTop),
-        h(RegisterSW)
+        h(BackToTop)
+        // h(RegisterSW)
       ]
     })
   },
