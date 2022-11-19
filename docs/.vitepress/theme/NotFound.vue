@@ -7,7 +7,9 @@ let sentence = ref('加载中')
 async function fetchHitokotoSentence() {
   const res = await window.fetch('https://v1.hitokoto.cn')
   const data = await res.json()
-  sentence.value = `${data.hitokoto} —— ${data.from} ${data.from_who}`
+  sentence.value = `${data.hitokoto} —— ${
+    data.from_who ? data.from_who + ' ' : ''
+  }『${data.from || ''}』 `
 }
 
 onMounted(() => {
