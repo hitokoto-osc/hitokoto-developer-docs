@@ -8,7 +8,7 @@ defineConfig({
   title: '一言开发者中心',
   lang: 'zh-CN',
   lastUpdated: true,
-  cleanUrls: 'with-subfolders',
+  cleanUrls: 'without-subfolders',
   description:
     '一言，用代码表达言语的魅力，用代码书写山河的壮丽。本文档提供一言开发接口的使用说明，SDK，常见问题。',
   base: '/',
@@ -104,7 +104,7 @@ defineConfig({
         collapsible: true,
         items: [
           { text: '核心接口', link: '/core/' },
-          { text: '接口定义', link: '/core/interfaces/' }
+          { text: '接口定义', link: '/core/interface' }
         ]
       }
     ],
