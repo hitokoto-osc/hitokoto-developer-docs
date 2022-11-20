@@ -78,28 +78,28 @@ jobs:
       run: pnpm install
     - name: Build Docs...
       run: pnpm docs:build
-    - name: deploy docs to COS
-      uses: TencentCloud/cos-action@v1
-      with:
-        secret_id: ${{ secrets.SECRET_ID }}
-        secret_key: ${{ secrets.SECRET_KEY }}
-        cos_bucket: ${{ secrets.BUCKET }}
-        cos_region: ap-chengdu
-        local_path: docs/.vitepress/dist
-        remote_path: /
-        clean: true
+    #- name: Deploy docs to COS
+    #  uses: TencentCloud/cos-action@v1
+    #  with:
+    #    secret_id: ${{ secrets.SECRET_ID }}
+    #    secret_key: ${{ secrets.SECRET_KEY }}
+    #    cos_bucket: ${{ secrets.BUCKET }}
+    #    cos_region: ap-chengdu
+    #    local_path: docs/.vitepress/dist
+    #    remote_path: /
+    #    clean: true
     - name: Deploy docs to Github pages...
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vitepress/dist
-    - name: ssh deploy
+    - name: Deploy docs to Hitokoto-2 with SSH
       uses: easingthemes/ssh-deploy@v3.0.1
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
         REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
         REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
-        SOURCE: docs/.vitepress/dist
+        SOURCE: docs/.vitepress/dist/
         TARGET: ${{ secrets.SSH_TARGET }}
     
