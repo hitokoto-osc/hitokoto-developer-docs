@@ -93,3 +93,13 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vitepress/dist
+    - name: ssh deploy
+      uses: easingthemes/ssh-deploy@v3.0.1
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
+        REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
+        SOURCE: docs/.vitepress/dist
+        TARGET: ${{ secrets.SSH_TARGET }}
+    
