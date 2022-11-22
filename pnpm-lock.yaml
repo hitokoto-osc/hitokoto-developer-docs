@@ -9,7 +9,7 @@ specifiers:
   '@fortawesome/free-regular-svg-icons': ^6.2.1
   '@fortawesome/free-solid-svg-icons': ^6.2.1
   '@fortawesome/vue-fontawesome': ^3.0.2
-  '@types/lodash.debounce': ^4.0.7
+  '@types/lodash-es': ^4.17.6
   '@types/markdown-it': ^12.2.3
   '@types/markdown-it-container': ^2.0.5
   '@types/workbox-build': ^5.0.1
@@ -31,7 +31,7 @@ specifiers:
   eslint-plugin-vue: ^9.7.0
   flexsearch: ^0.7.31
   husky: ^8
-  lodash.debounce: ^4.0.8
+  lodash-es: ^4.17.21
   markdown-it: ^13.0.1
   markdown-it-container: ^3.0.0
   prettier: ^2.7.1
@@ -57,7 +57,7 @@ devDependencies:
   '@fortawesome/free-regular-svg-icons': 6.2.1
   '@fortawesome/free-solid-svg-icons': 6.2.1
   '@fortawesome/vue-fontawesome': 3.0.2_bd5ipvhrqmkjz6wvo6sgrei224
-  '@types/lodash.debounce': 4.0.7
+  '@types/lodash-es': 4.17.6
   '@types/markdown-it': 12.2.3
   '@types/markdown-it-container': 2.0.5
   '@types/workbox-build': 5.0.1
@@ -79,7 +79,7 @@ devDependencies:
   eslint-plugin-vue: 9.7.0_eslint@8.27.0
   flexsearch: 0.7.31
   husky: 8.0.2
-  lodash.debounce: 4.0.8
+  lodash-es: 4.17.21
   markdown-it: 13.0.1
   markdown-it-container: 3.0.0
   prettier: 2.7.1
@@ -1907,8 +1907,8 @@ packages:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
     dev: true
 
-  /@types/lodash.debounce/4.0.7:
-    resolution: {integrity: sha512-X1T4wMZ+gT000M2/91SYj0d/7JfeNZ9PeeOldSNoE/lunLeQXKvkmIumI29IaKMotU/ln/McOIvgzZcQ/3TrSA==}
+  /@types/lodash-es/4.17.6:
+    resolution: {integrity: sha512-R+zTeVUKDdfoRxpAryaQNRKk3105Rrgx2CFRClIgRGaqDTdjsm8h6IYA8ir584W3ePzkZfst5xIgDwYrlh9HLg==}
     dependencies:
       '@types/lodash': 4.14.189
     dev: true
@@ -4343,6 +4343,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: true
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: true
 
   /lodash.debounce/4.0.8:

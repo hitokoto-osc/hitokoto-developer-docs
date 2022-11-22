@@ -1,7 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Fira+Code&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap);
-@import url(https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500,700&display=swap);
-
+// Libs
+@import url(https://fonts.loli.net/css?family=Fira+Code&display=swap);
+@import url(https://fonts.loli.net/css?family=Roboto:400,500,700&display=swap);
+@import url(https://fonts.loli.net/css?family=Noto+Sans+SC:400,500,700&display=swap);
+@import url(https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css);
+// Partials
 @import './containers/theorem.scss';
 @import './mixins.scss';
 @import './vars.scss';

@@ -2,7 +2,7 @@
 import { computed, ref, onMounted } from 'vue'
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // import '@fortawesome/fontawesome-svg-core/styles.css'
-import debounce from 'lodash.debounce'
+import {debounce} from 'lodash-es'
 const scrollTop = ref(0)
 const props = defineProps({
   threshold: {
@@ -32,13 +32,16 @@ onMounted(() => {
     'scroll',
     debounce(() => {
       scrollTop.value = getScrollTop()
-    }, 100)
+    }, 50)
   )
 })
 </script>
 
 <template>
-  <Transition name="fade">
+  <Transition name="fade"
+  enter-active-class="animate__animated animate__bounceInRight"
+  leave-active-class="animate__animated animate__bounceOutRight"
+  >
     <div class="back-to-top" v-show="show" @click="scrollToTop">
       <!--<FontAwesomeIcon icon="fa-solid fa-chevron-up" />-->
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -63,7 +66,12 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10000;
 
+  &:hover {
+    animation: heartBeat 1s infinite;
+    cursor: pointer;
+  }
   svg {
     font-size: 16px;
     width: 16px;
