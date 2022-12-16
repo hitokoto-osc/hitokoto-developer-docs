@@ -39,7 +39,7 @@ specifiers:
   typescript: ^4.9.3
   vite: ^4.0.0
   vite-plugin-pwa: ^0.13.3
-  vitepress: 1.0.0-alpha.31
+  vitepress: 1.0.0-alpha.32
   vitepress-plugin-google-analytics: ^1.0.2
   vitepress-plugin-nprogress: ^0.0.4
   vitepress-plugin-search: github:greenhat616/vitepress-plugin-search#39a26b3b23ba96175ffa9ad43044ef75d0f98218
@@ -86,10 +86,10 @@ devDependencies:
   typescript: 4.9.3
   vite: 4.0.0_sass@1.56.1
   vite-plugin-pwa: 0.13.3_vite@4.0.0
-  vitepress: 1.0.0-alpha.31_ywl2mhc3pxwv4zt3sq26gbqum4
+  vitepress: 1.0.0-alpha.32_ywl2mhc3pxwv4zt3sq26gbqum4
   vitepress-plugin-google-analytics: 1.0.2
   vitepress-plugin-nprogress: 0.0.4
-  vitepress-plugin-search: github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218_sev2a7gmo2ovoj5o4ryinzvr3e
+  vitepress-plugin-search: github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218_obylesgeeckbusrt4b5gsifoni
   vue: 3.2.45
 
 packages:
@@ -5546,8 +5546,8 @@ packages:
       nprogress: 0.2.0
     dev: true
 
-  /vitepress/1.0.0-alpha.31_ywl2mhc3pxwv4zt3sq26gbqum4:
-    resolution: {integrity: sha512-FWFXLs7WLbFbemxjBWo2S2+qUZCIoeLLyAKfVUpIu3LUB8oQ8cyIANRGO6f6zsM51u2bvJU9Sm+V6Z0WjOWS2Q==}
+  /vitepress/1.0.0-alpha.32_ywl2mhc3pxwv4zt3sq26gbqum4:
+    resolution: {integrity: sha512-Q45N1cLdRr8MAu/+wAKKow7CNQD4sNBlSNsW1UxYfkvSgwPN/dlEmpEkQl/uOpE3C1kv3jvvEJVY0RAIaJFWYQ==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.0
@@ -5870,7 +5870,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218_sev2a7gmo2ovoj5o4ryinzvr3e:
+  github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218_obylesgeeckbusrt4b5gsifoni:
     resolution: {tarball: https://codeload.github.com/greenhat616/vitepress-plugin-search/tar.gz/39a26b3b23ba96175ffa9ad43044ef75d0f98218}
     id: github.com/greenhat616/vitepress-plugin-search/39a26b3b23ba96175ffa9ad43044ef75d0f98218
     name: vitepress-plugin-search
@@ -5887,7 +5887,7 @@ packages:
       flexsearch: 0.7.31
       markdown-it: 13.0.1
       vite: 4.0.0_sass@1.56.1
-      vitepress: 1.0.0-alpha.31_ywl2mhc3pxwv4zt3sq26gbqum4
+      vitepress: 1.0.0-alpha.32_ywl2mhc3pxwv4zt3sq26gbqum4
       vue: 3.2.45
     dev: true
 
