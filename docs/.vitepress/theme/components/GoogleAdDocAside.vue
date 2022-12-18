@@ -57,14 +57,14 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
+  // gap: 0.75rem;
   background-color: var(--vp-c-bg-alt);
-  border: 2px solid var(--vp-c-bg-alt);
+  // border: 2px solid var(--vp-c-bg-alt);
   transition: border-color 0.5s;
 }
 .google-ad-aside:hover {
   filter: grayscale(0%);
-  border: 2px solid var(--vp-c-brand-light);
+  // border: 2px solid var(--vp-c-brand-light);
 }
 
 .google-ad-aside {
