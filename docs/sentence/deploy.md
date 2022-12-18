@@ -59,7 +59,7 @@ npm i -g pm2 # 由于项目内默认环境为 yarn v2，为了避免干扰，这
 pm2 startup
 ```
 
-由于项目已经提供了配置问卷，所以直接使用配置文件启动语句接口服务
+由于项目已经提供了配置文件，所以直接使用配置文件启动语句接口服务
 
 ```shell
 pm2 start ecosystem.config.js --env production
