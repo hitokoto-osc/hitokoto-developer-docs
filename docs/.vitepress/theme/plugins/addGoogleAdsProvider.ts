@@ -11,7 +11,8 @@ export default function addGoogleAdsProvider(
   const { adClient } = options
   if (
     adClient &&
-    typeof window !== 'undefined'
+    typeof window !== 'undefined' &&
+    import.meta.env.PROD
   ) {
     const script = document.createElement('script')
     script.async = true

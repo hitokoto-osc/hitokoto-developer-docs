@@ -21,10 +21,12 @@ const props = defineProps({
 
 
 onMounted(() => {
-  if (typeof window !== 'undefined') {
-    ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-  } else {
-    console.warn(`[GoogleAdDocAside] adsbygoogle object is undefined!`)
+  if (import.meta.env.PROD) {
+    if (typeof window !== 'undefined') {
+      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    } else {
+      console.warn(`[GoogleAdDocAside] adsbygoogle object is undefined!`)
+    }
   }
 })
 
