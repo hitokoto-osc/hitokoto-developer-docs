@@ -15,7 +15,7 @@ specifiers:
   '@types/workbox-build': ^5.0.1
   '@typescript-eslint/eslint-plugin': ^5.46.1
   '@typescript-eslint/parser': ^5.46.1
-  '@vite-pwa/vitepress': ^0.0.2
+  '@vite-pwa/vitepress': ^0.0.3
   '@vue/babel-preset-app': ^5.0.8
   '@vue/eslint-config-prettier': ^7.0.0
   '@vue/eslint-config-typescript': ^11.0.2
@@ -63,7 +63,7 @@ devDependencies:
   '@types/workbox-build': 5.0.1
   '@typescript-eslint/eslint-plugin': 5.46.1_mqzxmroayievgzgel6yrqgih5i
   '@typescript-eslint/parser': 5.46.1_lzzuuodtsqwxnvqeq4g4likcqa
-  '@vite-pwa/vitepress': 0.0.2_n46hanechhcb4seycmn3d5vts4
+  '@vite-pwa/vitepress': 0.0.3_vite-plugin-pwa@0.14.0
   '@vue/babel-preset-app': 5.0.8_vue@3.2.45
   '@vue/eslint-config-prettier': 7.0.0_l5rdqc4k22455lce6ocqroldia
   '@vue/eslint-config-typescript': 11.0.2_eh2oupyoc3mviptu6zovyv6md4
@@ -2320,13 +2320,11 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@vite-pwa/vitepress/0.0.2_n46hanechhcb4seycmn3d5vts4:
-    resolution: {integrity: sha512-APi8KZFH9QIIUGUB/Fxg2ZMlsOFqH9psntf13YReysM+xZDXQRu2WexA26Gpdo8wCnTUbgLFnekmdGYFoxLGMw==}
+  /@vite-pwa/vitepress/0.0.3_vite-plugin-pwa@0.14.0:
+    resolution: {integrity: sha512-dk044nNz1DEDZ9V+BEt8TUJKBUeIaPuPT2YJ3R0eeNu+WN9v2dx46tyDzbAAV6PCU6O0VdhNv11gTtJooj3yQQ==}
     peerDependencies:
-      '@types/workbox-build': ^5.0.1
-      vite-plugin-pwa: ^0.13.3
+      vite-plugin-pwa: ^0.14.0
     dependencies:
-      '@types/workbox-build': 5.0.1
       vite-plugin-pwa: 0.14.0_vite@4.0.1
     dev: true
 
