@@ -29,7 +29,7 @@
     "@types/workbox-build": "^5.0.1",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.46.1",
-    "@vite-pwa/vitepress": "^0.0.3",
+    "@vite-pwa/vitepress": "^0.0.4",
     "@vue/babel-preset-app": "^5.0.8",
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-typescript": "^11.0.2",
