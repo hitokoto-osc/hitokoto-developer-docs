@@ -39,7 +39,7 @@ specifiers:
   typescript: ^4.9.4
   vite: ^4.0.1
   vite-plugin-pwa: ^0.14.0
-  vitepress: 1.0.0-alpha.36
+  vitepress: 1.0.0-alpha.38
   vitepress-plugin-google-analytics: ^1.0.2
   vitepress-plugin-nprogress: ^0.0.4
   vitepress-plugin-search: ^1.0.4-alpha.17
@@ -86,10 +86,10 @@ devDependencies:
   typescript: 4.9.4
   vite: 4.0.1_sass@1.57.0
   vite-plugin-pwa: 0.14.0_vite@4.0.1
-  vitepress: 1.0.0-alpha.36_cct55stpgjbazy6nkz45owp6mu
+  vitepress: 1.0.0-alpha.38_cct55stpgjbazy6nkz45owp6mu
   vitepress-plugin-google-analytics: 1.0.2
   vitepress-plugin-nprogress: 0.0.4
-  vitepress-plugin-search: 1.0.4-alpha.17_kn7anexbxxrkhgyetpuzck67ra
+  vitepress-plugin-search: 1.0.4-alpha.17_bwywjx2malasiwjws3734ow2oi
   vue: 3.2.45
 
 packages:
@@ -5640,7 +5640,7 @@ packages:
       nprogress: 0.2.0
     dev: true
 
-  /vitepress-plugin-search/1.0.4-alpha.17_kn7anexbxxrkhgyetpuzck67ra:
+  /vitepress-plugin-search/1.0.4-alpha.17_bwywjx2malasiwjws3734ow2oi:
     resolution: {integrity: sha512-yxZxfNK51n5xiStjr3aSxsTTUqrm9JmYHuwq59bMrGxNyEyigrFtNybmhHQokVrcxDblokKX9f96sSQmz3PypQ==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -5654,12 +5654,12 @@ packages:
       flexsearch: 0.7.31
       markdown-it: 13.0.1
       vite: 4.0.1_sass@1.57.0
-      vitepress: 1.0.0-alpha.36_cct55stpgjbazy6nkz45owp6mu
+      vitepress: 1.0.0-alpha.38_cct55stpgjbazy6nkz45owp6mu
       vue: 3.2.45
     dev: true
 
-  /vitepress/1.0.0-alpha.36_cct55stpgjbazy6nkz45owp6mu:
-    resolution: {integrity: sha512-JH9NlBQpQrcIudF1HM8Sq3K6FbOiOTrD33PI0n+pmJQ7dOu4WAm3YnwevMInW8leNiEEWCAH+coIkOYcf3fhpQ==}
+  /vitepress/1.0.0-alpha.38_cct55stpgjbazy6nkz45owp6mu:
+    resolution: {integrity: sha512-p3Kb2KM2dw6gnnnKFeBH01seqXWB6fY6uE+RY9sH8dBY7asP4OulB7cmhnVDVTX94gaPnKFbVsbc3KPe3l2Slw==}
     hasBin: true
     dependencies:
       '@docsearch/css': 3.3.1
