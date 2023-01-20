@@ -352,19 +352,19 @@
     "message": "Ok.",
     "data": [
         {
-            "id": 3,
-            "user_id": 1044,
-            "email_notification_global": 1,
-            "email_notification_hitokoto_appended": 1,
-            "email_notification_hitokoto_reviewed": 1,
-            "email_notification_poll_created": 1,
-            "email_notification_poll_result": 1,
-            "email_notification_poll_daily_report": 1,
-            "updated_at": "2020-02-24T10:52:05.000000Z",
-            "created_at": "2020-02-24T10:39:52.000000Z"
+            "id": 1044,
+            "name": "a632079",
+            "email": "a632079@qq.com",
+            "is_suspended": 0,
+            "is_admin": 1,
+            "is_reviewer": 0,
+            "email_verified_at": "2020-02-13T11:08:45.000000Z",
+            "created_from": "web",
+            "created_at": "2018-01-13T18:20:04.000000Z",
+            "updated_at": "2021-12-03T23:34:55.000000Z"
         }
     ],
-    "ts": 1582541559807
+    "ts": 1674205403715
 }
 ```
 
@@ -926,7 +926,7 @@
 ### 句子相关
 --------------------
 
-::: theorem 提交一言
+::: theorem 获取审核标记列表
 
 * 路径： `/mark`
 * 方法： `GET`
@@ -940,115 +940,155 @@
 
 ```json
 {
-    "status":200,
-    "message":"Ok.",
-    "data":[
+    "status": 200,
+    "message": "Ok.",
+    "data": [
         {
-            "id":1,
-            "text":"绝妙好辞，字字珠玑",
-            "level":"info",
-            "property":1,
-            "updated_at":"2020-03-18 06:44:21",
-            "created_at":"2020-03-18 06:44:21"
+            "id": 1,
+            "text": "绝妙好辞，字字珠玑",
+            "level": "info",
+            "property": 1,
+            "updated_at": "2020-03-17T22:44:21.000000Z",
+            "created_at": "2020-03-17T22:44:21.000000Z"
         },
         {
-            "id":2,
-            "text":"不符合社会主义核心价值观",
-            "level":"danger",
-            "property":2,
-            "updated_at":"2020-03-18 06:43:59",
-            "created_at":"2020-03-18 06:43:59"
+            "id": 2,
+            "text": "不符合社会主义核心价值观",
+            "level": "danger",
+            "property": 2,
+            "updated_at": "2020-03-17T22:43:59.000000Z",
+            "created_at": "2020-03-17T22:43:59.000000Z"
         },
         {
-            "id":3,
-            "text":"语言低俗/庸俗/恶劣",
-            "level":"danger",
-            "property":2,
-            "updated_at":"2020-03-18 06:44:41",
-            "created_at":"2020-03-18 06:44:41"
+            "id": 3,
+            "text": "语言低俗/庸俗/恶劣",
+            "level": "danger",
+            "property": 2,
+            "updated_at": "2020-03-17T22:44:41.000000Z",
+            "created_at": "2020-03-17T22:44:41.000000Z"
         },
         {
-            "id":4,
-            "text":"没有修改价值",
-            "level":"warning",
-            "property":2,
-            "updated_at":"2020-03-18 06:46:52",
-            "created_at":"2020-03-18 06:46:52"
+            "id": 4,
+            "text": "没有修改价值",
+            "level": "warning",
+            "property": 2,
+            "updated_at": "2020-03-17T22:46:52.000000Z",
+            "created_at": "2020-03-17T22:46:52.000000Z"
         },
         {
-            "id":5,
-            "text":"句子过长",
-            "level":"warning",
-            "property":2,
-            "updated_at":"2020-03-18 06:47:09",
-            "created_at":"2020-03-18 06:47:09"
+            "id": 5,
+            "text": "句子过长",
+            "level": "warning",
+            "property": 2,
+            "updated_at": "2020-03-17T22:47:09.000000Z",
+            "created_at": "2020-03-17T22:47:09.000000Z"
         },
         {
-            "id":6,
-            "text":"存在标点符号缺失/错误使用",
-            "level":"warning",
-            "property":3,
-            "updated_at":"2020-03-18 06:48:58",
-            "created_at":"2020-03-18 06:48:58"
+            "id": 6,
+            "text": "存在标点符号缺失/错误使用",
+            "level": "warning",
+            "property": 3,
+            "updated_at": "2020-03-17T22:48:58.000000Z",
+            "created_at": "2020-03-17T22:48:58.000000Z"
         },
         {
-            "id":7,
-            "text":"存在换行/空格现象",
-            "level":"warning",
-            "property":3,
-            "updated_at":"2020-03-18 06:47:53",
-            "created_at":"2020-03-18 06:47:53"
+            "id": 7,
+            "text": "存在换行/空格现象",
+            "level": "warning",
+            "property": 3,
+            "updated_at": "2020-03-17T22:47:53.000000Z",
+            "created_at": "2020-03-17T22:47:53.000000Z"
         },
         {
-            "id":8,
-            "text":"来源错误或误用",
-            "level":"danger",
-            "property":3,
-            "updated_at":"2020-03-18 06:49:09",
-            "created_at":"2020-03-18 06:49:09"
+            "id": 8,
+            "text": "来源错误或误用",
+            "level": "danger",
+            "property": 3,
+            "updated_at": "2020-03-17T22:49:09.000000Z",
+            "created_at": "2020-03-17T22:49:09.000000Z"
         },
         {
-            "id":9,
-            "text":"作者错误或误用",
-            "level":"danger",
-            "property":3,
-            "updated_at":"2020-03-18 06:49:19",
-            "created_at":"2020-03-18 06:49:19"
+            "id": 9,
+            "text": "作者错误或误用",
+            "level": "danger",
+            "property": 3,
+            "updated_at": "2020-03-17T22:49:19.000000Z",
+            "created_at": "2020-03-17T22:49:19.000000Z"
         },
         {
-            "id":10,
-            "text":"作者/来源填写有误（位置不对）",
-            "level":"info",
-            "property":3,
-            "updated_at":"2020-03-18 06:50:09",
-            "created_at":"2020-03-18 06:50:09"
+            "id": 10,
+            "text": "作者/来源填写有误（位置不对）",
+            "level": "info",
+            "property": 3,
+            "updated_at": "2020-03-17T22:50:09.000000Z",
+            "created_at": "2020-03-17T22:50:09.000000Z"
         },
         {
-            "id":11,
-            "text":"句子存在错误",
-            "level":"danger",
-            "property":3,
-            "updated_at":"2020-03-18 06:50:25",
-            "created_at":"2020-03-18 06:50:25"
+            "id": 11,
+            "text": "句子存在错误",
+            "level": "danger",
+            "property": 3,
+            "updated_at": "2020-03-17T22:50:25.000000Z",
+            "created_at": "2020-03-17T22:50:25.000000Z"
         },
         {
-            "id":12,
-            "text":"句子信息存疑",
-            "level":"warning",
-            "property":3,
-            "updated_at":"2020-03-18 06:50:41",
-            "created_at":"2020-03-18 06:50:41"
+            "id": 12,
+            "text": "句子信息存疑",
+            "level": "warning",
+            "property": 3,
+            "updated_at": "2020-03-17T22:50:41.000000Z",
+            "created_at": "2020-03-17T22:50:41.000000Z"
         },
         {
-            "id":13,
-            "text":"分类有误",
-            "level":"danger",
-            "property":3,
-            "updated_at":"2020-03-18 06:50:55",
-            "created_at":"2020-03-18 06:50:55"
+            "id": 13,
+            "text": "分类有误",
+            "level": "danger",
+            "property": 3,
+            "updated_at": "2020-03-17T22:50:55.000000Z",
+            "created_at": "2020-03-17T22:50:55.000000Z"
+        },
+        {
+            "id": 14,
+            "text": "暂不符合一言收录规则",
+            "level": "danger",
+            "property": 2,
+            "updated_at": "2020-04-02T08:00:36.000000Z",
+            "created_at": "2020-04-02T08:00:36.000000Z"
+        },
+        {
+            "id": 15,
+            "text": "无意义、水",
+            "level": "danger",
+            "property": 2,
+            "updated_at": "2020-04-02T08:01:52.000000Z",
+            "created_at": "2020-04-02T08:01:52.000000Z"
+        },
+        {
+            "id": 16,
+            "text": "需要管理员直接介入",
+            "level": "danger",
+            "property": 3,
+            "updated_at": "2020-04-02T08:02:45.000000Z",
+            "created_at": "2020-04-02T08:02:45.000000Z"
+        },
+        {
+            "id": 17,
+            "text": "来源/作者填写有误（不应是“未知”/“不确定”等）",
+            "level": "warning",
+            "property": 3,
+            "updated_at": "2020-04-02T16:33:24.000000Z",
+            "created_at": "2020-04-02T16:33:24.000000Z"
+        },
+        {
+            "id": 18,
+            "text": "文本中含有广告/推广信息",
+            "level": "danger",
+            "property": 2,
+            "updated_at": "2020-04-02T16:33:21.000000Z",
+            "created_at": "2020-04-02T16:33:21.000000Z"
         }
     ],
-    "ts":1584505155611
+    "ts": 1674205665433
 }
 ```
 
