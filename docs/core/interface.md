@@ -41,10 +41,10 @@
             "is_suspended": 0, // 账户是否被暂停，如果被暂停的话，鉴权接口都会返回 403
             "is_admin": 0, // 账户是否是管理员
             "is_reviewer": 0, // 账户是否时审核员
-            "email_verified_at": "2020-02-17 00:00:00",
+            "email_verified_at": "2020-02-13T11:08:45.000000Z",
             "created_from": "api",
-            "created_at": "2020-02-16 18:18:16",
-            "updated_at": "2020-02-16 18:29:43",
+            "created_at": "2018-01-13T18:20:04.000000Z",
+            "updated_at": "2021-12-03T23:34:55.000000Z",
             "token": "xxxxxxxxxxxxxxxxxxxxxx" // 长度应该为 40
         }
     ],
@@ -149,23 +149,23 @@
 
 ```json
 {
-  "status": 200,
-  "message": "Ok.",
-  "data": [
-    {
-      "id": 1044,
-      "name": "a632079",
-      "email": "a632079@qq.com",
-      "is_suspended": 0,
-      "is_admin": 1,
-      "is_reviewer": 0,
-      "email_verified_at": "2020-02-13 19:08:45",
-      "created_from": "web",
-      "created_at": "2018-01-13T18:20:04.000000Z",
-      "updated_at": "2020-02-22T17:06:52.000000Z"
-    }
-  ],
-  "ts": 1582433802658
+    "status": 200,
+    "message": "Ok.",
+    "data": [
+        {
+            "id": 1044,
+            "name": "a632079",
+            "email": "a632079@qq.com",
+            "is_suspended": 0,
+            "is_admin": 1,
+            "is_reviewer": 0,
+            "email_verified_at": "2020-02-13T11:08:45.000000Z",
+            "created_from": "web",
+            "created_at": "2018-01-13T18:20:04.000000Z",
+            "updated_at": "2021-12-03T23:34:55.000000Z"
+        }
+    ],
+    "ts": 1674205403715
 }
 ```
 
@@ -352,20 +352,21 @@
     "message": "Ok.",
     "data": [
         {
-            "id": 1044,
-            "name": "a632079",
-            "email": "a632079@qq.com",
-            "is_suspended": 0,
-            "is_admin": 1,
-            "is_reviewer": 0,
-            "email_verified_at": "2020-02-13T11:08:45.000000Z",
-            "created_from": "web",
-            "created_at": "2018-01-13T18:20:04.000000Z",
-            "updated_at": "2021-12-03T23:34:55.000000Z"
+            "id": 3,
+            "user_id": 1044,
+            "email_notification_global": 1,
+            "email_notification_hitokoto_appended": 1,
+            "email_notification_hitokoto_reviewed": 1,
+            "email_notification_poll_created": 1,
+            "email_notification_poll_result": 1,
+            "email_notification_poll_daily_report": 1,
+            "updated_at": "2020-02-24T10:52:05.000000Z",
+            "created_at": "2020-02-24T10:39:52.000000Z"
         }
     ],
-    "ts": 1674205403715
+    "ts": 1582541559807
 }
+
 ```
 
 --------------------
