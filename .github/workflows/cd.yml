@@ -94,7 +94,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vitepress/dist
     - name: Deploy docs to Hitokoto-2 with SSH
-      uses: easingthemes/ssh-deploy@v3.1.0
+      uses: easingthemes/ssh-deploy@v3.4.5
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
