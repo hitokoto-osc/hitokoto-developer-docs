@@ -1,1 +1,0 @@
-import{_ as t,c as s,o as a,U as o}from"./chunks/framework.160e32d9.js";const u=JSON.parse('{"title":"核心接口","description":"","frontmatter":{},"headers":[],"relativePath":"core/index.md","lastUpdated":1668843595000}'),n={name:"core/index.md"},l=o("",25),p=[l];function e(d,r,c,D,F,i){return a(),s("div",null,p)}const h=t(n,[["render",e]]);export{u as __pageData,h as default};
