@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   sass:
     specifier: ^1.57.0
@@ -112,11 +116,11 @@ devDependencies:
     specifier: ^4.9.4
     version: 4.9.4
   vite:
-    specifier: ^4.0.1
-    version: 4.0.1(@types/node@14.18.35)(sass@1.57.0)
+    specifier: ^4.0.5
+    version: 4.0.5(@types/node@14.18.35)(sass@1.57.0)
   vite-plugin-pwa:
     specifier: ^0.14.0
-    version: 0.14.0(vite@4.0.1)(workbox-build@6.5.4)(workbox-window@6.5.4)
+    version: 0.14.0(vite@4.0.5)(workbox-build@6.5.4)(workbox-window@6.5.4)
   vitepress:
     specifier: 1.0.0-alpha.75
     version: 1.0.0-alpha.75(@algolia/client-search@4.14.2)(@types/node@14.18.35)(sass@1.57.0)
@@ -128,7 +132,7 @@ devDependencies:
     version: 0.0.4
   vitepress-plugin-search:
     specifier: ^1.0.4-alpha.17
-    version: 1.0.4-alpha.17(flexsearch@0.7.31)(vite@4.0.1)(vitepress@1.0.0-alpha.75)(vue@3.2.45)
+    version: 1.0.4-alpha.17(flexsearch@0.7.31)(vite@4.0.5)(vitepress@1.0.0-alpha.75)(vue@3.2.45)
   vue:
     specifier: ^3.2.45
     version: 3.2.45
@@ -2564,7 +2568,7 @@ packages:
     peerDependencies:
       vite-plugin-pwa: ^0.14.0
     dependencies:
-      vite-plugin-pwa: 0.14.0(vite@4.0.1)(workbox-build@6.5.4)(workbox-window@6.5.4)
+      vite-plugin-pwa: 0.14.0(vite@4.0.5)(workbox-build@6.5.4)(workbox-window@6.5.4)
     dev: true
 
   /@vitejs/plugin-vue@4.2.1(vite@4.3.3)(vue@3.2.47):
@@ -4939,12 +4943,6 @@ packages:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
 
-  /nanoid@3.3.4:
-    resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
-    engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
-    hasBin: true
-    dev: true
-
   /nanoid@3.3.6:
     resolution: {integrity: sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -5144,15 +5142,6 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-    dev: true
-
-  /postcss@8.4.20:
-    resolution: {integrity: sha512-6Q04AXR1212bXr5fh03u8aAwbLxAQNGQ/Q1LNa0VfOI06ZAlhPHtQvE4OIdpj4kLThXilalPnmDSOD65DcHt+g==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.4
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
     dev: true
 
   /postcss@8.4.23:
@@ -5914,7 +5903,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-plugin-pwa@0.14.0(vite@4.0.1)(workbox-build@6.5.4)(workbox-window@6.5.4):
+  /vite-plugin-pwa@0.14.0(vite@4.0.5)(workbox-build@6.5.4)(workbox-window@6.5.4):
     resolution: {integrity: sha512-3wZx47PLWTckOQhc8Y6YZjAbNZ89Ovh4TdCT97MGhgl7aFd2LUekVnAmIgFwgMqyxzJ93nmkPF/ALpEW/i2qCg==}
     peerDependencies:
       vite: ^3.1.0 || ^4.0.0
@@ -5926,15 +5915,15 @@ packages:
       fast-glob: 3.2.12
       pretty-bytes: 6.0.0
       rollup: 3.7.5
-      vite: 4.0.1(@types/node@14.18.35)(sass@1.57.0)
+      vite: 4.0.5(@types/node@14.18.35)(sass@1.57.0)
       workbox-build: 6.5.4
       workbox-window: 6.5.4
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@4.0.1(@types/node@14.18.35)(sass@1.57.0):
-    resolution: {integrity: sha512-kZQPzbDau35iWOhy3CpkrRC7It+HIHtulAzBhMqzGHKRf/4+vmh8rPDDdv98SWQrFWo6//3ozwsRmwQIPZsK9g==}
+  /vite@4.0.5(@types/node@14.18.35)(sass@1.57.0):
+    resolution: {integrity: sha512-7m87RC+caiAxG+8j3jObveRLqaWA/neAdCat6JAZwMkSWqFHOvg8MYe5fAQxVBRAuKAQ1S6XDh3CBQuLNbY33w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
     peerDependencies:
@@ -5960,9 +5949,9 @@ packages:
     dependencies:
       '@types/node': 14.18.35
       esbuild: 0.16.8
-      postcss: 8.4.20
+      postcss: 8.4.23
       resolve: 1.22.1
-      rollup: 3.7.5
+      rollup: 3.21.2
       sass: 1.57.0
     optionalDependencies:
       fsevents: 2.3.2
@@ -6012,7 +6001,7 @@ packages:
       nprogress: 0.2.0
     dev: true
 
-  /vitepress-plugin-search@1.0.4-alpha.17(flexsearch@0.7.31)(vite@4.0.1)(vitepress@1.0.0-alpha.75)(vue@3.2.45):
+  /vitepress-plugin-search@1.0.4-alpha.17(flexsearch@0.7.31)(vite@4.0.5)(vitepress@1.0.0-alpha.75)(vue@3.2.45):
     resolution: {integrity: sha512-yxZxfNK51n5xiStjr3aSxsTTUqrm9JmYHuwq59bMrGxNyEyigrFtNybmhHQokVrcxDblokKX9f96sSQmz3PypQ==}
     engines: {node: ^14.13.1 || ^16.7.0 || >=18}
     peerDependencies:
@@ -6025,7 +6014,7 @@ packages:
       '@types/markdown-it': 12.2.3
       flexsearch: 0.7.31
       markdown-it: 13.0.1
-      vite: 4.0.1(@types/node@14.18.35)(sass@1.57.0)
+      vite: 4.0.5(@types/node@14.18.35)(sass@1.57.0)
       vitepress: 1.0.0-alpha.75(@algolia/client-search@4.14.2)(@types/node@14.18.35)(sass@1.57.0)
       vue: 3.2.45
     dev: true
