@@ -10,8 +10,11 @@ jobs:
   ci:
     name: Build & Test
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20 ]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -20,7 +23,7 @@ jobs:
       name: Install pnpm
       id: pnpm-install
       with:
-        version: 7
+        version: 8
         run_install: false
 
     - name: Get pnpm store directory
@@ -45,19 +48,22 @@ jobs:
     name: Deploy
     needs: ci
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20 ]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: 16
+        node-version: ${{ matrix.node-version }}
     - uses: pnpm/action-setup@v2
       name: Install pnpm
       id: pnpm-install
       with:
-        version: 7
+        version: 8
         run_install: false
 
     - name: Get pnpm store directory
@@ -94,7 +100,7 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./docs/.vitepress/dist
     - name: Deploy docs to Hitokoto-2 with SSH
-      uses: easingthemes/ssh-deploy@v3.1.0
+      uses: easingthemes/ssh-deploy@v4
       with:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
@@ -102,4 +108,4 @@ jobs:
         REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
         SOURCE: docs/.vitepress/dist/
         TARGET: ${{ secrets.SSH_TARGET }}
-    
+
