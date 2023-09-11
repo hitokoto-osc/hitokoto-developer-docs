@@ -1,13 +1,20 @@
 <script setup lang="ts">
 import { useData } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import { nextTick, provide } from 'vue'
+import { nextTick, provide, reactive } from 'vue'
 
+// Components
+import BackToTop from './components/BackToTop.vue'
+import GoogleAdDocAside from './components/GoogleAdDocAside.vue'
+import GoogleAdDocFooter from './components/GoogleAdDocFooter.vue'
+
+// 切换 夜间 / 日间 模式
 const { isDark } = useData()
-
 function enableTransitions() {
-  return 'startViewTransition' in document
-      && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+  return (
+    'startViewTransition' in document &&
+    window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+  )
 }
 
 provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
@@ -19,11 +26,12 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
     `circle(${Math.hypot(
-        Math.max(x, innerWidth - x),
-        Math.max(y, innerHeight - y),
-    )}px at ${x}px ${y}px)`,
+      Math.max(x, innerWidth - x),
+      Math.max(y, innerHeight - y)
+    )}px at ${x}px ${y}px)`
   ]
 
+  // @ts-ignore:ts(2339)
   await document.startViewTransition(async () => {
     isDark.value = !isDark.value
     await nextTick()
@@ -34,17 +42,42 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     {
       duration: 300,
       easing: 'ease-in',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`,
-    },
+      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
+    }
   )
+})
+
+// Google Ads
+const googleAdOptions = reactive({
+  adClient: 'ca-pub-8868204327924354',
+  docAsideAdSlot: '1137431788',
+  docFooterAdSlot: '7449637304'
 })
 </script>
 
 <template>
-  <DefaultTheme.Layout />
+  <DefaultTheme.Layout>
+    <template #aside-ads-before>
+      <GoogleAdDocAside
+        :ad-client="googleAdOptions.adClient"
+        :ad-slot="googleAdOptions.docAsideAdSlot"
+        ad-format="rectangle, horizontal"
+      />
+    </template>
+    <template #doc-after>
+      <GoogleAdDocFooter
+        :ad-client="googleAdOptions.adClient"
+        :ad-slot="googleAdOptions.docFooterAdSlot"
+        ad-format="horizontal"
+      />
+    </template>
+    <template #layout-bottom>
+      <BackToTop />
+    </template>
+  </DefaultTheme.Layout>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
