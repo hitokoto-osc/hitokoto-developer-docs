@@ -1,81 +1,71 @@
 <script setup lang="ts">
-import { provide, watch } from 'vue'
-import { useData, useRoute } from 'vitepress'
-import { useSidebar, useCloseSidebarOnEscape } from './composables/sidebar'
-import VPSkipLink from 'vitepress/dist/client/theme-default/components/VPSkipLink.vue'
-import VPBackdrop from 'vitepress/dist/client/theme-default/components/VPBackdrop.vue'
-import VPNav from 'vitepress/dist/client/theme-default/components/VPNav.vue'
-import VPLocalNav from 'vitepress/dist/client/theme-default/components/VPLocalNav.vue'
-import VPSidebar from 'vitepress/dist/client/theme-default/components/VPSidebar.vue'
-import VPContent from 'vitepress/dist/client/theme-default/components/VPContent.vue'
-import VPFooter from 'vitepress/dist/client/theme-default/components/VPFooter.vue'
-import BackToTop from './components/BackToTop.vue'
+import { useData } from 'vitepress'
+import DefaultTheme from 'vitepress/theme'
+import { nextTick, provide } from 'vue'
 
-const {
-  isOpen: isSidebarOpen,
-  open: openSidebar,
-  close: closeSidebar
-} = useSidebar()
+const { isDark } = useData()
 
-const route = useRoute()
-watch(() => route.path, closeSidebar)
+function enableTransitions() {
+  return 'startViewTransition' in document
+      && window.matchMedia('(prefers-reduced-motion: no-preference)').matches
+}
 
-useCloseSidebarOnEscape(isSidebarOpen, closeSidebar)
+provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+  if (!enableTransitions()) {
+    isDark.value = !isDark.value
+    return
+  }
 
-provide('close-sidebar', closeSidebar)
+  const clipPath = [
+    `circle(0px at ${x}px ${y}px)`,
+    `circle(${Math.hypot(
+        Math.max(x, innerWidth - x),
+        Math.max(y, innerHeight - y),
+    )}px at ${x}px ${y}px)`,
+  ]
 
-const { frontmatter } = useData()
+  await document.startViewTransition(async () => {
+    isDark.value = !isDark.value
+    await nextTick()
+  }).ready
+
+  document.documentElement.animate(
+    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    {
+      duration: 300,
+      easing: 'ease-in',
+      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`,
+    },
+  )
+})
 </script>
 
 <template>
-  <div v-if="frontmatter.layout !== false" class="Layout">
-    <slot name="layout-top" />
-    <VPSkipLink />
-    <VPBackdrop class="backdrop" :show="isSidebarOpen" @click="closeSidebar" />
-    <VPNav>
-      <template #nav-bar-title-before><slot name="nav-bar-title-before" /></template>
-      <template #nav-bar-title-after><slot name="nav-bar-title-after" /></template>
-      <template #nav-bar-content-before><slot name="nav-bar-content-before" /></template>
-      <template #nav-bar-content-after><slot name="nav-bar-content-after" /></template>
-      <template #nav-screen-content-before><slot name="nav-screen-content-before" /></template>
-      <template #nav-screen-content-after><slot name="nav-screen-content-after" /></template>
-    </VPNav>
-    <VPLocalNav :open="isSidebarOpen" @open-menu="openSidebar" />
-
-    <VPSidebar :open="isSidebarOpen">
-      <template #sidebar-nav-before><slot name="sidebar-nav-before" /></template>
-      <template #sidebar-nav-after><slot name="sidebar-nav-after" /></template>
-    </VPSidebar>
-
-    <VPContent>
-      <template #home-hero-before><slot name="home-hero-before" /></template>
-      <template #home-hero-after><slot name="home-hero-after" /></template>
-      <template #home-features-before><slot name="home-features-before" /></template>
-      <template #home-features-after><slot name="home-features-after" /></template>
-
-      <template #doc-footer-before><slot name="doc-footer-before" /></template>
-      <template #doc-before><slot name="doc-before" /></template>
-      <template #doc-after><slot name="doc-after" /></template>
-
-      <template #aside-top><slot name="aside-top" /></template>
-      <template #aside-bottom><slot name="aside-bottom" /></template>
-      <template #aside-outline-before><slot name="aside-outline-before" /></template>
-      <template #aside-outline-after><slot name="aside-outline-after" /></template>
-      <template #aside-ads-before><slot name="aside-ads-before" /></template>
-      <template #aside-ads-after><slot name="aside-ads-after" /></template>
-    </VPContent>
-
-    <VPFooter />
-    <slot name="layout-bottom" />
-    <BackToTop />
-  </div>
-  <Content v-else />
+  <DefaultTheme.Layout />
 </template>
 
-<style scoped>
-.Layout {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+<style lang="scss" scoped>
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root),
+.dark::view-transition-new(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root),
+.dark::view-transition-old(root) {
+  z-index: 9999;
+}
+
+.VPSwitchAppearance {
+  width: 22px !important;
+}
+
+.VPSwitchAppearance .check {
+  transform: none !important;
 }
 </style>

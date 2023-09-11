@@ -12,8 +12,9 @@ import GoogleAdDocAside from './components/GoogleAdDocAside.vue'
 import GoogleAdDocFooter from './components/GoogleAdDocFooter.vue'
 // import RegisterSW from './components/RegisterSW.vue'
 import NotFound from './NotFound.vue'
-// import Layout from './Layout.vue'
+import Layout from './Layout.vue'
 
+import 'virtual:uno.css'
 import './styles/main.scss'
 // import { addFontAwesome } from './plugins/addFontAwesome'
 import addGoogleAdsProvider from './plugins/addGoogleAdsProvider'
@@ -27,7 +28,7 @@ const googleAdOptions = {
 const theme: Theme = {
   ...DefaultTheme,
   Layout() {
-    return h(DefaultTheme.Layout, null, {
+    return h(Layout, null, {
       'aside-ads-before': () =>
         h(
           GoogleAdDocAside,

@@ -1,11 +1,11 @@
-import { SearchPlugin } from 'vitepress-plugin-search'
+import { SearchPlugin, type SearchData } from 'vitepress-plugin-search'
 import { defineConfig } from 'vite'
+import UnoCSS from 'unocss/vite'
 
-const options = {
-  encode: false,
+const searchPluginOptions: Partial<SearchData['Options']> = {
   tokenize: 'full'
 }
 
 export default defineConfig({
-  plugins: [SearchPlugin(options)]
+  plugins: [SearchPlugin(searchPluginOptions), UnoCSS()]
 })

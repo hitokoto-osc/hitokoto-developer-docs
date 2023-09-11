@@ -3,6 +3,8 @@ import { defineConfig } from 'vitepress'
 import Container from 'markdown-it-container'
 import Token from 'markdown-it/lib/token'
 
+const currentYear = new Date().getFullYear()
+
 export default // withPwa(
 defineConfig({
   title: '一言开发者中心',
@@ -96,12 +98,12 @@ defineConfig({
     ],
     footer: {
       message: '本文档遵循 MIT 协议',
-      copyright: 'Copyright © 2022 MoeTeam'
+      copyright: `© ${currentYear} MoeTeam All Rights Reserved.`
     },
     sidebar: [
       {
         text: '序',
-        collapsible: true,
+        // collapsed: false,
         items: [
           { text: '主页', link: '/' },
           { text: '介绍', link: '/introduce' }
@@ -109,7 +111,7 @@ defineConfig({
       },
       {
         text: '语句接口',
-        collapsible: true,
+        // collapsed: false,
         items: [
           { text: '语句接口', link: '/sentence/' },
           { text: '使用示例', link: '/sentence/demo' },
@@ -118,7 +120,7 @@ defineConfig({
       },
       {
         text: '核心接口',
-        collapsible: true,
+        // collapsed: false,
         items: [
           { text: '核心接口', link: '/core/' },
           { text: '接口定义', link: '/core/interface' }
