@@ -16,6 +16,7 @@ defineConfig({
   base: '/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'stylesheet', href: 'https://s4.zstatic.net/ajax/libs/animate.css/4.1.1/animate.min.css', integrity: 'sha384-Gu3KVV2H9d+yA4QDpVB7VcOyhJlAVrcXd0thEjr4KznfaFPLe0xQJyonVxONa4ZC', crossorigin: 'anonymous' }],
     /**
     ['link', { rel: 'manifest', href: '/manifest.json' }],
     ['meta', { name: 'theme-color', content: '#ffffff' }],
