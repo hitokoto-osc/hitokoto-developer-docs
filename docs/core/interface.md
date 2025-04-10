@@ -40,7 +40,7 @@
             "email": "a632079@hitokoto.cn",
             "is_suspended": 0, // 账户是否被暂停，如果被暂停的话，鉴权接口都会返回 403
             "is_admin": 0, // 账户是否是管理员
-            "is_reviewer": 0, // 账户是否时审核员
+            "is_reviewer": 0, // 账户是否是审核员
             "email_verified_at": "2020-02-13T11:08:45.000000Z",
             "created_from": "api",
             "created_at": "2018-01-13T18:20:04.000000Z",
