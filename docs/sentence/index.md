@@ -22,7 +22,7 @@
 由于网易云接口被过度滥用，我们于 <u>`2022.11.18`</u> 停用了网易云插件。  
 **如您仍有此需求，请：**
 * 自行部署接口，参考 [接口部署](/sentence/deploy)。
-* 使用 NeteaseCloudMusicApi 提供的接口，参考 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
+* 由于原接口仓库被网易云举报（[相关新闻](https://www.landiannews.com/archives/101953.html)），故我们不会继续提供网易云音乐API接口。
 
 :::
 
@@ -38,7 +38,7 @@
 
 由于一言目前属于公益性运营，为了保证资源的公平利用和不过度消耗公益资金，我们会定期的屏蔽某些大流量的站点。若您的站点的流量较大，您需要提前联系我们获得授权后再开始使用。对于超过阈值的站点，我们有可能会通过一定途径（例如邮件）等方式联系您，若 24 小时无回应则域名将暂时进入黑名单。
 
-考虑到大家的实际应用需求，我们在 **[爱发电](https://afdian.net/@hitokoto)** 上架了一个可以提高请求限制的赞助选项，有需要可以前往了解。
+考虑到大家的实际应用需求，我们在 **[爱发电](https://ifdian.net/a/hitokoto)** 上架了一个可以提高请求限制的赞助选项，有需要可以前往了解。
 
 ## 接口说明
 
@@ -52,7 +52,7 @@
 
 语句库使用指南：<https://sentences-bundle.hitokoto.cn>
 
-为了一言的长久发展，我们恳求您在使用一言服务的同时 **尽可能** 地加入一言的链接（如：添加友情链接，为一言文本附加超链接）。
+为了一言的长久发展，我们恳求您在使用一言服务的同时 **尽可能** 地加入一言的链接（如：添加友情链接，为一言文本附加超链接），例如通过 <https://hitokoto.cn?uuid=[uuid]> 来跳转到一言服务网站。
 
 ### 请求地址
 
@@ -65,7 +65,7 @@
 
 > 国际站当前因持续的流量、负载和攻击题，开启了缓存，缓存2s过期。实际效果：同一个地区、线路、使用同一参数的访问者短时间内得到的句子是一致的。这样可以有效的降低运算服务器的负载，并提高用户体验，也可以反爬虫。
 > 目前不确定该规则国内站是否一并开启，将根据后期运营情况确定。
-> 可以确定的一点：我们**不欢迎**爬虫通过不断刷新接口爬取句子数据库。一言接口使用的句子数据库已全部公开，可查看[语句库]<https://sentences-bundle.hitokoto.cn>进行使用。
+> 可以确定的一点：我们**不欢迎爬虫通过不断刷新接口爬取句子数据库**。一言接口使用的句子数据库已全部公开，可查看[语句库](https://sentences-bundle.hitokoto.cn)进行使用。
 
 ### 请求参数
 
@@ -133,9 +133,42 @@
 | created_at  | 添加时间                                                     |
 | length      | 句子长度                                                     |
 
+### 示例
+
+#### 请求参数如下：
+
+```text
+https://v1.hitokoto.cn/?c=f
+```
+
+#### 返回值：
+
+```json
+{
+    "id": 7338,
+    "uuid": "75a45fd4-4f2f-45eb-80cb-6f0a7bcdfaf2",
+    "hitokoto": "用代码表达言语的魅力，用代码书写山河的壮丽。",
+    "type": "f",
+    "from": "一言开发者中心",
+    "from_who": "一言",
+    "creator": "DreamOne",
+    "creator_uid": 9209,
+    "reviewer": 4756,
+    "commit_from": "web",
+    "created_at": "1621833280",
+    "length": 22
+  }
+```
+
+#### 一言完整信息链接：
+
+```text
+https://hitokoto.cn?uuid=75a45fd4-4f2f-45eb-80cb-6f0a7bcdfaf2
+```
+
 ## 扩展
 
 * 网易云 API，当前相关文档尚未制作，可以先参考 [介绍](https://i.a632079.me/posts/teng-koa/)
   * 请注意，由于网易云接口被过度滥用，现网接口于 `2022.11.18` 停用了网易云插件。**如您仍有此需求，建议如下方案：**
     * 自行部署接口，参考 [接口部署](/sentence/deploy.html)。
-    * 使用 NeteaseCloudMusicApi 提供的接口，参考 [NeteaseCloudMusicApi](https://github.com/Binaryify/NeteaseCloudMusicApi)
+    * 由于原接口仓库被网易云举报（[相关新闻](https://www.landiannews.com/archives/101953.html)），故我们不会继续提供网易云音乐API接口。
