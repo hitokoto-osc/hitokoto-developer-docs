@@ -88,7 +88,17 @@ hitokoto/api:latest
 
 嗯，启动完毕。是不是很简单呢？
 
-其他启动方式你可以自己摸索一下，比如说，不用 host 网络怎么运行。
+下面是以bridge网络的方式启动
+
+```shell
+sudo docker run \
+-v /path/to/your/data/dir:/usr/src/app/data \ # 请替换 /path/to/your/data/dir 为您想存储接口持久化数据的目录绝对位置
+--network bridge \ #可以使用默认的bridge或者自己创建的网桥
+-p 8000:8000 \ #可以将左边的8000修改为自己喜欢的端口号
+hitokoto/api:latest
+```
+
+其他启动方式你可以自己摸索一下。
 
 ### 使用 docker-compose 启动服务
 
