@@ -124,3 +124,11 @@ jobs:
           REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
           SOURCE: docs/.vitepress/dist/
           TARGET: ${{ secrets.SSH_TARGET }}
+      - name: "刷新多吉云 CDN 缓存"
+        uses: seatonjiang/dogecloud-cdn-action@main
+        with:
+          access_key: ${{ secrets.DOGECLOUD_ACCESS_KEY }}
+          secret_key: ${{ secrets.DOGECLOUD_SECRET_KEY }}
+          type: "path"
+          urls:
+            - "https://developer.hitokoto.cn/"
