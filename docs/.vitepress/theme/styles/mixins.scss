@@ -1,5 +1,4 @@
-@import './mixins/VPNavBarSearch.scss';
-@import './mixins/VPImage.scss';
-@import './mixins/VPNavBarTitle.scss';
-@import './mixins/VPSocialLink.scss';
-@import './mixins/VPHome.scss';
+@forward './mixins/VPImage.scss';
+@forward './mixins/VPNavBarTitle.scss';
+@forward './mixins/VPSocialLink.scss';
+@forward './mixins/VPHome.scss';

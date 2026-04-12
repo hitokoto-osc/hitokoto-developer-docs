@@ -7,6 +7,7 @@ import { nextTick, provide, reactive } from 'vue'
 import BackToTop from './components/BackToTop.vue'
 import GoogleAdDocAside from './components/GoogleAdDocAside.vue'
 import GoogleAdDocFooter from './components/GoogleAdDocFooter.vue'
+import MeiliSearch from './components/MeiliSearch.vue'
 
 // 切换 夜间 / 日间 模式
 const { isDark } = useData()
@@ -57,6 +58,9 @@ const googleAdOptions = reactive({
 
 <template>
   <DefaultTheme.Layout>
+    <template #nav-bar-content-after>
+      <MeiliSearch />
+    </template>
     <template #aside-ads-before>
       <GoogleAdDocAside
         :ad-client="googleAdOptions.adClient"
