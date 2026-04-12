@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { MeiliSearch } from "meilisearch";
+import { Meilisearch } from "meilisearch";
 import { readFileSync, readdirSync } from "fs";
 import { join, relative, basename, extname } from "path";
 import { fileURLToPath } from "url";
@@ -14,7 +14,7 @@ const {
   VITE_MEILISEARCH_INDEX_NAME: indexName,
 } = env;
 
-const client = new MeiliSearch({ host, apiKey: adminKey });
+const client = new Meilisearch({ host, apiKey: adminKey });
 
 /** Recursively collect all .md files, skipping dotfiles/directories */
 function getMarkdownFiles(dir) {
@@ -70,7 +70,7 @@ async function main() {
   // 1. Clear: delete index if it exists, then recreate
   try {
     const deleteTask = await client.deleteIndex(indexName);
-    await client.waitForTask(deleteTask.taskUid);
+    await client.tasks.waitForTask(deleteTask.taskUid);
     console.log("Cleared existing index.");
   } catch {
     // Index may not exist yet — that's fine
@@ -84,7 +84,7 @@ async function main() {
     displayedAttributes: ["title", "url", "headings", "body"],
     rankingRules: ["words", "typo", "proximity", "attribute", "sort", "exactness"],
   });
-  await client.waitForTask(settingsTask.taskUid);
+  await client.tasks.waitForTask(settingsTask.taskUid);
 
   // 3. Collect and parse documents
   const files = getMarkdownFiles(docsDir);
@@ -112,7 +112,7 @@ async function main() {
   // 4. Index all documents
   console.log(`Indexing ${documents.length} documents...`);
   const addTask = await index.addDocuments(documents);
-  await client.waitForTask(addTask.taskUid);
+  await client.tasks.waitForTask(addTask.taskUid);
   console.log("Indexing completed!");
 }
 

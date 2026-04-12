@@ -16,7 +16,7 @@
     "typecheck": "vue-tsc --noEmit",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:index": "node --env-file=.env scripts/meilisearch-index.mjs",
+    "docs:index": "node --env-file=.env.local scripts/meilisearch-index.mjs",
     "docs:deploy-local": "pnpm docs:build && pnpm docs:index",
     "docs:serve": "vitepress serve docs",
     "postinstall": "husky install"

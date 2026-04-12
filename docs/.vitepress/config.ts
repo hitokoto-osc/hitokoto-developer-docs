@@ -7,6 +7,9 @@ const currentYear = new Date().getFullYear();
 
 export default // withPwa(
 defineConfig({
+  vite: {
+    envDir: process.cwd(),
+  },
   title: "一言开发者中心",
   lang: "zh-CN",
   lastUpdated: true,
