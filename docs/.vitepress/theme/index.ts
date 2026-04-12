@@ -10,7 +10,7 @@ import 'vitepress-plugin-nprogress/lib/css/index.css'
 import NotFound from './NotFound.vue'
 import Layout from './Layout.vue'
 
-import 'virtual:uno.css'
+import 'tailwindcss/theme.css'
 import './styles/main.scss'
 // import { addFontAwesome } from './plugins/addFontAwesome'
 import addGoogleAdsProvider from './plugins/addGoogleAdsProvider'
