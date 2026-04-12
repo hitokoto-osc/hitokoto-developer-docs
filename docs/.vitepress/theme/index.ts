@@ -11,6 +11,7 @@ import NotFound from "./NotFound.vue";
 import Layout from "./Layout.vue";
 
 import "tailwindcss/theme.css";
+import "tailwindcss/utilities.css";
 import "./styles/main.scss";
 // import { addFontAwesome } from './plugins/addFontAwesome'
 import addGoogleAdsProvider from "./plugins/addGoogleAdsProvider";

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "module": "esnext",
     "target": "es2016",
     "lib": ["dom", "esnext"],
@@ -8,13 +7,13 @@
     "esModuleInterop": true,
     "incremental": false,
     "skipLibCheck": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@/*": ["docs/.vitepress/*"],
+      "@/*": ["./docs/.vitepress/*"],
       "~/*": ["./*"]
     }
   },

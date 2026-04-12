@@ -58,7 +58,7 @@ const googleAdOptions = reactive({
 
 <template>
   <DefaultTheme.Layout>
-    <template #nav-bar-content-after>
+    <template #nav-bar-content-before>
       <MeiliSearch />
     </template>
     <template #aside-ads-before>

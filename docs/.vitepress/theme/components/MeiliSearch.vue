@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted, nextTick, computed, shallowRef } from "vue";
 import { useRouter, inBrowser } from "vitepress";
-import type { MeiliSearch as MeiliSearchType } from "meilisearch";
+import type { Meilisearch as MeiliSearchType } from "meilisearch";
 
 const isOpen = ref(false);
 const query = ref("");
@@ -28,8 +28,8 @@ function onGlobalKeydown(e: KeyboardEvent) {
 }
 
 onMounted(async () => {
-  const { MeiliSearch } = await import("meilisearch");
-  client.value = new MeiliSearch({
+  const { Meilisearch } = await import("meilisearch");
+  client.value = new Meilisearch({
     host: import.meta.env.VITE_MEILISEARCH_HOST || "",
     apiKey: import.meta.env.VITE_MEILISEARCH_SEARCH_KEY || "",
   });
@@ -202,6 +202,7 @@ function scrollToSelected() {
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: 14px;
   padding: 0 12px;
   height: 40px;
   border: 1px solid var(--vp-c-divider);
