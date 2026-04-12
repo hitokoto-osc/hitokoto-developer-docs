@@ -10,7 +10,7 @@ import { ensureStartingSlash } from "./utils";
 export function getSidebar(
   sidebar: DefaultTheme.Sidebar,
   path: string,
-): DefaultTheme.SidebarGroup[] {
+): DefaultTheme.SidebarItem[] {
   if (Array.isArray(sidebar)) {
     return sidebar;
   }
@@ -30,25 +30,29 @@ export function getSidebar(
       return path.startsWith(ensureStartingSlash(candidate));
     });
 
-  return dir ? sidebar[dir] : [];
+  if (!dir) return [];
+  const found = sidebar[dir];
+  return Array.isArray(found) ? found : found.items;
 }
 
-export function getFlatSideBarLinks(sidebar: DefaultTheme.SidebarGroup[]) {
+export function getFlatSideBarLinks(sidebar: DefaultTheme.SidebarItem[]) {
   const links: { text: string; link: string }[] = [];
 
   function recursivelyExtractLinks(items: DefaultTheme.SidebarItem[]) {
     for (const item of items) {
-      if (item.link) {
-        links.push({ ...item, link: item.link });
+      if (item.link && item.text) {
+        links.push({ text: item.text, link: item.link });
       }
-      if ("items" in item) {
+      if ("items" in item && item.items) {
         recursivelyExtractLinks(item.items);
       }
     }
   }
 
   for (const group of sidebar) {
-    recursivelyExtractLinks(group.items);
+    if (group.items) {
+      recursivelyExtractLinks(group.items);
+    }
   }
   return links;
 }

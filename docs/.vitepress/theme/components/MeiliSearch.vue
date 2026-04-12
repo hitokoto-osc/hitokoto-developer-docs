@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, onMounted, onUnmounted, nextTick, computed, shallowRef } from "vue";
-import { useRouter, inBrowser } from "vitepress";
+import { useRouter } from "vitepress";
 import type { Meilisearch as MeiliSearchType } from "meilisearch";
 import { env } from "../../env";
 

@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 // import { withPwa } from '@vite-pwa/vitepress'
 import Container from "markdown-it-container";
-import Token from "markdown-it/lib/token";
+import type Token from "markdown-it/lib/token.mjs";
 
 const currentYear = new Date().getFullYear();
 
