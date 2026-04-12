@@ -1,37 +1,33 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted } from "vue";
 const props = defineProps({
   adClient: {
     type: String,
-    required: true
+    required: true,
   },
   adSlot: {
     type: String,
-    required: true
+    required: true,
   },
   adFormat: {
     type: String,
-    default: 'auto'
+    default: "auto",
   },
   fullWidthResponsive: {
     type: Boolean,
-    default: false
-  }
-})
-
+    default: false,
+  },
+});
 
 onMounted(() => {
   if (import.meta.env.PROD) {
-    if (typeof window !== 'undefined') {
-      ;(window.adsbygoogle = window.adsbygoogle || []).push({})
+    if (typeof window !== "undefined") {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
     } else {
-      console.warn(`[GoogleAdDocAside] adsbygoogle object is undefined!`)
+      console.warn(`[GoogleAdDocAside] adsbygoogle object is undefined!`);
     }
   }
-})
-
-
-
+});
 </script>
 
 <template>

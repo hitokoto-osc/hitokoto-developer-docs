@@ -1,123 +1,133 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted, nextTick, computed, shallowRef } from 'vue'
-import { useRouter, inBrowser } from 'vitepress'
-import type { MeiliSearch as MeiliSearchType } from 'meilisearch'
+import { ref, watch, onMounted, onUnmounted, nextTick, computed, shallowRef } from "vue";
+import { useRouter, inBrowser } from "vitepress";
+import type { MeiliSearch as MeiliSearchType } from "meilisearch";
 
-const isOpen = ref(false)
-const query = ref('')
-const results = ref<any[]>([])
-const selectedIndex = ref(0)
-const inputRef = ref<HTMLInputElement>()
-const resultsRef = ref<HTMLElement>()
+const isOpen = ref(false);
+const query = ref("");
+const results = ref<any[]>([]);
+const selectedIndex = ref(0);
+const inputRef = ref<HTMLInputElement>();
+const resultsRef = ref<HTMLElement>();
 
-const client = shallowRef<MeiliSearchType>()
-const indexName = import.meta.env.VITE_MEILISEARCH_INDEX_NAME || 'docs'
-const router = useRouter()
+const client = shallowRef<MeiliSearchType>();
+const indexName = import.meta.env.VITE_MEILISEARCH_INDEX_NAME || "docs";
+const router = useRouter();
 
 const metaKey = computed(() =>
-  typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform)
-    ? '⌘'
-    : 'Ctrl'
-)
+  typeof navigator !== "undefined" && /Mac|iPod|iPhone|iPad/.test(navigator.platform)
+    ? "⌘"
+    : "Ctrl",
+);
 
 function onGlobalKeydown(e: KeyboardEvent) {
-  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-    e.preventDefault()
-    isOpen.value = !isOpen.value
+  if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+    e.preventDefault();
+    isOpen.value = !isOpen.value;
   }
 }
 
 onMounted(async () => {
-  const { MeiliSearch } = await import('meilisearch')
+  const { MeiliSearch } = await import("meilisearch");
   client.value = new MeiliSearch({
-    host: import.meta.env.VITE_MEILISEARCH_HOST || '',
-    apiKey: import.meta.env.VITE_MEILISEARCH_SEARCH_KEY || ''
-  })
-  window.addEventListener('keydown', onGlobalKeydown)
-})
-onUnmounted(() => window.removeEventListener('keydown', onGlobalKeydown))
+    host: import.meta.env.VITE_MEILISEARCH_HOST || "",
+    apiKey: import.meta.env.VITE_MEILISEARCH_SEARCH_KEY || "",
+  });
+  window.addEventListener("keydown", onGlobalKeydown);
+});
+onUnmounted(() => window.removeEventListener("keydown", onGlobalKeydown));
 
 watch(isOpen, (val) => {
   if (val) {
-    nextTick(() => inputRef.value?.focus())
-    document.body.style.overflow = 'hidden'
+    nextTick(() => inputRef.value?.focus());
+    document.body.style.overflow = "hidden";
   } else {
-    query.value = ''
-    results.value = []
-    selectedIndex.value = 0
-    document.body.style.overflow = ''
+    query.value = "";
+    results.value = [];
+    selectedIndex.value = 0;
+    document.body.style.overflow = "";
   }
-})
+});
 
-let timer: ReturnType<typeof setTimeout>
+let timer: ReturnType<typeof setTimeout>;
 
 watch(query, (val) => {
-  clearTimeout(timer)
+  clearTimeout(timer);
   if (!val.trim()) {
-    results.value = []
-    selectedIndex.value = 0
-    return
+    results.value = [];
+    selectedIndex.value = 0;
+    return;
   }
   timer = setTimeout(async () => {
-    if (!client.value) return
+    if (!client.value) return;
     try {
       const res = await client.value.index(indexName).search(val, {
         limit: 20,
-        attributesToHighlight: ['title', 'body'],
-        attributesToCrop: ['body'],
+        attributesToHighlight: ["title", "body"],
+        attributesToCrop: ["body"],
         cropLength: 80,
-        highlightPreTag: '<mark>',
-        highlightPostTag: '</mark>'
-      })
-      results.value = res.hits
-      selectedIndex.value = 0
+        highlightPreTag: "<mark>",
+        highlightPostTag: "</mark>",
+      });
+      results.value = res.hits;
+      selectedIndex.value = 0;
     } catch {
-      results.value = []
+      results.value = [];
     }
-  }, 200)
-})
+  }, 200);
+});
 
 function navigate(url: string) {
-  isOpen.value = false
-  router.go(url)
+  isOpen.value = false;
+  router.go(url);
 }
 
 function onInputKeydown(e: KeyboardEvent) {
-  if (e.key === 'Escape') {
-    isOpen.value = false
-  } else if (e.key === 'ArrowDown') {
-    e.preventDefault()
-    selectedIndex.value = Math.min(selectedIndex.value + 1, results.value.length - 1)
-    scrollToSelected()
-  } else if (e.key === 'ArrowUp') {
-    e.preventDefault()
-    selectedIndex.value = Math.max(selectedIndex.value - 1, 0)
-    scrollToSelected()
-  } else if (e.key === 'Enter') {
-    e.preventDefault()
-    const hit = results.value[selectedIndex.value]
-    if (hit) navigate(hit.url)
+  if (e.key === "Escape") {
+    isOpen.value = false;
+  } else if (e.key === "ArrowDown") {
+    e.preventDefault();
+    selectedIndex.value = Math.min(selectedIndex.value + 1, results.value.length - 1);
+    scrollToSelected();
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    selectedIndex.value = Math.max(selectedIndex.value - 1, 0);
+    scrollToSelected();
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    const hit = results.value[selectedIndex.value];
+    if (hit) navigate(hit.url);
   }
 }
 
 function scrollToSelected() {
   nextTick(() => {
-    const el = resultsRef.value?.querySelector('.meili-result-item.selected')
-    el?.scrollIntoView({ block: 'nearest' })
-  })
+    const el = resultsRef.value?.querySelector(".meili-result-item.selected");
+    el?.scrollIntoView({ block: "nearest" });
+  });
 }
 </script>
 
 <template>
   <!-- Search Button -->
   <button class="meili-search-button" @click="isOpen = true" aria-label="搜索">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.3-4.3" />
     </svg>
     <span class="meili-search-button-text">搜索</span>
     <span class="meili-search-button-keys">
-      <kbd>{{ metaKey }}</kbd><kbd>K</kbd>
+      <kbd>{{ metaKey }}</kbd
+      ><kbd>K</kbd>
     </span>
   </button>
 
@@ -127,7 +137,16 @@ function scrollToSelected() {
       <div class="meili-search-modal">
         <!-- Input -->
         <div class="meili-search-input-wrapper">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <circle cx="11" cy="11" r="8" />
             <path d="m21 21-4.3-4.3" />
           </svg>
@@ -163,19 +182,14 @@ function scrollToSelected() {
         </div>
 
         <!-- Empty state -->
-        <div v-else-if="query.trim()" class="meili-search-empty">
-          没有找到相关结果
-        </div>
+        <div v-else-if="query.trim()" class="meili-search-empty">没有找到相关结果</div>
 
         <!-- Footer -->
         <div class="meili-search-footer">
-          <span>
-            <kbd>↑</kbd><kbd>↓</kbd> 导航
-            <kbd>↵</kbd> 跳转
-            <kbd>Esc</kbd> 关闭
-          </span>
+          <span> <kbd>↑</kbd><kbd>↓</kbd> 导航 <kbd>↵</kbd> 跳转 <kbd>Esc</kbd> 关闭 </span>
           <span class="meili-search-powered">
-            Powered by <a href="https://www.meilisearch.com" target="_blank" rel="noopener">Meilisearch</a>
+            Powered by
+            <a href="https://www.meilisearch.com" target="_blank" rel="noopener">Meilisearch</a>
           </span>
         </div>
       </div>
@@ -196,7 +210,9 @@ function scrollToSelected() {
   color: var(--vp-c-text-2);
   cursor: pointer;
   font-size: 14px;
-  transition: border-color 0.25s, color 0.25s;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
 }
 
 .meili-search-button:hover {

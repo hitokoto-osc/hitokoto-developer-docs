@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useData } from 'vitepress'
-const { site } = useData()
-let sentence = ref('加载中')
+import { onMounted, ref } from "vue";
+import { useData } from "vitepress";
+const { site } = useData();
+let sentence = ref("加载中");
 
 async function fetchHitokotoSentence() {
-  const res = await window.fetch('https://v1.hitokoto.cn')
-  const data = await res.json()
+  const res = await window.fetch("https://v1.hitokoto.cn");
+  const data = await res.json();
   sentence.value = `${data.hitokoto} —— ${
-    data.from_who ? data.from_who + ' ' : ''
-  }『${data.from || ''}』 `
+    data.from_who ? data.from_who + " " : ""
+  }『${data.from || ""}』 `;
 }
 
 onMounted(() => {
   fetchHitokotoSentence().catch((e) => {
-    sentence.value = '加载失败'
-    console.error(e)
-  })
-})
+    sentence.value = "加载失败";
+    console.error(e);
+  });
+});
 </script>
 
 <template>
@@ -80,7 +80,9 @@ onMounted(() => {
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-brand);
-  transition: border-color 0.25s, color 0.25s;
+  transition:
+    border-color 0.25s,
+    color 0.25s;
 }
 .link:hover {
   border-color: var(--vp-c-brand-dark);

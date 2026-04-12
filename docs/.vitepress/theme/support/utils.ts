@@ -1,12 +1,12 @@
-import { ref } from 'vue'
+import { ref } from "vue";
 // import { withBase, useData } from 'vitepress'
 // import { EXTERNAL_URL_RE } from '../../shared.js'
 
-export const HASH_RE = /#.*$/
-export const EXT_RE = /(index)?\.(md|html)$/
+export const HASH_RE = /#.*$/;
+export const EXT_RE = /(index)?\.(md|html)$/;
 
-const inBrowser = typeof window !== 'undefined'
-const hashRef = ref(inBrowser ? location.hash : '')
+const inBrowser = typeof window !== "undefined";
+const hashRef = ref(inBrowser ? location.hash : "");
 
 /**
 export function isExternal(path: string): boolean {
@@ -15,60 +15,60 @@ export function isExternal(path: string): boolean {
  */
 
 export function throttleAndDebounce(fn: () => void, delay: number): () => void {
-  let timeoutId: NodeJS.Timeout
-  let called = false
+  let timeoutId: NodeJS.Timeout;
+  let called = false;
 
   return () => {
     if (timeoutId) {
-      clearTimeout(timeoutId)
+      clearTimeout(timeoutId);
     }
 
     if (!called) {
-      fn()
-      called = true
+      fn();
+      called = true;
       setTimeout(() => {
-        called = false
-      }, delay)
+        called = false;
+      }, delay);
     } else {
-      timeoutId = setTimeout(fn, delay)
+      timeoutId = setTimeout(fn, delay);
     }
-  }
+  };
 }
 
 export function isActive(
   currentPath: string,
   matchPath?: string,
-  asRegex: boolean = false
+  asRegex: boolean = false,
 ): boolean {
   if (matchPath === undefined) {
-    return false
+    return false;
   }
 
-  currentPath = normalize(`/${currentPath}`)
+  currentPath = normalize(`/${currentPath}`);
 
   if (asRegex) {
-    return new RegExp(matchPath).test(currentPath)
+    return new RegExp(matchPath).test(currentPath);
   }
 
   if (normalize(matchPath) !== currentPath) {
-    return false
+    return false;
   }
 
-  const hashMatch = matchPath.match(HASH_RE)
+  const hashMatch = matchPath.match(HASH_RE);
 
   if (hashMatch) {
-    return hashRef.value === hashMatch[0]
+    return hashRef.value === hashMatch[0];
   }
 
-  return true
+  return true;
 }
 
 export function ensureStartingSlash(path: string): string {
-  return /^\//.test(path) ? path : `/${path}`
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 export function normalize(path: string): string {
-  return decodeURI(path).replace(HASH_RE, '').replace(EXT_RE, '')
+  return decodeURI(path).replace(HASH_RE, "").replace(EXT_RE, "");
 }
 
 /**

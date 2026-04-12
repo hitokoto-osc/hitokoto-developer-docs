@@ -1,13 +1,13 @@
 {
   "name": "hitokoto-developer-docs",
   "version": "1.0.0",
-  "description": "Hitokoto developer docs.",
-  "main": "index.js",
-  "repository": "https://source.hitokoto.cn/hitokoto/hitokoto-developer-docs.git",
-  "author": "a632079 <a632079@qq.com>",
-  "license": "MIT",
   "private": true,
+  "description": "Hitokoto developer docs.",
+  "license": "MIT",
+  "author": "a632079 <a632079@qq.com>",
+  "repository": "https://source.hitokoto.cn/hitokoto/hitokoto-developer-docs.git",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "precommit": "lint-staged",
     "lint": "oxlint --deny-warnings .",
@@ -20,6 +20,9 @@
     "docs:deploy-local": "pnpm docs:build && pnpm docs:index",
     "docs:serve": "vitepress serve docs",
     "postinstall": "husky install"
+  },
+  "dependencies": {
+    "sass": "^1.99.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
@@ -46,16 +49,13 @@
     "oxlint": "^1.59.0",
     "tailwindcss": "^4.2.2",
     "typescript": "^6.0.2",
-    "vue-tsc": "^3.2.6",
     "unplugin-icons": "^23.0.1",
     "vite": "^7.3.2",
     "vite-plugin-pwa": "^1.2.0",
     "vitepress": "2.0.0-alpha.17",
     "vitepress-plugin-google-analytics": "^1.0.2",
     "vitepress-plugin-nprogress": "^0.1.1",
-    "vue": "^3.5.32"
-  },
-  "dependencies": {
-    "sass": "^1.99.0"
+    "vue": "^3.5.32",
+    "vue-tsc": "^3.2.6"
   }
 }

@@ -5,123 +5,122 @@ name: Developer Docs
 
 on:
   push:
-    branches: [ next ]
+    branches: [next]
 jobs:
   ci:
     name: Build & Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20 ]
+        node-version: [20]
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: pnpm/action-setup@v2
-      name: Install pnpm
-      id: pnpm-install
-      with:
-        version: 8
-        run_install: false
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
-    - name: Get pnpm store directory
-      id: pnpm-cache
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-    - uses: actions/cache@v3
-      name: Setup pnpm cache
-      with:
-        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-    - name: Install dependencies
-      run: pnpm install
-    - name: Lint...
-      run: pnpm lint
-    - name: Format check...
-      run: pnpm fmt:check
-    - name: Type check...
-      run: pnpm typecheck
-    - name: Build Docs...
-      run: pnpm docs:build
+      - name: Install dependencies
+        run: pnpm install
+      - name: Lint...
+        run: pnpm lint
+      - name: Format check...
+        run: pnpm fmt:check
+      - name: Type check...
+        run: pnpm typecheck
+      - name: Build Docs...
+        run: pnpm docs:build
   cd:
     name: Deploy
     needs: ci
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 20 ]
+        node-version: [20]
     steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-    - uses: pnpm/action-setup@v2
-      name: Install pnpm
-      id: pnpm-install
-      with:
-        version: 8
-        run_install: false
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
-    - name: Get pnpm store directory
-      id: pnpm-cache
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
-    - uses: actions/cache@v3
-      name: Setup pnpm cache
-      with:
-        path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
-    - name: Install dependencies
-      run: pnpm install
-    - name: Build Docs...
-      run: pnpm docs:build
-      env:
-        VITE_MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
-        VITE_MEILISEARCH_SEARCH_KEY: ${{ secrets.MEILISEARCH_SEARCH_KEY }}
-        VITE_MEILISEARCH_INDEX_NAME: ${{ secrets.MEILISEARCH_INDEX_NAME || 'docs' }}
-    - name: Index to Meilisearch
-      run: node scripts/meilisearch-index.mjs
-      env:
-        VITE_MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
-        MEILISEARCH_ADMIN_KEY: ${{ secrets.MEILISEARCH_ADMIN_KEY }}
-        VITE_MEILISEARCH_INDEX_NAME: ${{ secrets.MEILISEARCH_INDEX_NAME || 'docs' }}
-    #- name: Deploy docs to COS
-    #  uses: TencentCloud/cos-action@v1
-    #  with:
-    #    secret_id: ${{ secrets.SECRET_ID }}
-    #    secret_key: ${{ secrets.SECRET_KEY }}
-    #    cos_bucket: ${{ secrets.BUCKET }}
-    #    cos_region: ap-chengdu
-    #    local_path: docs/.vitepress/dist
-    #    remote_path: /
-    #    clean: true
-    - name: Deploy docs to Github pages...
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/.vitepress/dist
-    - name: Deploy docs to Hitokoto-2 with SSH
-      uses: easingthemes/ssh-deploy@v4
-      with:
-        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-        REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
-        REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
-        REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
-        SOURCE: docs/.vitepress/dist/
-        TARGET: ${{ secrets.SSH_TARGET }}
-
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build Docs...
+        run: pnpm docs:build
+        env:
+          VITE_MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
+          VITE_MEILISEARCH_SEARCH_KEY: ${{ secrets.MEILISEARCH_SEARCH_KEY }}
+          VITE_MEILISEARCH_INDEX_NAME: ${{ secrets.MEILISEARCH_INDEX_NAME || 'docs' }}
+      - name: Index to Meilisearch
+        run: node scripts/meilisearch-index.mjs
+        env:
+          VITE_MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST }}
+          MEILISEARCH_ADMIN_KEY: ${{ secrets.MEILISEARCH_ADMIN_KEY }}
+          VITE_MEILISEARCH_INDEX_NAME: ${{ secrets.MEILISEARCH_INDEX_NAME || 'docs' }}
+      #- name: Deploy docs to COS
+      #  uses: TencentCloud/cos-action@v1
+      #  with:
+      #    secret_id: ${{ secrets.SECRET_ID }}
+      #    secret_key: ${{ secrets.SECRET_KEY }}
+      #    cos_bucket: ${{ secrets.BUCKET }}
+      #    cos_region: ap-chengdu
+      #    local_path: docs/.vitepress/dist
+      #    remote_path: /
+      #    clean: true
+      - name: Deploy docs to Github pages...
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/.vitepress/dist
+      - name: Deploy docs to Hitokoto-2 with SSH
+        uses: easingthemes/ssh-deploy@v4
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
+          SOURCE: docs/.vitepress/dist/
+          TARGET: ${{ secrets.SSH_TARGET }}

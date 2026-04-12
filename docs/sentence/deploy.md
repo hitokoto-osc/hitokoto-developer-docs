@@ -46,7 +46,7 @@ yarn start -D # 让我们使用开发模式看看能不能跑得起来，程序�
 ### 持久化进程
 
 为了使我们的程序能长时间稳定运行，我们通常需要一个进程管理工具来管理进程。本例用的是 `pm2`。有关 `pm2` 的介绍网上有很多，这里就不赘述，只简单讲讲怎么使用（运用于本接口）
-  
+
 首先，我们需要安装 `pm2`。
 
 ```shell
@@ -102,12 +102,10 @@ hitokoto/api:latest
 
 ### 使用 docker-compose 启动服务
 
-
-
 项目也提供了 `docker-compose` 文件（在仓库中），为了节约您的时间，您也可以使用一下这份配置：
 
 ```yaml
-version: '3'
+version: "3"
 networks:
   hitokoto_api:
     driver: bridge
@@ -131,12 +129,12 @@ services:
       # redis.database: 0
     ports:
       - 8000:8000
-    links: 
+    links:
       - redis
     restart: unless-stopped
-    volumes: 
+    volumes:
       - ./etc/api:/usr/src/app/data
-    
+
   redis:
     networks:
       - hitokoto_api
@@ -172,17 +170,17 @@ docker-compose up -d
 
 ```yaml
 # 自 v1.6.0 起使用 yaml 格式的配置文件
-name: '' # 服务名称，例如：hitokoto
-url: '' # 服务地址，例如：https://v1.hitokoto.cn
-api_name: '' # 服务表示，例如：cd-01-demo
+name: "" # 服务名称，例如：hitokoto
+url: "" # 服务地址，例如：https://v1.hitokoto.cn
+api_name: "" # 服务表示，例如：cd-01-demo
 server: # 配置 HTTP 服务的信息
   host: 127.0.0.1 # 监听的地址
-  port: '8000' # 监听的端口
+  port: "8000" # 监听的端口
   compress_body: true # 是否使用 GZIP 压缩
 redis: # 配置 Redis
   host: 127.0.0.1 # Redis 主机名
   port: 6379 # Redis 端口
-  password: '' # Redis 密码
+  password: "" # Redis 密码
   database: 0 # Redis 数据库
 sentences_ab_switcher: # 本节是服务 AB 异步更新的配置，如果您不知道这个是什么意思，请保持默认
   a: 1 # a 状态对应的 redis 数据库

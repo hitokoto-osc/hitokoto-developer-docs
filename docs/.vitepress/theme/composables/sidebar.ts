@@ -1,43 +1,45 @@
-import { computed, onMounted, onUnmounted, Ref, ref, watchEffect } from 'vue'
-import { useData, useRoute } from 'vitepress'
-import { getSidebar } from '../support/sidebar'
+import { computed, onMounted, onUnmounted, Ref, ref, watchEffect } from "vue";
+import { useData, useRoute } from "vitepress";
+import { getSidebar } from "../support/sidebar";
 
 export function useSidebar() {
-  const route = useRoute()
-  const { theme, frontmatter } = useData()
+  const route = useRoute();
+  const { theme, frontmatter } = useData();
 
-  const isOpen = ref(false)
+  const isOpen = ref(false);
 
   const sidebar = computed(() => {
-    const sidebarConfig = theme.value.sidebar
-    const relativePath = route.data.relativePath
-    return sidebarConfig ? getSidebar(sidebarConfig, relativePath) : []
-  })
+    const sidebarConfig = theme.value.sidebar;
+    const relativePath = route.data.relativePath;
+    return sidebarConfig ? getSidebar(sidebarConfig, relativePath) : [];
+  });
 
   const hasSidebar = computed(() => {
     return (
       frontmatter.value.sidebar !== false &&
       sidebar.value.length > 0 &&
-      frontmatter.value.layout !== 'home'
-    )
-  })
+      frontmatter.value.layout !== "home"
+    );
+  });
 
   const hasAside = computed(() => {
-    return (
-      frontmatter.value.layout !== 'home' && frontmatter.value.aside !== false
-    )
-  })
+    return frontmatter.value.layout !== "home" && frontmatter.value.aside !== false;
+  });
 
   function open() {
-    isOpen.value = true
+    isOpen.value = true;
   }
 
   function close() {
-    isOpen.value = false
+    isOpen.value = false;
   }
 
   function toggle() {
-    isOpen.value ? close() : open()
+    if (isOpen.value) {
+      close();
+    } else {
+      open();
+    }
   }
 
   return {
@@ -47,38 +49,33 @@ export function useSidebar() {
     hasAside,
     open,
     close,
-    toggle
-  }
+    toggle,
+  };
 }
 
 /**
  * a11y: cache the element that opened the Sidebar (the menu button) then
  * focus that button again when Menu is closed with Escape key.
  */
-export function useCloseSidebarOnEscape(
-  isOpen: Ref<boolean>,
-  close: () => void
-) {
-  let triggerElement: HTMLButtonElement | undefined
+export function useCloseSidebarOnEscape(isOpen: Ref<boolean>, close: () => void) {
+  let triggerElement: HTMLButtonElement | undefined;
 
   watchEffect(() => {
-    triggerElement = isOpen.value
-      ? (document.activeElement as HTMLButtonElement)
-      : undefined
-  })
+    triggerElement = isOpen.value ? (document.activeElement as HTMLButtonElement) : undefined;
+  });
 
   onMounted(() => {
-    window.addEventListener('keyup', onEscape)
-  })
+    window.addEventListener("keyup", onEscape);
+  });
 
   onUnmounted(() => {
-    window.removeEventListener('keyup', onEscape)
-  })
+    window.removeEventListener("keyup", onEscape);
+  });
 
   function onEscape(e: KeyboardEvent) {
-    if (e.key === 'Escape' && isOpen.value) {
-      close()
-      triggerElement?.focus()
+    if (e.key === "Escape" && isOpen.value) {
+      close();
+      triggerElement?.focus();
     }
   }
 }

@@ -1,54 +1,45 @@
 <script setup lang="ts">
-import { onBeforeMount, ref } from 'vue'
+import { onBeforeMount, ref } from "vue";
 
-const offlineReady = ref(false)
-const needRefresh = ref(false)
+const offlineReady = ref(false);
+const needRefresh = ref(false);
 
-let updateServiceWorker: (() => Promise<void>) | undefined
+let updateServiceWorker: (() => Promise<void>) | undefined;
 
 const onOfflineReady = () => {
-  offlineReady.value = true
-}
+  offlineReady.value = true;
+};
 const onNeedRefresh = () => {
-  needRefresh.value = true
-}
+  needRefresh.value = true;
+};
 const close = async () => {
-  offlineReady.value = false
-  needRefresh.value = false
-}
+  offlineReady.value = false;
+  needRefresh.value = false;
+};
 
 onBeforeMount(async () => {
-  const { registerSW } = await import('virtual:pwa-register')
+  const { registerSW } = await import("virtual:pwa-register");
   updateServiceWorker = registerSW({
     immediate: true,
     onOfflineReady,
     onNeedRefresh,
     onRegistered() {
-      console.info('Service Worker registered')
+      console.info("Service Worker registered");
     },
     onRegisterError(e) {
-      console.error('Service Worker registration error!', e)
-    }
-  })
-})
+      console.error("Service Worker registration error!", e);
+    },
+  });
+});
 </script>
 
 <template>
   <template v-if="offlineReady || needRefresh">
     <div class="pwa-toast" role="alertdialog" aria-labelledby="pwa-message">
       <div id="pwa-message" class="mb-3">
-        {{
-          offlineReady
-            ? '应用似乎已离线'
-            : '网站已有新内容, 点击重载按钮以更新'
-        }}
+        {{ offlineReady ? "应用似乎已离线" : "网站已有新内容, 点击重载按钮以更新" }}
       </div>
-      <button
-        v-if="needRefresh"
-        type="button"
-        class="pwa-refresh"
-        @click="updateServiceWorker?.()"
-      >
+      <button v-if="needRefresh" type="button" class="pwa-refresh" @click="updateServiceWorker?.()">
         重载
       </button>
       <button type="button" class="pwa-cancel" @click="close">关闭</button>

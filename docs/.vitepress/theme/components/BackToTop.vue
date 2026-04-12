@@ -1,46 +1,42 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
+import { computed, ref, onMounted } from "vue";
 // import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 // import '@fortawesome/fontawesome-svg-core/styles.css'
-import {debounce} from 'lodash-es'
-const scrollTop = ref(0)
+import { debounce } from "lodash-es";
+const scrollTop = ref(0);
 const props = defineProps({
   threshold: {
     type: Number,
-    default: 100
-  }
-})
+    default: 100,
+  },
+});
 
 const getScrollTop = () => {
-  return (
-    window.pageYOffset ||
-    document.documentElement.scrollTop ||
-    document.body.scrollTop ||
-    0
-  )
-}
+  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+};
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
-  scrollTop.value = 0
-}
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  scrollTop.value = 0;
+};
 
-const show = computed(() => scrollTop.value > props.threshold)
+const show = computed(() => scrollTop.value > props.threshold);
 
 onMounted(() => {
-  scrollTop.value = getScrollTop()
+  scrollTop.value = getScrollTop();
   window.addEventListener(
-    'scroll',
+    "scroll",
     debounce(() => {
-      scrollTop.value = getScrollTop()
-    }, 50)
-  )
-})
+      scrollTop.value = getScrollTop();
+    }, 50),
+  );
+});
 </script>
 
 <template>
-  <Transition name="fade"
-  enter-active-class="animate__animated animate__bounceInRight"
-  leave-active-class="animate__animated animate__bounceOutRight"
+  <Transition
+    name="fade"
+    enter-active-class="animate__animated animate__bounceInRight"
+    leave-active-class="animate__animated animate__bounceOutRight"
   >
     <div class="back-to-top" v-show="show" @click="scrollToTop">
       <!--<FontAwesomeIcon icon="fa-solid fa-chevron-up" />-->

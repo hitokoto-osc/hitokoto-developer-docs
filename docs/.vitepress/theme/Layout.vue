@@ -1,59 +1,59 @@
 <script setup lang="ts">
-import { useData } from 'vitepress'
-import DefaultTheme from 'vitepress/theme'
-import { nextTick, provide, reactive } from 'vue'
+import { useData } from "vitepress";
+import DefaultTheme from "vitepress/theme";
+import { nextTick, provide, reactive } from "vue";
 
 // Components
-import BackToTop from './components/BackToTop.vue'
-import GoogleAdDocAside from './components/GoogleAdDocAside.vue'
-import GoogleAdDocFooter from './components/GoogleAdDocFooter.vue'
-import MeiliSearch from './components/MeiliSearch.vue'
+import BackToTop from "./components/BackToTop.vue";
+import GoogleAdDocAside from "./components/GoogleAdDocAside.vue";
+import GoogleAdDocFooter from "./components/GoogleAdDocFooter.vue";
+import MeiliSearch from "./components/MeiliSearch.vue";
 
 // 切换 夜间 / 日间 模式
-const { isDark } = useData()
+const { isDark } = useData();
 function enableTransitions() {
   return (
-    'startViewTransition' in document &&
-    window.matchMedia('(prefers-reduced-motion: no-preference)').matches
-  )
+    "startViewTransition" in document &&
+    window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+  );
 }
 
-provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
+provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
   if (!enableTransitions()) {
-    isDark.value = !isDark.value
-    return
+    isDark.value = !isDark.value;
+    return;
   }
 
   const clipPath = [
     `circle(0px at ${x}px ${y}px)`,
     `circle(${Math.hypot(
       Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    )}px at ${x}px ${y}px)`
-  ]
+      Math.max(y, innerHeight - y),
+    )}px at ${x}px ${y}px)`,
+  ];
 
   // @ts-ignore:ts(2339)
   await document.startViewTransition(async () => {
-    isDark.value = !isDark.value
-    await nextTick()
-  }).ready
+    isDark.value = !isDark.value;
+    await nextTick();
+  }).ready;
 
   document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
+    { clipPath: isDark.value ? clipPath.toReversed() : clipPath },
     {
       duration: 300,
-      easing: 'ease-in',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
-    }
-  )
-})
+      easing: "ease-in",
+      pseudoElement: `::view-transition-${isDark.value ? "old" : "new"}(root)`,
+    },
+  );
+});
 
 // Google Ads
 const googleAdOptions = reactive({
-  adClient: 'ca-pub-8868204327924354',
-  docAsideAdSlot: '1137431788',
-  docFooterAdSlot: '7449637304'
-})
+  adClient: "ca-pub-8868204327924354",
+  docAsideAdSlot: "1137431788",
+  docFooterAdSlot: "7449637304",
+});
 </script>
 
 <template>
