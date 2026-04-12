@@ -22,7 +22,9 @@
     "postinstall": "husky install"
   },
   "dependencies": {
-    "sass": "^1.99.0"
+    "@t3-oss/env-core": "^0.13.11",
+    "sass": "^1.99.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",

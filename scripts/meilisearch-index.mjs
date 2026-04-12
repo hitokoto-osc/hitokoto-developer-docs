@@ -3,19 +3,16 @@ import { MeiliSearch } from "meilisearch";
 import { readFileSync, readdirSync } from "fs";
 import { join, relative, basename, extname } from "path";
 import { fileURLToPath } from "url";
+import { env } from "./env.mjs";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
 const docsDir = join(__dirname, "..", "docs");
 
-const host = process.env.VITE_MEILISEARCH_HOST;
-const adminKey = process.env.MEILISEARCH_ADMIN_KEY;
-const indexName = process.env.VITE_MEILISEARCH_INDEX_NAME || "docs";
-
-if (!host || !adminKey) {
-  console.error("Error: VITE_MEILISEARCH_HOST and MEILISEARCH_ADMIN_KEY must be set.");
-  console.error("See .env.example for details.");
-  process.exit(1);
-}
+const {
+  VITE_MEILISEARCH_HOST: host,
+  MEILISEARCH_ADMIN_KEY: adminKey,
+  VITE_MEILISEARCH_INDEX_NAME: indexName,
+} = env;
 
 const client = new MeiliSearch({ host, apiKey: adminKey });
 

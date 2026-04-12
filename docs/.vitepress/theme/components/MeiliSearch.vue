@@ -2,6 +2,7 @@
 import { ref, watch, onMounted, onUnmounted, nextTick, computed, shallowRef } from "vue";
 import { useRouter, inBrowser } from "vitepress";
 import type { Meilisearch as MeiliSearchType } from "meilisearch";
+import { env } from "../../env";
 
 const isOpen = ref(false);
 const query = ref("");
@@ -11,7 +12,7 @@ const inputRef = ref<HTMLInputElement>();
 const resultsRef = ref<HTMLElement>();
 
 const client = shallowRef<MeiliSearchType>();
-const indexName = import.meta.env.VITE_MEILISEARCH_INDEX_NAME || "docs";
+const indexName = env.VITE_MEILISEARCH_INDEX_NAME;
 const router = useRouter();
 
 const metaKey = computed(() =>
@@ -30,8 +31,8 @@ function onGlobalKeydown(e: KeyboardEvent) {
 onMounted(async () => {
   const { Meilisearch } = await import("meilisearch");
   client.value = new Meilisearch({
-    host: import.meta.env.VITE_MEILISEARCH_HOST || "",
-    apiKey: import.meta.env.VITE_MEILISEARCH_SEARCH_KEY || "",
+    host: env.VITE_MEILISEARCH_HOST ?? "",
+    apiKey: env.VITE_MEILISEARCH_SEARCH_KEY ?? "",
   });
   window.addEventListener("keydown", onGlobalKeydown);
 });
