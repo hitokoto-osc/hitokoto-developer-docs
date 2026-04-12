@@ -50,6 +50,9 @@ jobs:
         run: pnpm typecheck
       - name: Build Docs...
         run: pnpm docs:build
+        env:
+          VITE_MEILISEARCH_HOST: ${{ secrets.MEILISEARCH_HOST || 'http://localhost:7700' }}
+          VITE_MEILISEARCH_SEARCH_KEY: ${{ secrets.MEILISEARCH_SEARCH_KEY || 'placeholder' }}
   cd:
     name: Deploy
     needs: ci
