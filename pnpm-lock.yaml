@@ -41,7 +41,7 @@ importers:
         version: 3.1.3(@fortawesome/fontawesome-svg-core@7.2.0)(vue@3.5.32(typescript@6.0.2))
       '@iconify/json':
         specifier: ^2.2.461
-        version: 2.2.461
+        version: 2.2.527
       '@tailwindcss/vite':
         specifier: ^4.2.2
         version: 4.2.2(vite@7.3.2(@types/node@20.5.1)(jiti@2.6.1)(lightningcss@1.32.0)(sass@1.99.0)(terser@5.46.1))
@@ -932,8 +932,8 @@ packages:
   '@iconify-json/simple-icons@1.2.77':
     resolution: {integrity: sha512-oaENvo6C3BkAEWMlcQA3XemxU9v2SFOTlApSUCODAkIu1haeLCjzrmH3HgmGqjRnJjM+LevO8sA+MgdMHBFBDA==}
 
-  '@iconify/json@2.2.461':
-    resolution: {integrity: sha512-UiujJDldh6bD5v0EDbB6aKgye1tW3mteqmjHAwXi1bLQm9OYnHAWBIe8ogVZB2ttEFFraOBFkpe3VFwtxRSKSQ==}
+  '@iconify/json@2.2.527':
+    resolution: {integrity: sha512-3NRdMve2biuS/y+Hm6e3xF2Ttx73pyZ8fn+zqXxWVOL/Q+KqgqYJwSpqiTDTRJ7q1XLevAJBzM3ykWYR5rM8nQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -4391,7 +4391,7 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/json@2.2.461':
+  '@iconify/json@2.2.527':
     dependencies:
       '@iconify/types': 2.0.0
       pathe: 2.0.3
