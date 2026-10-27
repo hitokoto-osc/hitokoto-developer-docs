@@ -53,7 +53,7 @@ importers:
         version: 14.1.2
       '@types/markdown-it-container':
         specifier: ^4.0.0
-        version: 4.0.0
+        version: 4.0.1
       '@types/workbox-build':
         specifier: ^5.1.0
         version: 5.1.0
@@ -1650,8 +1650,8 @@ packages:
   '@types/lodash@4.17.24':
     resolution: {integrity: sha512-gIW7lQLZbue7lRSWEFql49QJJWThrTFFeIMJdp3eH4tKoxm1OvEPg02rm4wCCSHS0cL3/Fizimb35b7k8atwsQ==}
 
-  '@types/markdown-it-container@4.0.0':
-    resolution: {integrity: sha512-GmD8OECLfzPHv8VyvFRzslqdwXoDBJ2H40fxXFjrarbqvJZSB/BJKZXN5e3k7Mx7GQanSNzTYhzeS3H9o0gAOw==}
+  '@types/markdown-it-container@4.0.1':
+    resolution: {integrity: sha512-lGoaXzFY51sfUiBZ+L9V7n/Ah2q/46G2MGERUXN/4Djq0aCFOEUxysC8xftAdf5EdnvKfb2QkQnGNMoaKwjI1Q==}
 
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
@@ -4870,7 +4870,7 @@ snapshots:
 
   '@types/lodash@4.17.24': {}
 
-  '@types/markdown-it-container@4.0.0':
+  '@types/markdown-it-container@4.0.1':
     dependencies:
       '@types/markdown-it': 14.1.2
 
